@@ -23,20 +23,21 @@ export const Row = ({ children }) => {
 };
 
 const BaseCol = props => {
-  const { children, media, theme } = props;
+  const { children, m, media, l, sm, theme, ...rest } = props;
   const lastActive = Object.keys(media)
     .filter(key => props[key] && media[key])
     .pop();
   const getWidth = colSize =>
     colSize ? `${(colSize / theme.columns) * 100}%` : '100%';
   return (
-    <div className="col">
+    <div className="col" {...rest}>
       {children}
       <style jsx>{`
         .col {
           flex-grow: 0;
           flex-shrink: 0;
-          padding: 0 12px;
+          margin-bottom: ${theme.baseSpacingUnit}px;
+          padding: 0 ${theme.baseSpacingUnit / 2}px;
         }
       `}</style>
       <style jsx>{`

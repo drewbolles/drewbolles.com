@@ -1,6 +1,8 @@
 import React from 'react';
 import { MediaQueryProvider } from 'react-media-query-hoc';
+
 import { ThemeContext } from './src/utils/context';
+
 import theme from './src/utils/theme';
 
 const queries = {
