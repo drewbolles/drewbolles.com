@@ -5,8 +5,8 @@ import Helmet from 'react-helmet';
 
 import Layout from '../components/layout';
 import Slice from '../components/Slice';
-import Box from '../components/Box';
 import PostTeaser from '../components/PostTeaser';
+import List, { ListItem } from '../components/List';
 
 const BlogIndex = ({ data, location }) => {
   const siteTitle = get(data, 'site.siteMetadata.title');
@@ -25,11 +25,13 @@ const BlogIndex = ({ data, location }) => {
         title={siteTitle}
       />
       <Slice bgColor="grey">
-        <Box>
+        <List>
           {posts.map(({ node }) => (
-            <PostTeaser node={node} hasExcerpt key={node.fields.slug} />
+            <ListItem key={node.fields.slug}>
+              <PostTeaser node={node} hasExcerpt />
+            </ListItem>
           ))}
-        </Box>
+        </List>
       </Slice>
     </Layout>
   );

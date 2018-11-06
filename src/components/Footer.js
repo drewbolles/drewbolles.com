@@ -6,12 +6,12 @@ import Slice from './Slice';
 import Typography from './Typography';
 import Visibility from './Visibility';
 
-import './Footer.css';
+import withTheme from '../utils/withTheme';
 
-const Footer = () => {
+const Footer = ({ theme }) => {
   return (
     <footer className="site-footer" role="contentinfo">
-      <Slice className="site-social-media" bgColor="green">
+      <Slice bgColor="green">
         <ul className="social-media-list">
           <li className="social-media-list__item">
             <a href="http://github.com/drewbolles" title="My GitHub">
@@ -42,7 +42,11 @@ const Footer = () => {
 
       <div
         className="footer-info"
-        style={{ padding: '24px 0', fontSize: 12, backgroundColor: '#f5f5f5' }}
+        style={{
+          padding: `${theme.baseSpacingUnit}px 0`,
+          fontSize: 12,
+          backgroundColor: '#f5f5f5',
+        }}
       >
         <Container>
           <div className="footer-col-wrapper">
@@ -78,8 +82,46 @@ const Footer = () => {
           </div>
         </Container>
       </div>
+      <style jsx>{`
+        .social-media-list {
+          display: flex;
+          margin: 0;
+          padding: 0;
+          list-style: none;
+        }
+
+        .social-media-list__item {
+          flex: 1 0 0;
+          color: #fff;
+          text-align: center;
+        }
+
+        .social-media-list__item svg {
+          width: 50px;
+          height: 50px;
+        }
+
+        .footer-col-wrapper {
+          display: flex;
+        }
+
+        .footer-col {
+          flex: 1 0 0;
+        }
+
+        .footer-info a {
+          color: ${theme.colors.primary};
+        }
+
+        @media (min-width: ${theme.breakpoints.m}px) {
+          .social-media-list__item svg {
+            width: 100px;
+            height: 100px;
+          }
+        }
+      `}</style>
     </footer>
   );
 };
 
-export default Footer;
+export default withTheme(Footer);

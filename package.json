@@ -17,6 +17,7 @@
     "gatsby-plugin-react-helmet": "^3.0.0",
     "gatsby-plugin-sharp": "^2.0.12",
     "gatsby-plugin-sitemap": "^2.0.2",
+    "gatsby-plugin-styled-jsx": "^3.0.2",
     "gatsby-remark-copy-linked-files": "^2.0.5",
     "gatsby-remark-images": "^2.0.4",
     "gatsby-remark-prismjs": "^3.0.0",
@@ -27,11 +28,14 @@
     "gatsby-transformer-sharp": "^2.1.3",
     "lodash": "^4.17.11",
     "normalize.css": "^8.0.0",
+    "postcss-plugin": "^1.0.0",
     "prismjs": "^1.15.0",
     "react": "^16.5.1",
     "react-dom": "^16.5.1",
     "react-helmet": "^5.2.0",
-    "react-icons": "^3.2.2"
+    "react-icons": "^3.2.2",
+    "styled-jsx": "^3.1.0",
+    "styled-jsx-plugin-postcss": "^2.0.0"
   },
   "devDependencies": {
     "eslint": "^4.19.1",
@@ -40,7 +44,10 @@
     "prettier": "^1.14.2"
   },
   "homepage": "https://github.com/drewbolles/drewbolles.com#readme",
-  "keywords": ["react", "gatsby"],
+  "keywords": [
+    "react",
+    "gatsby"
+  ],
   "license": "MIT",
   "main": "n/a",
   "repository": {
@@ -58,5 +65,14 @@
     "deploy": "gatsby build && gh-pages -d public",
     "fix-semi": "eslint --quiet --ignore-pattern node_modules --ignore-pattern public --parser babel-eslint --no-eslintrc --rule '{\"semi\": [2, \"never\"], \"no-extra-semi\": [2]}' --fix gatsby-node.js"
   },
-  "browserslist": ["> .25%", "not dead", "not ie < 11"]
+  "browserslist": [
+    "> .25%",
+    "not dead",
+    "not ie < 11"
+  ],
+  "postcss": {
+    "plugins": {
+      "postcss-plugin": {}
+    }
+  }
 }

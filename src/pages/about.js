@@ -6,7 +6,6 @@ import Layout from '../components/layout';
 import Slice from '../components/Slice';
 import Typography from '../components/Typography';
 import { Row, Col } from '../components/Grid';
-import Box from '../components/Box';
 import List, { ListItem } from '../components/List';
 
 import events from '../data/events';
