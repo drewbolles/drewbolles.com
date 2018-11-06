@@ -47,10 +47,7 @@
     "prettier": "^1.14.2"
   },
   "homepage": "https://github.com/drewbolles/drewbolles.com#readme",
-  "keywords": [
-    "react",
-    "gatsby"
-  ],
+  "keywords": ["react", "gatsby"],
   "license": "MIT",
   "main": "n/a",
   "repository": {
@@ -60,19 +57,12 @@
   "scripts": {
     "dev": "gatsby develop",
     "lint": "./node_modules/.bin/eslint --ext .js,.jsx --ignore-pattern public .",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "format": "prettier --trailing-comma es5 --no-semi --single-quote --write 'src/**/*.js' 'src/**/*.md'",
     "develop": "gatsby develop",
     "start": "npm run develop",
     "build": "gatsby build",
-    "deploy": "gatsby build && gh-pages -d public",
-    "fix-semi": "eslint --quiet --ignore-pattern node_modules --ignore-pattern public --parser babel-eslint --no-eslintrc --rule '{\"semi\": [2, \"never\"], \"no-extra-semi\": [2]}' --fix gatsby-node.js"
+    "deploy": "gatsby build && gh-pages -d public"
   },
-  "browserslist": [
-    "> .25%",
-    "not dead",
-    "not ie < 11"
-  ],
+  "browserslist": ["> .25%", "not dead", "not ie < 11"],
   "postcss": {
     "plugins": {
       "postcss-plugin": {}

@@ -13,7 +13,6 @@ export const Row = ({ children, center }) => {
         .row {
           display: flex;
           flex-wrap: wrap;
-          width: 100%;
           margin-right: -12px;
           margin-left: -12px;
         }
