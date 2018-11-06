@@ -7,8 +7,9 @@ comments: true
 
 Working in an agency, I have the opportunity to work with a lot of different clients and a ton of different projects. Throughout working on these projects, my development abilities have grown and I've learned that the old way of design > develop > deploy just isn't cutting it. More and more, responsive projects are coming through the door, and they call for serious dedication to content architecture that was decidedly lacking in early 2000's websites.
 
-![Wireframes, man](/images/blogs/wireframes.png 'Vimeo profile page idea')
-<span class="image-source">Image source: http://webdesignledger.com/inspiration/18-great-examples-of-sketched-ui-wireframes-and-mockups</span>
+![Wireframes, man](/images/wireframes.png 'Vimeo profile page idea')
+
+<p class="image-source">Image source: http://webdesignledger.com/inspiration/18-great-examples-of-sketched-ui-wireframes-and-mockups</p>
 
 Beginning with wireframes, a "style bible", and detailed content architecture diagrams is the new design. Having these as a base enables designers to design, developers to develop, and clients to client while all being on the same page. What means something to one person, means it to the rest. Communication OP.
 

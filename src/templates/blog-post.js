@@ -7,6 +7,8 @@ import Layout from '../components/layout';
 import Container from '../components/Container';
 import Box from '../components/Box';
 
+import './blog-post.css';
+
 const BlogPostTemplate = ({ data, location, pageContext }) => {
   const post = data.markdownRemark;
   const siteTitle = get(data, 'site.siteMetadata.title');
