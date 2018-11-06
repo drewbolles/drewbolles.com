@@ -65,14 +65,15 @@ const Footer = () => {
               className="footer-col footer-col-2"
               style={{ textAlign: 'right' }}
             >
-              <p className="copyright" style={{ margin: 0 }}>
-                Built with <a href="http://jekyllrb.com">Gatsby</a>. Hosted on{' '}
+              <Typography className="copyright" style={{ margin: 0 }}>
+                Built with <a href="https://www.gatsbyjs.org">Gatsby</a>. Hosted
+                on{' '}
                 <a href="http://github.com/drewbolles/drewbolles.com">
                   GitHub Pages
                 </a>
                 .<br />
                 All Rights Reserved
-              </p>
+              </Typography>
             </div>
           </div>
         </Container>
