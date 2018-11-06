@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'gatsby';
+import Helmet from 'react-helmet';
 import classNames from 'classnames';
 
 import Header from './Header';
@@ -18,6 +19,11 @@ const Template = ({ children, location, title, theme, description, type }) => {
   };
   return (
     <div className={classNames('site', { [`site--type-${type}`]: type })}>
+      <Helmet
+        htmlAttributes={{ lang: 'en' }}
+        title={title}
+        meta={[{ name: 'description', content: description }]}
+      />
       <Header />
       <main className="site-main">
         {title && (

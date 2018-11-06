@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'gatsby';
-import { withMedia } from 'react-media-query-hoc';
 
 import Container from './Container';
+import withTheme from '../utils/withTheme';
 
 const links = [
   {
@@ -19,7 +19,7 @@ const links = [
   },
 ];
 
-const Header = ({ media }) => {
+const Header = ({ theme }) => {
   return (
     <header className="site-header">
       <Container>
@@ -66,15 +66,17 @@ const Header = ({ media }) => {
           display: inline-flex;
           align-items: center;
           height: 56px;
+          padding: 0 8px;
         }
-      `}</style>
-      <style jsx>{`
-        :global(.site-nav-link) {
-          padding: ${media.m ? '0 16px' : '0 8px'};
+
+        @media (min-width: ${theme.breakpoints.m}px) {
+          :global(.site-nav-link) {
+            padding: 0 16px;
+          }
         }
       `}</style>
     </header>
   );
 };
 
-export default withMedia(Header);
+export default withTheme(Header);
