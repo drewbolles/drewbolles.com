@@ -1,17 +1,16 @@
 module.exports = {
   siteMetadata: {
-    title: 'Gatsby Starter Blog',
-    author: 'Kyle Mathews',
-    description: 'A starter blog demonstrating what Gatsby can do.',
-    siteUrl: 'https://gatsbyjs.github.io/gatsby-starter-blog/',
+    title: 'Drew Bolles',
+    author: 'drewbolles@gmail.com',
+    description: 'UI Engineer and JavaScript application developer',
+    siteUrl: 'https://www.drewbolles.com',
   },
-  pathPrefix: '/gatsby-starter-blog',
   plugins: [
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         path: `${__dirname}/src/posts`,
-        name: 'pages',
+        name: 'posts',
       },
     },
     {
@@ -44,7 +43,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
-        //trackingId: `ADD YOUR TRACKING ID HERE`,
+        trackingId: `UA-36427500-1`,
       },
     },
     `gatsby-plugin-feed`,
@@ -57,10 +56,11 @@ module.exports = {
         background_color: `#ffffff`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `src/assets/gatsby-icon.png`,
+        icon: `src/assets/batman.png`,
       },
     },
     `gatsby-plugin-offline`,
     `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-sitemap`,
   ],
 };

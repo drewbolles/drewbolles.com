@@ -16,6 +16,7 @@
     "gatsby-plugin-offline": "^2.0.5",
     "gatsby-plugin-react-helmet": "^3.0.0",
     "gatsby-plugin-sharp": "^2.0.6",
+    "gatsby-plugin-sitemap": "^2.0.2",
     "gatsby-remark-copy-linked-files": "^2.0.5",
     "gatsby-remark-images": "^2.0.4",
     "gatsby-remark-prismjs": "^3.0.0",
@@ -43,7 +44,9 @@
     "prettier": "^1.14.2"
   },
   "homepage": "https://github.com/gatsbyjs/gatsby-starter-blog#readme",
-  "keywords": ["gatsby"],
+  "keywords": [
+    "gatsby"
+  ],
   "license": "MIT",
   "main": "n/a",
   "repository": {
