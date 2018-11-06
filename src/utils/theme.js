@@ -1,7 +1,7 @@
 export default {
   baseSpacingUnit: 24,
   colors: {
-    primary: '#43a047',
+    primary: '#2e7d32',
   },
   breakpoints: {
     sm: 576,

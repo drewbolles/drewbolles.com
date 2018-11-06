@@ -18,8 +18,8 @@ const Portflio = ({ location }) => {
       description="Below, you can find information on my recent projects. Full case studies and more in-depth write ups coming soon."
     >
       <Slice bgColor="grey">
-        <Row>
-          <Col m={6}>
+        <Row center>
+          <Col m={6} center>
             <Typography is="h2">{featured.name}</Typography>
             <Typography
               dangerouslySetInnerHTML={{ __html: featured.description }}
@@ -35,6 +35,7 @@ const Portflio = ({ location }) => {
             <img
               className="featured-portfolio-image"
               src={featured.image_url}
+              alt={featured.name}
             />
           </Col>
         </Row>
@@ -45,7 +46,11 @@ const Portflio = ({ location }) => {
             <Col sm={6} m={4} key={datum.name}>
               <div className="portfolio-item">
                 <div className="portfolio-item-media">
-                  <img className="portfolio-item-img" src={datum.image_url} />
+                  <img
+                    className="portfolio-item-img"
+                    src={datum.image_url}
+                    alt={datum.name}
+                  />
                 </div>
                 <div className="portfolio-item-content">
                   <Typography

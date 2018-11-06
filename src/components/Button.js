@@ -34,7 +34,7 @@ const Button = ({ children, href, theme, variant, ...rest }) => {
         }
 
         .button:hover {
-          background-color: #43a047;
+          background-color: #005005;
           text-decoration: none;
         }
 

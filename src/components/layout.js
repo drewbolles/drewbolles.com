@@ -7,10 +7,11 @@ import Container from './Container';
 import Typography from './Typography';
 import Footer from './Footer';
 
-import 'normalize.css/normalize.css';
-import './layout.css';
+import withTheme from '../utils/withTheme';
 
-const Template = ({ children, location, title, description, type }) => {
+import 'normalize.css/normalize.css';
+
+const Template = ({ children, location, title, theme, description, type }) => {
   const descStyles = {
     margin: type === 'blog' ? '12px 0 0' : '12px 0 24px',
     ...(type === 'blog' && { color: '#757575' }),
@@ -36,8 +37,71 @@ const Template = ({ children, location, title, description, type }) => {
         <div className="page">{children}</div>
       </main>
       <Footer />
+      <style jsx global>{`
+        *,
+        ::before,
+        ::after {
+          box-sizing: inherit;
+        }
+
+        html {
+          font-size: 100%;
+          box-sizing: border-box;
+        }
+
+        body {
+          font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+            Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+          font-size: 1rem;
+          font-weight: 300;
+          line-height: 1.6;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        p,
+        ol,
+        ul,
+        blockquote {
+          margin-top: 0;
+          margin-bottom: ${theme.baseSpacingUnit / 2}px;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+          font-family: 'Roboto Slab', Georgia, serif;
+          line-height: 1.2;
+        }
+
+        a {
+          color: ${theme.colors.primary};
+          text-decoration: none;
+        }
+
+        strong {
+          font-weight: 700;
+        }
+
+        img {
+          max-width: 100%;
+          vertical-align: middle;
+        }
+
+        .image-source {
+          font-size: 12px;
+          color: #9e9e9e;
+        }
+      `}</style>
     </div>
   );
 };
 
-export default Template;
+export default withTheme(Template);

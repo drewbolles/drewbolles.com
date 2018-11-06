@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 
 import withTheme from '../utils/withTheme';
 
-export const Row = ({ children }) => {
+export const Row = ({ children, center }) => {
   return (
     <div className="row">
       {children}
@@ -13,9 +13,14 @@ export const Row = ({ children }) => {
         .row {
           display: flex;
           flex-wrap: wrap;
+          align-items: ${center ? 'center' : 'flex-start'};
           width: 100%;
           margin-right: -12px;
           margin-left: -12px;
+        }
+      `}</style>
+      <style jsx>{`
+        .row {
         }
       `}</style>
     </div>
@@ -23,7 +28,7 @@ export const Row = ({ children }) => {
 };
 
 const BaseCol = props => {
-  const { children, m, media, l, sm, theme, ...rest } = props;
+  const { center, children, m, media, l, sm, theme, ...rest } = props;
   const lastActive = Object.keys(media)
     .filter(key => props[key] && media[key])
     .pop();
@@ -36,6 +41,7 @@ const BaseCol = props => {
         .col {
           flex-grow: 0;
           flex-shrink: 0;
+          align-self: ${center ? 'center' : 'flex-start'};
           margin-bottom: ${theme.baseSpacingUnit}px;
           padding: 0 ${theme.baseSpacingUnit / 2}px;
         }
