@@ -9,8 +9,6 @@ import Container from '../components/Container';
 import Box from '../components/Box';
 import ShareList from '../components/ShareList';
 
-import './blog-post.css';
-
 const BlogPostTemplate = ({ data, location, pageContext }) => {
   const post = data.markdownRemark;
   const siteTitle = get(data, 'site.siteMetadata.title');
@@ -66,6 +64,11 @@ const BlogPostTemplate = ({ data, location, pageContext }) => {
           </li>
         </ul>
       </Container>
+      <style jsx>{`
+        .post-content :global(h3) {
+          margin: 24px 0;
+        }
+      `}</style>
     </Layout>
   );
 };
