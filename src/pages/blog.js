@@ -19,11 +19,6 @@ const BlogIndex = ({ data, location }) => {
       title="Blog"
       description="I mainly blog about front-end developement tips, current web industry trends, and front-end technology."
     >
-      <Helmet
-        htmlAttributes={{ lang: 'en' }}
-        meta={[{ name: 'description', content: siteDescription }]}
-        title={siteTitle}
-      />
       <Slice bgColor="grey">
         <List divider>
           {posts.map(({ node }) => (

@@ -1,7 +1,8 @@
 import React from 'react';
-import { withMedia } from 'react-media-query-hoc';
 
-const Container = ({ children, gutter, media }) => {
+import withTheme from '../utils/withTheme';
+
+const Container = ({ children, theme }) => {
   return (
     <div className="container">
       {children}
@@ -10,20 +11,19 @@ const Container = ({ children, gutter, media }) => {
           max-width: 1008px;
           margin-right: auto;
           margin-left: auto;
+          padding-right: ${(theme.baseSpacingUnit * 2) / 3}px;
+          padding-left: ${(theme.baseSpacingUnit * 2) / 3}px;
         }
-      `}</style>
-      <style jsx>{`
-        .container {
-          padding-right: ${media.m ? '24px' : '16px'};
-          padding-left: ${media.m ? '24px' : '16px'};
+
+        @media (min-width: ${theme.breakpoints.m}px) {
+          .container {
+            padding-right: ${theme.baseSpacingUnit}px;
+            padding-left: ${theme.baseSpacingUnit}px;
+          }
         }
       `}</style>
     </div>
   );
 };
 
-Container.defaultProps = {
-  gutter: 16,
-};
-
-export default withMedia(Container);
+export default withTheme(Container);
