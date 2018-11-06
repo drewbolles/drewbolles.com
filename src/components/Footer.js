@@ -96,7 +96,7 @@ const Footer = ({ theme }) => {
           text-align: center;
         }
 
-        .social-media-list__item svg {
+        .social-media-list__item :global(svg) {
           width: 50px;
           height: 50px;
         }
@@ -114,7 +114,7 @@ const Footer = ({ theme }) => {
         }
 
         @media (min-width: ${theme.breakpoints.m}px) {
-          .social-media-list__item svg {
+          .social-media-list__item :global(svg) {
             width: 100px;
             height: 100px;
           }
