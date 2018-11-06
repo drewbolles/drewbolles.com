@@ -9,4 +9,5 @@ export default {
     l: 992,
     xl: 1200,
   },
+  columns: 12,
 };

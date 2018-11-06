@@ -1,6 +1,9 @@
 import React from 'react';
 import classNames from 'classnames';
 import { withMedia } from 'react-media-query-hoc';
+import PropTypes from 'prop-types';
+
+import withTheme from '../utils/withTheme';
 
 export const Row = ({ children }) => {
   return (
@@ -20,11 +23,12 @@ export const Row = ({ children }) => {
 };
 
 const BaseCol = props => {
-  const { children, media } = props;
+  const { children, media, theme } = props;
   const lastActive = Object.keys(media)
     .filter(key => props[key] && media[key])
     .pop();
-  const getWidth = colSize => (colSize ? `${(colSize / 12) * 100}%` : '100%');
+  const getWidth = colSize =>
+    colSize ? `${(colSize / theme.columns) * 100}%` : '100%';
   return (
     <div className="col">
       {children}
@@ -45,4 +49,11 @@ const BaseCol = props => {
   );
 };
 
-export const Col = withMedia(BaseCol);
+BaseCol.propTypes = {
+  sm: PropTypes.number,
+  m: PropTypes.number,
+  l: PropTypes.number,
+  xl: PropTypes.number,
+};
+
+export const Col = withMedia(withTheme(BaseCol));
