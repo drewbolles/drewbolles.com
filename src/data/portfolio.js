@@ -11,8 +11,8 @@ export default [
   },
   {
     name: 'YMCA SF',
-    description: `The build for the SF branch of the YMCA was incredible. Designed in-house
-          and re-imagined from a end-user perspective, YMCA was an awesome project.`,
+    description: `The build for the SF branch of the YMCA was an incredible project. Designed in-house
+          and re-imagined from a end-user perspective, the new YMCA SF website serves thousands of users a month.`,
     technologies: 'Drupal 7, Sass, Susy, Gulp',
     image_url: '/images/screen-ymcasf-small-cropped.jpg',
     url: 'http://ymcasf.org',
@@ -57,5 +57,14 @@ export default [
     featured: false,
     url: 'http://pantheon.io',
     role: 'UI Engineer',
+  },
+  {
+    name: 'Custom Facilities',
+    description: `A rebuild for the Custom Facilities website, integrating with their new CRM, built using modern technology.`,
+    technologies: 'Drupal 8, es6',
+    image_url: '/images/screen-custom-facilities-cropped.jpg',
+    featured: false,
+    url: 'http://www.buildmydealership.com/',
+    role: 'Lead Engineer',
   },
 ];
