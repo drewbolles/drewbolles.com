@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'gatsby';
+import { withMedia } from 'react-media-query-hoc';
 
 import Container from './Container';
 
@@ -18,7 +19,7 @@ const links = [
   },
 ];
 
-const Header = () => {
+const Header = ({ media }) => {
   return (
     <header className="site-header">
       <Container>
@@ -65,11 +66,15 @@ const Header = () => {
           display: inline-flex;
           align-items: center;
           height: 56px;
-          padding: 0 16px;
+        }
+      `}</style>
+      <style jsx>{`
+        :global(.site-nav-link) {
+          padding: ${media.m ? '0 16px' : '0 8px'};
         }
       `}</style>
     </header>
   );
 };
 
-export default Header;
+export default withMedia(Header);

@@ -1,6 +1,7 @@
 import React from 'react';
+import { withMedia } from 'react-media-query-hoc';
 
-const Container = ({ children, gutter }) => {
+const Container = ({ children, gutter, media }) => {
   return (
     <div className="container">
       {children}
@@ -9,15 +10,12 @@ const Container = ({ children, gutter }) => {
           max-width: 1008px;
           margin-right: auto;
           margin-left: auto;
-          padding-right: 16px;
-          padding-left: 16px;
         }
-
-        @media (min-width: 768px) {
-          .container {
-            padding-right: 24px;
-            padding-left: 24px;
-          }
+      `}</style>
+      <style jsx>{`
+        .container {
+          padding-right: ${media.m ? '24px' : '16px'};
+          padding-left: ${media.m ? '24px' : '16px'};
         }
       `}</style>
     </div>
@@ -28,4 +26,4 @@ Container.defaultProps = {
   gutter: 16,
 };
 
-export default Container;
+export default withMedia(Container);

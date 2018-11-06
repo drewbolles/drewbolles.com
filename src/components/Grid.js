@@ -13,7 +13,6 @@ export const Row = ({ children, center }) => {
         .row {
           display: flex;
           flex-wrap: wrap;
-          align-items: ${center ? 'center' : 'flex-start'};
           width: 100%;
           margin-right: -12px;
           margin-left: -12px;
@@ -21,6 +20,7 @@ export const Row = ({ children, center }) => {
       `}</style>
       <style jsx>{`
         .row {
+          align-items: ${center ? 'center' : 'flex-start'};
         }
       `}</style>
     </div>
@@ -41,13 +41,13 @@ const BaseCol = props => {
         .col {
           flex-grow: 0;
           flex-shrink: 0;
-          align-self: ${center ? 'center' : 'flex-start'};
           margin-bottom: ${theme.baseSpacingUnit}px;
           padding: 0 ${theme.baseSpacingUnit / 2}px;
         }
       `}</style>
       <style jsx>{`
         .col {
+          align-self: ${center ? 'center' : 'flex-start'};
           flex-basis: ${getWidth(props[lastActive])};
           width: ${getWidth(props[lastActive])};
         }
