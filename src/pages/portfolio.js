@@ -1,4 +1,5 @@
 import React from 'react';
+import LazyLoad from 'react-lazyload';
 
 import Layout from '../components/layout';
 import Typography from '../components/Typography';
@@ -46,11 +47,13 @@ const Portflio = ({ location }) => {
             <Col sm={6} m={4} key={datum.name}>
               <div className="portfolio-item">
                 <div className="portfolio-item-media">
-                  <img
-                    className="portfolio-item-img"
-                    src={datum.image_url}
-                    alt={datum.name}
-                  />
+                  <LazyLoad height={180} offset={100} once>
+                    <img
+                      className="portfolio-item-img"
+                      src={datum.image_url}
+                      alt={datum.name}
+                    />
+                  </LazyLoad>
                 </div>
                 <div className="portfolio-item-content">
                   <Typography
