@@ -1,5 +1,7 @@
 import React from 'react';
 import LazyLoad from 'react-lazyload';
+import get from 'lodash/get';
+import { graphql } from 'gatsby';
 
 import Layout from '../components/layout';
 import Typography from '../components/Typography';
@@ -7,11 +9,10 @@ import Slice from '../components/Slice';
 import Button from '../components/Button';
 import { Row, Col } from '../components/Grid';
 
-import data from '../data/portfolio';
-
-const Portflio = ({ location }) => {
-  const featured = data.find(datum => datum.featured);
-  const others = data.filter(datum => !datum.featured);
+const Portflio = ({ data, location }) => {
+  const nodes = get(data, 'allPortfolioJson.edges');
+  const featured = nodes.find(node => node.node.featured);
+  const others = nodes.filter(node => !node.node.featured);
   return (
     <Layout
       location={location}
@@ -21,22 +22,22 @@ const Portflio = ({ location }) => {
       <Slice bgColor="grey">
         <Row center>
           <Col m={6} center>
-            <Typography is="h2">{featured.name}</Typography>
+            <Typography is="h2">{featured.node.name}</Typography>
             <Typography
-              dangerouslySetInnerHTML={{ __html: featured.description }}
+              dangerouslySetInnerHTML={{ __html: featured.node.description }}
             />
             <Typography>
               <strong>Tech Used:</strong>
               <br />
-              {featured.technologies}
+              {featured.node.technologies}
             </Typography>
-            <Button href={featured.url}>View Website</Button>
+            <Button href={featured.node.url}>View Website</Button>
           </Col>
           <Col m={5} style={{ marginLeft: 'auto' }}>
             <img
               className="featured-portfolio-image"
-              src={featured.image_url}
-              alt={featured.name}
+              src={featured.node.image_url}
+              alt={featured.node.name}
             />
           </Col>
         </Row>
@@ -44,14 +45,14 @@ const Portflio = ({ location }) => {
       <Slice>
         <Row>
           {others.map(datum => (
-            <Col sm={6} m={4} key={datum.name}>
+            <Col sm={6} m={4} key={datum.node.name}>
               <div className="portfolio-item">
                 <div className="portfolio-item-media">
                   <LazyLoad height={180} offset={100} once>
                     <img
                       className="portfolio-item-img"
-                      src={datum.image_url}
-                      alt={datum.name}
+                      src={datum.node.image_url}
+                      alt={datum.node.name}
                     />
                   </LazyLoad>
                 </div>
@@ -61,11 +62,11 @@ const Portflio = ({ location }) => {
                     className="portfolio-item-title"
                     style={{ lineHeight: 1, marginBottom: 12 }}
                   >
-                    {datum.name}
+                    {datum.node.name}
                   </Typography>
                   <Typography
                     className="portfolio-item-role"
-                    dangerouslySetInnerHTML={{ __html: datum.role }}
+                    dangerouslySetInnerHTML={{ __html: datum.node.role }}
                     style={{ margin: 0 }}
                   />
                 </div>
@@ -73,7 +74,7 @@ const Portflio = ({ location }) => {
                   className="portfolio-item-footer"
                   style={{ borderTop: '1px solid #eee', padding: 8 }}
                 >
-                  <Button variant="plain" href={datum.url}>
+                  <Button variant="plain" href={datum.node.url}>
                     View Website
                   </Button>
                 </div>
@@ -107,5 +108,23 @@ const Portflio = ({ location }) => {
     </Layout>
   );
 };
+
+export const pageQuery = graphql`
+  query {
+    allPortfolioJson {
+      edges {
+        node {
+          name
+          description
+          technologies
+          image_url
+          url
+          featured
+          role
+        }
+      }
+    }
+  }
+`;
 
 export default Portflio;

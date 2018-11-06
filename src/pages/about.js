@@ -1,6 +1,8 @@
 import React from 'react';
 import dayjs from 'dayjs';
+import { graphql } from 'gatsby';
 import { FaRegCalendarAlt, FaAngleRight } from 'react-icons/fa';
+import get from 'lodash/get';
 
 import Layout from '../components/layout';
 import Slice from '../components/Slice';
@@ -8,13 +10,14 @@ import Typography from '../components/Typography';
 import { Row, Col } from '../components/Grid';
 import List, { ListItem } from '../components/List';
 
-import events from '../data/events';
-
 import drewToon from '../assets/images/drew-toon.svg';
 
-const About = ({ location }) => {
-  const pastEvents = events.filter(event => dayjs(event.date).isBefore());
-  const upcomingEvents = events.filter(event => dayjs(event.date).isAfter());
+const About = ({ data, location }) => {
+  const nodes = get(data, 'allEventsJson.edges');
+  const pastEvents = nodes.filter(event => dayjs(event.node.date).isBefore());
+  const upcomingEvents = nodes.filter(event =>
+    dayjs(event.node.date).isAfter(),
+  );
   return (
     <Layout location={location} title="About">
       <Slice style={{ paddingTop: 0 }}>
@@ -75,16 +78,16 @@ const About = ({ location }) => {
           <Typography is="h3">Past Events</Typography>
           <List style={{ pading: '20px 16px' }}>
             {pastEvents.map(event => {
-              const name = event.url ? (
-                <a href={event.url}>{event.name}</a>
+              const name = event.node.url ? (
+                <a href={event.node.url}>{event.node.name}</a>
               ) : (
-                <span>{event.name}</span>
+                <span>{event.node.name}</span>
               );
               return (
                 <ListItem
                   style={{ padding: '0 16px' }}
                   icon={<FaRegCalendarAlt size={24} />}
-                  key={event.name}
+                  key={event.node.name}
                 >
                   <div className="event">
                     <Typography
@@ -93,20 +96,23 @@ const About = ({ location }) => {
                       style={{ marginBottom: 0, fontWeight: 400 }}
                     >
                       {name}
-                      <span> - {dayjs(event.date).format('MM/DD/YY')}</span>
+                      <span>
+                        {' '}
+                        - {dayjs(event.node.date).format('MM/DD/YY')}
+                      </span>
                     </Typography>
-                    {event.talk && (
+                    {event.node.talk && (
                       <Typography
                         is="h5"
                         style={{ margin: '4px 0 0', fontSize: 14 }}
                       >
-                        {event.talk}
+                        {event.node.talk}
                       </Typography>
                     )}
-                    {event.slides && (
+                    {event.node.slides && (
                       <Typography style={{ fontSize: 14, margin: 0 }}>
                         <a
-                          href={event.slides}
+                          href={event.node.slides}
                           style={{
                             display: 'inline-flex',
                             alignItems: 'center',
@@ -134,5 +140,21 @@ const About = ({ location }) => {
     </Layout>
   );
 };
+
+export const pageQuery = graphql`
+  {
+    allEventsJson {
+      edges {
+        node {
+          name
+          date
+          talk
+          url
+          slides
+        }
+      }
+    }
+  }
+`;
 
 export default About;
