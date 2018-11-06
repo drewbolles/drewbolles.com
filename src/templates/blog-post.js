@@ -2,16 +2,19 @@ import React from 'react';
 import Helmet from 'react-helmet';
 import { Link, graphql } from 'gatsby';
 import get from 'lodash/get';
+import { FaTwitter, FaFacebook } from 'react-icons/fa';
 
 import Layout from '../components/layout';
 import Container from '../components/Container';
 import Box from '../components/Box';
+import ShareList from '../components/ShareList';
 
 import './blog-post.css';
 
 const BlogPostTemplate = ({ data, location, pageContext }) => {
   const post = data.markdownRemark;
   const siteTitle = get(data, 'site.siteMetadata.title');
+  const slug = get(post, 'fields.slug');
   const siteDescription = post.excerpt;
   const { previous, next } = pageContext;
 
@@ -28,6 +31,7 @@ const BlogPostTemplate = ({ data, location, pageContext }) => {
         title={`${post.frontmatter.title} | ${siteTitle}`}
       />
       <Container>
+        <ShareList title={post.frontmatter.title} slug={slug} />
         <Box style={{ marginBottom: 24 }}>
           <div
             style={{ padding: 16, fontSize: 18 }}
@@ -80,6 +84,9 @@ export const pageQuery = graphql`
       id
       excerpt
       html
+      fields {
+        slug
+      }
       frontmatter {
         title
         date(formatString: "MMMM DD, YYYY")

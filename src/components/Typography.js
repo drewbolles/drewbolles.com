@@ -15,6 +15,7 @@ const Typography = ({
     <Element
       className={classNames('typography', className, {
         [`typography--${size}`]: size,
+        [`typography--variant-${variant}`]: variant,
       })}
       {...rest}
     >

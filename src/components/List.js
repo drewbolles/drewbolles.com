@@ -12,9 +12,12 @@ export const ListItem = ({ children, icon }) => {
   );
 };
 
-const List = ({ children, ...rest }) => {
+const List = ({ children, divider, ...rest }) => {
   return (
-    <ul className="list" {...rest}>
+    <ul
+      className={classNames('list', { 'list--has-divider': divider })}
+      {...rest}
+    >
       {children}
     </ul>
   );

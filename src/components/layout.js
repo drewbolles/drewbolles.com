@@ -13,7 +13,7 @@ import './layout.css';
 const Template = ({ children, location, title, description, type }) => {
   const descStyles = {
     margin: type === 'blog' ? '12px 0 0' : '12px 0 24px',
-    ...(type === 'blog' && { color: '#9e9e9e' }),
+    ...(type === 'blog' && { color: '#757575' }),
   };
   return (
     <div className={classNames('site', { [`site--type-${type}`]: type })}>

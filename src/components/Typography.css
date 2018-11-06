@@ -7,6 +7,10 @@ h2.typography--large {
   font-size: 30px;
 }
 
+.typography--variant-caps {
+  text-transform: uppercase;
+}
+
 @media (min-width: 992px) {
   h2.typography--large {
     font-size: 45px;

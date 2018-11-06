@@ -9,6 +9,7 @@ import Slice from '../components/Slice';
 import Box from '../components/Box';
 import Typography from '../components/Typography';
 import PostTeaser from '../components/PostTeaser';
+import List, { ListItem } from '../components/List';
 
 const BlogIndex = ({ data, location }) => {
   const siteTitle = get(data, 'site.siteMetadata.title');
@@ -58,11 +59,13 @@ const BlogIndex = ({ data, location }) => {
       </Slice>
       <Slice bgColor="grey">
         <Typography is="h2">Recent Posts</Typography>
-        <Box>
+        <List divider>
           {posts.map(({ node }) => (
-            <PostTeaser node={node} key={node.fields.slug} />
+            <ListItem key={node.fields.slug}>
+              <PostTeaser node={node} />
+            </ListItem>
           ))}
-        </Box>
+        </List>
       </Slice>
     </Layout>
   );

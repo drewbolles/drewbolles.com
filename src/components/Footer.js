@@ -18,7 +18,7 @@ const Footer = () => {
               <Visibility>
                 <strong>My Github</strong>
               </Visibility>
-              <FaGithub size={100} />
+              <FaGithub />
             </a>
           </li>
           <li className="social-media-list__item">
@@ -26,7 +26,7 @@ const Footer = () => {
               <Visibility>
                 <strong>My Codepen</strong>
               </Visibility>
-              <FaCodepen size={100} />
+              <FaCodepen />
             </a>
           </li>
           <li className="social-media-list__item">
@@ -34,7 +34,7 @@ const Footer = () => {
               <Visibility>
                 <strong>My Twitter</strong>
               </Visibility>
-              <FaTwitter size={100} />
+              <FaTwitter />
             </a>
           </li>
         </ul>
