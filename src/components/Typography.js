@@ -30,12 +30,14 @@ const Typography = ({
           font-size: 18px;
         }
 
-        h2.typography--large {
-          font-size: 30px;
-        }
-
         .typography--variant-caps {
           text-transform: uppercase;
+        }
+
+        @media (min-width: ${theme.breakpoints.m}px) {
+          h2.typography--large {
+            font-size: 30px;
+          }
         }
 
         @media (min-width: ${theme.breakpoints.l}px) {

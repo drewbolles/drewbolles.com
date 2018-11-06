@@ -82,6 +82,9 @@ const Footer = ({ media, theme }) => {
       </div>
       <style jsx>{`
         .social-media-list {
+          display: flex;
+        }
+        .social-media-list {
           margin: 0;
           padding: 0;
           list-style: none;
@@ -93,16 +96,12 @@ const Footer = ({ media, theme }) => {
           text-align: center;
         }
 
-        .footer-col-wrapper {
-          display: flex;
-        }
-
         .footer-col {
           flex: 1 0 0;
         }
 
         .footer-col-1 {
-          margin-bottom: ${theme.baseSpacingUnit}px;
+          margin-bottom: ${theme.baseSpacingUnit / 2}px;
         }
 
         .footer-info a {
@@ -110,7 +109,7 @@ const Footer = ({ media, theme }) => {
         }
 
         @media (min-width: ${theme.breakpoints.m}px) {
-          .social-media-list {
+          .footer-col-wrapper {
             display: flex;
           }
 
