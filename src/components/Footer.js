@@ -66,10 +66,7 @@ const Footer = ({ media, theme }) => {
               </ul>
             </div>
 
-            <div
-              className="footer-col footer-col-2"
-              style={{ textAlign: 'right' }}
-            >
+            <div className="footer-col footer-col-2">
               <Typography className="copyright" style={{ margin: 0 }}>
                 Built with <a href="https://www.gatsbyjs.org">Gatsby</a>. Hosted
                 on{' '}
@@ -85,7 +82,6 @@ const Footer = ({ media, theme }) => {
       </div>
       <style jsx>{`
         .social-media-list {
-          display: flex;
           margin: 0;
           padding: 0;
           list-style: none;
@@ -105,8 +101,26 @@ const Footer = ({ media, theme }) => {
           flex: 1 0 0;
         }
 
+        .footer-col-1 {
+          margin-bottom: ${theme.baseSpacingUnit}px;
+        }
+
         .footer-info a {
           color: ${theme.colors.primary};
+        }
+
+        @media (min-width: ${theme.breakpoints.m}px) {
+          .social-media-list {
+            display: flex;
+          }
+
+          .footer-col-1 {
+            margin-bottom: 0;
+          }
+
+          .footer-col-2 {
+            text-align: right;
+          }
         }
       `}</style>
     </footer>
