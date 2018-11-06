@@ -37,7 +37,7 @@ const Slice = ({
           background-color: ${theme.colors.primary};
         }
 
-        .slice--bg-green a {
+        .slice--bg-green :global(a) {
           color: #fff;
         }
 

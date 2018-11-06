@@ -52,7 +52,7 @@ const Header = () => {
           color: inherit;
         }
 
-        .site-title {
+        :global(.site-title) {
           font-size: 24px;
           line-height: 56px;
         }
@@ -61,7 +61,7 @@ const Header = () => {
           margin-left: auto;
         }
 
-        .site-nav-link {
+        :global(.site-nav-link) {
           display: inline-flex;
           align-items: center;
           height: 56px;

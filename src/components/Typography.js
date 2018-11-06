@@ -10,14 +10,17 @@ const Typography = ({
   ...rest
 }) => {
   return (
-    <Element
-      className={classNames('typography', className, {
-        [`typography--${size}`]: size,
-        [`typography--variant-${variant}`]: variant,
-      })}
-      {...rest}
-    >
-      {children}
+    <React.Fragment>
+      <Element
+        className={classNames('typography', className, {
+          [`typography--${size}`]: size,
+          [`typography--variant-${variant}`]: variant,
+        })}
+        {...rest}
+      >
+        {children}
+      </Element>
+
       <style jsx>{`
         p.typography--large {
           margin-bottom: 24px;
@@ -38,7 +41,7 @@ const Typography = ({
           }
         }
       `}</style>
-    </Element>
+    </React.Fragment>
   );
 };
 

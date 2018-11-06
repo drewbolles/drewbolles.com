@@ -25,7 +25,7 @@ const BlogIndex = ({ data, location }) => {
         title={siteTitle}
       />
       <Slice bgColor="grey">
-        <List>
+        <List divider>
           {posts.map(({ node }) => (
             <ListItem key={node.fields.slug}>
               <PostTeaser node={node} hasExcerpt />

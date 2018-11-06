@@ -1,5 +1,6 @@
 import React from 'react';
 import { FaCodepen, FaGithub, FaTwitter } from 'react-icons/fa';
+import { withMedia } from 'react-media-query-hoc';
 
 import Container from './Container';
 import Slice from './Slice';
@@ -8,7 +9,7 @@ import Visibility from './Visibility';
 
 import withTheme from '../utils/withTheme';
 
-const Footer = ({ theme }) => {
+const Footer = ({ media, theme }) => {
   return (
     <footer className="site-footer" role="contentinfo">
       <Slice bgColor="green">
@@ -18,7 +19,7 @@ const Footer = ({ theme }) => {
               <Visibility>
                 <strong>My Github</strong>
               </Visibility>
-              <FaGithub />
+              <FaGithub size={media.m ? 100 : 50} />
             </a>
           </li>
           <li className="social-media-list__item">
@@ -26,7 +27,7 @@ const Footer = ({ theme }) => {
               <Visibility>
                 <strong>My Codepen</strong>
               </Visibility>
-              <FaCodepen />
+              <FaCodepen size={media.m ? 100 : 50} />
             </a>
           </li>
           <li className="social-media-list__item">
@@ -34,7 +35,7 @@ const Footer = ({ theme }) => {
               <Visibility>
                 <strong>My Twitter</strong>
               </Visibility>
-              <FaTwitter />
+              <FaTwitter size={media.m ? 100 : 50} />
             </a>
           </li>
         </ul>
@@ -96,11 +97,6 @@ const Footer = ({ theme }) => {
           text-align: center;
         }
 
-        .social-media-list__item :global(svg) {
-          width: 50px;
-          height: 50px;
-        }
-
         .footer-col-wrapper {
           display: flex;
         }
@@ -110,18 +106,11 @@ const Footer = ({ theme }) => {
         }
 
         .footer-info a {
-          color: #fff;
-        }
-
-        @media (min-width: ${theme.breakpoints.m}px) {
-          .social-media-list__item :global(svg) {
-            width: 100px;
-            height: 100px;
-          }
+          color: ${theme.colors.primary};
         }
       `}</style>
     </footer>
   );
 };
 
-export default withTheme(Footer);
+export default withMedia(withTheme(Footer));

@@ -18,20 +18,17 @@ const PostTeaser = ({ hasExcerpt, node, theme }) => {
         <Typography
           className="post-teaser-excerpt"
           dangerouslySetInnerHTML={{ __html: node.excerpt }}
+          style={{ margin: 0 }}
         />
       )}
       <style jsx>{`
-        .post-teaser-title {
+        :global(.post-teaser-title) {
           margin-bottom: 4px;
           color: ${theme.colors.primary};
         }
 
         .post-teaser-date {
           color: #757575;
-        }
-
-        .post-teaser-excerpt {
-          margin: 0;
         }
       `}</style>
     </div>
