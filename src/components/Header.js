@@ -67,6 +67,12 @@ const Header = ({ theme }) => {
           align-items: center;
           height: 56px;
           padding: 0 8px;
+          border-radius: 2px;
+          transition: 250ms ease-out background-color;
+        }
+
+        :global(.site-nav-link:hover) {
+          background-color: rgba(66, 66, 66, 0.8);
         }
 
         @media (min-width: ${theme.breakpoints.m}px) {
