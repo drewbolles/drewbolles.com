@@ -20,16 +20,6 @@ export default [
     role: 'Lead Engineer',
   },
   {
-    name: 'Apcera',
-    description: `A quick build for a successful start-up. This site took advantage of
-          many cutting edge techniques, like responsive images and flexbox.`,
-    technologies: 'Drupal 7, Sass, Susy, Gulp',
-    image_url: '/images/screen-apcera-small-cropped.jpg',
-    url: 'http://apcera.com',
-    featured: false,
-    role: 'Lead Engineer',
-  },
-  {
     name: 'Schoology',
     description: `One of the largest Drupal SaaS in the world, Schoology came to us for
           a top-tier Drupal 7 rebuild of their marketing site.`,
