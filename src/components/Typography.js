@@ -1,8 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
 
-import './Typography.css';
-
 const Typography = ({
   children,
   className,
@@ -20,6 +18,26 @@ const Typography = ({
       {...rest}
     >
       {children}
+      <style jsx>{`
+        p.typography--large {
+          margin-bottom: 24px;
+          font-size: 18px;
+        }
+
+        h2.typography--large {
+          font-size: 30px;
+        }
+
+        .typography--variant-caps {
+          text-transform: uppercase;
+        }
+
+        @media (min-width: 992px) {
+          h2.typography--large {
+            font-size: 45px;
+          }
+        }
+      `}</style>
     </Element>
   );
 };

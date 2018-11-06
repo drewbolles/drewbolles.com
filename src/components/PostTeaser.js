@@ -4,9 +4,9 @@ import get from 'lodash/get';
 
 import Typography from './Typography';
 
-import './PostTeaser.css';
+import withTheme from '../utils/withTheme';
 
-const PostTeaser = ({ hasExcerpt, node }) => {
+const PostTeaser = ({ hasExcerpt, node, theme }) => {
   const title = get(node, 'frontmatter.title') || node.fields.slug;
   return (
     <div className="post-teaser" key={node.fields.slug}>
@@ -20,8 +20,22 @@ const PostTeaser = ({ hasExcerpt, node }) => {
           dangerouslySetInnerHTML={{ __html: node.excerpt }}
         />
       )}
+      <style jsx>{`
+        .post-teaser-title {
+          margin-bottom: 4px;
+          color: ${theme.colors.primary};
+        }
+
+        .post-teaser-date {
+          color: #757575;
+        }
+
+        .post-teaser-excerpt {
+          margin: 0;
+        }
+      `}</style>
     </div>
   );
 };
 
-export default PostTeaser;
+export default withTheme(PostTeaser);

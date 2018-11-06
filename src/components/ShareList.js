@@ -3,8 +3,6 @@ import { FaTwitter, FaFacebook } from 'react-icons/fa';
 
 import Typography from './Typography';
 
-import './ShareList.css';
-
 const ShareList = ({ title, slug }) => {
   const handleClick = ev => {
     ev.preventDefault();
@@ -36,6 +34,24 @@ const ShareList = ({ title, slug }) => {
           <FaTwitter size={24} />
         </a>
       </li>
+      <style jsx>{`
+        .share-list {
+          display: flex;
+          align-items: center;
+          padding: 0;
+          list-style: none;
+        }
+
+        .share-list-item,
+        .share-list-item a {
+          display: inline-flex;
+          line-height: 24px;
+        }
+
+        .share-list-item + .share-list-item {
+          margin-left: 8px;
+        }
+      `}</style>
     </ul>
   );
 };

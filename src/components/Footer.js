@@ -110,7 +110,7 @@ const Footer = ({ theme }) => {
         }
 
         .footer-info a {
-          color: ${theme.colors.primary};
+          color: #fff;
         }
 
         @media (min-width: ${theme.breakpoints.m}px) {
