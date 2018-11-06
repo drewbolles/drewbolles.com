@@ -1,0 +1,24 @@
+.social-media-list {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.social-media-list__item {
+  flex: 1 0 0;
+  color: #fff;
+  text-align: center;
+}
+
+.footer-col-wrapper {
+  display: flex;
+}
+
+.footer-col {
+  flex: 1 0 0;
+}
+
+.footer-info a {
+  color: #4caf50;
+}

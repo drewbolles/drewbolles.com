@@ -1,71 +1,43 @@
-import React from 'react'
-import { Link } from 'gatsby'
+import React from 'react';
+import { Link } from 'gatsby';
+import classNames from 'classnames';
 
-import { rhythm, scale } from '../utils/typography'
+import Header from './Header';
+import Container from './Container';
+import Typography from './Typography';
+import Footer from './Footer';
 
-class Template extends React.Component {
-  render() {
-    const { location, children } = this.props
-    const rootPath = `${__PATH_PREFIX__}/`
-    let header
+import 'normalize.css/normalize.css';
+import './layout.css';
 
-    if (location.pathname === rootPath) {
-      header = (
-        <h1
-          style={{
-            ...scale(1.5),
-            marginBottom: rhythm(1.5),
-            marginTop: 0,
-          }}
-        >
-          <Link
-            style={{
-              boxShadow: 'none',
-              textDecoration: 'none',
-              color: 'inherit',
-            }}
-            to={'/'}
-          >
-            Gatsby Starter Blog
-          </Link>
-        </h1>
-      )
-    } else {
-      header = (
-        <h3
-          style={{
-            fontFamily: 'Montserrat, sans-serif',
-            marginTop: 0,
-            marginBottom: rhythm(-1),
-          }}
-        >
-          <Link
-            style={{
-              boxShadow: 'none',
-              textDecoration: 'none',
-              color: 'inherit',
-            }}
-            to={'/'}
-          >
-            Gatsby Starter Blog
-          </Link>
-        </h3>
-      )
-    }
-    return (
-      <div
-        style={{
-          marginLeft: 'auto',
-          marginRight: 'auto',
-          maxWidth: rhythm(24),
-          padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
-        }}
-      >
-        {header}
-        {children}
-      </div>
-    )
-  }
-}
+const Template = ({ children, location, title, description, type }) => {
+  const descStyles = {
+    margin: type === 'blog' ? '12px 0 0' : '12px 0 24px',
+    ...(type === 'blog' && { color: '#9e9e9e' }),
+  };
+  return (
+    <div className={classNames('site', { [`site--type-${type}`]: type })}>
+      <Header />
+      <main className="site-main">
+        {title && (
+          <header className="page-header" style={{ padding: '48px 0 24px' }}>
+            <Container>
+              <h1 className="page-title" style={{ margin: 0 }}>
+                {title}
+              </h1>
+              {description && (
+                <Typography size="large" style={descStyles}>
+                  {description}
+                </Typography>
+              )}
+            </Container>
+          </header>
+        )}
+        <div className="page">{children}</div>
+      </main>
+      <Footer />
+    </div>
+  );
+};
 
-export default Template
+export default Template;

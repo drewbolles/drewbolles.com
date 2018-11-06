@@ -1,0 +1,14 @@
+p.typography--large {
+  margin-bottom: 24px;
+  font-size: 18px;
+}
+
+h2.typography--large {
+  font-size: 30px;
+}
+
+@media (min-width: 992px) {
+  h2.typography--large {
+    font-size: 45px;
+  }
+}
