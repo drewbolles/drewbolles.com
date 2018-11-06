@@ -1,9 +1,14 @@
 import React from 'react';
 import classNames from 'classnames';
 
-export const ListItem = ({ children, icon }) => {
+export const ListItem = ({ children, divider, icon }) => {
   return (
-    <li className={classNames('list-item', { 'list-item--has-icon': icon })}>
+    <li
+      className={classNames('list-item', {
+        'list-item--has-icon': icon,
+        'list-item--has-divider': divider,
+      })}
+    >
       {icon && <span className="list-item-icon">{icon}</span>}
       {children}
       <style jsx>{`
@@ -22,6 +27,10 @@ export const ListItem = ({ children, icon }) => {
           position: relative;
           padding-left: 72px;
         }
+
+        .list-item--has-divider + .list-item--has-divider {
+          border-top: 1px solid #e0e0e0;
+        }
       `}</style>
     </li>
   );
@@ -29,11 +38,10 @@ export const ListItem = ({ children, icon }) => {
 
 const List = ({ children, divider, ...rest }) => {
   return (
-    <ul
-      className={classNames('list', { 'list--has-divider': divider })}
-      {...rest}
-    >
-      {children}
+    <ul className="list" {...rest}>
+      {React.Children.map(children, child =>
+        React.cloneElement(child, { divider }),
+      )}
       <style jsx>{`
         .list {
           margin: 0;
@@ -44,10 +52,6 @@ const List = ({ children, divider, ...rest }) => {
           box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12),
             0 1px 2px rgba(0, 0, 0, 0.24);
           list-style: none;
-        }
-
-        .list--has-divider :global(.list-item + .list-item) {
-          border-top: 1px solid #e0e0e0;
         }
       `}</style>
     </ul>

@@ -1,13 +1,14 @@
 import React from 'react';
 import classNames from 'classnames';
-import { withMedia } from 'react-media-query-hoc';
+
+import withTheme from '../utils/withTheme';
 
 const Typography = ({
   children,
   className,
   is: Element,
-  media,
   size,
+  theme,
   variant,
   ...rest
 }) => {
@@ -30,11 +31,17 @@ const Typography = ({
         }
 
         h2.typography--large {
-          font-size: ${media.l ? '45px' : '30px'};
+          font-size: 30px;
         }
 
         .typography--variant-caps {
           text-transform: uppercase;
+        }
+
+        @media (min-width: ${theme.breakpoints.l}px) {
+          h2.typography--large {
+            font-size: 45px;
+          }
         }
       `}</style>
     </React.Fragment>
@@ -45,4 +52,4 @@ Typography.defaultProps = {
   is: 'p',
 };
 
-export default withMedia(Typography);
+export default withTheme(Typography);
