@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+<url> <loc>https://www.drewbolles.com/blog/2016/11/14/webpack-code-splitting-with-create-react-app-react-router/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://www.drewbolles.com/blog/2016/01/14/i-was-featured-in-lullabots-drupal-8-podcast/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://www.drewbolles.com/blog/2016/01/14/introducing-gotham-drupal-8-starter-theme/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://www.drewbolles.com/blog/2016/01/14/printing-entity-reference-field-programmatically-drupal-8/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://www.drewbolles.com/blog/2016/01/13/getting-started-with-drupal-8-theming/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://www.drewbolles.com/blog/2015/04/23/inline-critical-css-using-jekyll-and-gulp/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://www.drewbolles.com/blog/2014/09/01/joining-chapter-three/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://www.drewbolles.com/blog/2013/12/28/no-javascript-toggle-content-feature/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://www.drewbolles.com/blog/2013/12/27/defining-your-content-views/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://www.drewbolles.com/blog/2013/12/22/how-to-structure-your-next-sass-project/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://www.drewbolles.com/about/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://www.drewbolles.com/blog/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://www.drewbolles.com/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://www.drewbolles.com/portfolio/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+</urlset>
