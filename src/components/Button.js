@@ -1,9 +1,10 @@
 import React from 'react';
 import classNames from 'classnames';
 
-import withTheme from '../utils/withTheme';
+import useTheme from '../utils/useTheme';
 
-const Button = ({ children, href, theme, variant, ...rest }) => {
+const Button = ({ children, href, variant, ...rest }) => {
+  const theme = useTheme();
   const El = href ? 'a' : 'button';
   return (
     <El
@@ -59,4 +60,4 @@ const Button = ({ children, href, theme, variant, ...rest }) => {
   );
 };
 
-export default withTheme(Button);
+export default Button;

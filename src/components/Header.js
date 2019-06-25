@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'gatsby';
 
 import Container from './Container';
-import withTheme from '../utils/withTheme';
+import useTheme from '../utils/useTheme';
 
 const links = [
   {
@@ -19,7 +19,8 @@ const links = [
   },
 ];
 
-const Header = ({ theme }) => {
+const Header = () => {
+  const theme = useTheme();
   return (
     <header className="site-header">
       <Container>
@@ -85,4 +86,4 @@ const Header = ({ theme }) => {
   );
 };
 
-export default withTheme(Header);
+export default Header;

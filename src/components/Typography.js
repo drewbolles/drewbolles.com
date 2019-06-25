@@ -1,17 +1,17 @@
 import React from 'react';
 import classNames from 'classnames';
 
-import withTheme from '../utils/withTheme';
+import useTheme from '../utils/useTheme';
 
 const Typography = ({
   children,
   className,
-  is: Element,
+  is: Element = 'p',
   size,
-  theme,
   variant,
   ...rest
 }) => {
+  const theme = useTheme();
   return (
     <React.Fragment>
       <Element
@@ -50,8 +50,4 @@ const Typography = ({
   );
 };
 
-Typography.defaultProps = {
-  is: 'p',
-};
-
-export default withTheme(Typography);
+export default Typography;

@@ -1,9 +1,9 @@
 import React from 'react';
 import classNames from 'classnames';
-import { withMedia } from 'react-media-query-hoc';
 import PropTypes from 'prop-types';
 
-import withTheme from '../utils/withTheme';
+import useTheme from '../utils/useTheme';
+import { useAllMedia } from '../utils/useMedia';
 
 export const Row = ({ children, center }) => {
   return (
@@ -27,7 +27,9 @@ export const Row = ({ children, center }) => {
 };
 
 const BaseCol = props => {
-  const { center, children, m, media, l, sm, theme, ...rest } = props;
+  const { center, children, m, l, sm, ...rest } = props;
+  const media = useAllMedia();
+  const theme = useTheme();
   const lastActive = Object.keys(media)
     .filter(key => props[key] && media[key])
     .pop();
@@ -62,4 +64,4 @@ BaseCol.propTypes = {
   xl: PropTypes.number,
 };
 
-export const Col = withMedia(withTheme(BaseCol));
+export const Col = BaseCol;
