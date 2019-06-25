@@ -4,9 +4,10 @@ import get from 'lodash/get';
 
 import Typography from './Typography';
 
-import withTheme from '../utils/withTheme';
+import useTheme from '../utils/useTheme';
 
-const PostTeaser = ({ hasExcerpt, node, theme }) => {
+const PostTeaser = ({ hasExcerpt, node }) => {
+  const theme = useTheme();
   const title = get(node, 'frontmatter.title') || node.fields.slug;
   return (
     <div className="post-teaser" key={node.fields.slug}>
@@ -35,4 +36,4 @@ const PostTeaser = ({ hasExcerpt, node, theme }) => {
   );
 };
 
-export default withTheme(PostTeaser);
+export default PostTeaser;

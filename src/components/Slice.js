@@ -2,17 +2,10 @@ import React from 'react';
 import classNames from 'classnames';
 import Container from './Container';
 
-import withTheme from '../utils/withTheme';
+import useTheme from '../utils/useTheme';
 
-const Slice = ({
-  bgColor,
-  center,
-  children,
-  className,
-  theme,
-  variant,
-  ...rest
-}) => {
+const Slice = ({ bgColor, center, children, className, variant, ...rest }) => {
+  const theme = useTheme();
   return (
     <div
       className={classNames('slice', className, {
@@ -60,4 +53,4 @@ const Slice = ({
   );
 };
 
-export default withTheme(Slice);
+export default Slice;

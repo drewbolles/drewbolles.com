@@ -8,11 +8,12 @@ import Container from './Container';
 import Typography from './Typography';
 import Footer from './Footer';
 
-import withTheme from '../utils/withTheme';
+import useTheme from '../utils/useTheme';
 
 import 'normalize.css/normalize.css';
 
-const Template = ({ children, location, title, theme, description, type }) => {
+const Template = ({ children, location, title, description, type }) => {
+  const theme = useTheme();
   const descStyles = {
     margin: type === 'blog' ? '12px 0 0' : '12px 0 24px',
     ...(type === 'blog' && { color: '#757575' }),
@@ -110,4 +111,4 @@ const Template = ({ children, location, title, theme, description, type }) => {
   );
 };
 
-export default withTheme(Template);
+export default Template;

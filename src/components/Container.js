@@ -1,8 +1,9 @@
 import React from 'react';
 
-import withTheme from '../utils/withTheme';
+import useTheme from '../utils/useTheme';
 
-const Container = ({ children, theme }) => {
+const Container = ({ children }) => {
+  const theme = useTheme();
   return (
     <div className="container">
       {children}
@@ -26,4 +27,4 @@ const Container = ({ children, theme }) => {
   );
 };
 
-export default withTheme(Container);
+export default Container;

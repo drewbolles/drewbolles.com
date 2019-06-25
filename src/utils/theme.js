@@ -1,4 +1,4 @@
-export default {
+const theme = {
   baseSpacingUnit: 24,
   colors: {
     primary: '#2e7d32',
@@ -11,3 +11,12 @@ export default {
   },
   columns: 12,
 };
+
+export const queries = {
+  sm: `(min-width: ${theme.breakpoints.sm}px)`,
+  m: `(min-width: ${theme.breakpoints.m}px)`,
+  l: `(min-width: ${theme.breakpoints.l}px)`,
+  xl: `(min-width: ${theme.breakpoints.xl}px)`,
+};
+
+export default theme;

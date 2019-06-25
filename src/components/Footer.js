@@ -1,15 +1,18 @@
 import React from 'react';
 import { FaCodepen, FaGithub, FaTwitter } from 'react-icons/fa';
-import { withMedia } from 'react-media-query-hoc';
 
 import Container from './Container';
 import Slice from './Slice';
 import Typography from './Typography';
 import Visibility from './Visibility';
 
-import withTheme from '../utils/withTheme';
+import useTheme from '../utils/useTheme';
+import useMedia from '../utils/useMedia';
+import { queries } from '../utils/theme';
 
-const Footer = ({ media, theme }) => {
+const Footer = () => {
+  const theme = useTheme();
+  const isMedium = useMedia(queries.m);
   return (
     <footer className="site-footer" role="contentinfo">
       <Slice bgColor="green">
@@ -19,7 +22,7 @@ const Footer = ({ media, theme }) => {
               <Visibility>
                 <strong>My Github</strong>
               </Visibility>
-              <FaGithub size={media.m ? 100 : 50} />
+              <FaGithub size={isMedium ? 100 : 50} />
             </a>
           </li>
           <li className="social-media-list__item">
@@ -27,7 +30,7 @@ const Footer = ({ media, theme }) => {
               <Visibility>
                 <strong>My Codepen</strong>
               </Visibility>
-              <FaCodepen size={media.m ? 100 : 50} />
+              <FaCodepen size={isMedium ? 100 : 50} />
             </a>
           </li>
           <li className="social-media-list__item">
@@ -35,7 +38,7 @@ const Footer = ({ media, theme }) => {
               <Visibility>
                 <strong>My Twitter</strong>
               </Visibility>
-              <FaTwitter size={media.m ? 100 : 50} />
+              <FaTwitter size={isMedium ? 100 : 50} />
             </a>
           </li>
         </ul>
@@ -126,4 +129,4 @@ const Footer = ({ media, theme }) => {
   );
 };
 
-export default withMedia(withTheme(Footer));
+export default Footer;

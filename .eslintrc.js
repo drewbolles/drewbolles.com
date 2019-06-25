@@ -1,19 +1,24 @@
 module.exports = {
-  "env": {
-    "browser": true,
-    "es6": true,
+  parser: 'babel-eslint',
+  extends: ['plugin:prettier/recommended'],
+  env: {
+    browser: true,
+    es6: true,
   },
-  "plugins": [
-    "react",
-  ],
-  "globals": {
-    "graphql": false,
+  plugins: ['react'],
+  globals: {
+    graphql: false,
   },
-  "parserOptions": {
-    "sourceType": "module",
-    "ecmaFeatures": {
-      "experimentalObjectRestSpread": true,
-      "jsx": true,
+  parserOptions: {
+    ecmaVersion: 9,
+    sourceType: 'module',
+    ecmaFeatures: {
+      jsx: true,
     },
-  }
-}
+  },
+  settings: {
+    react: {
+      version: '16.0',
+    },
+  },
+};
