@@ -3,7 +3,7 @@ import { useState, useEffect, useReducer } from 'react';
 import { queries } from './theme';
 
 export default media => {
-  if (typeof window === 'undefined') return;
+  if (typeof window === 'undefined') return false;
   const [matches, setMatches] = useState(window.matchMedia(media).matches);
 
   useEffect(() => {
@@ -21,7 +21,7 @@ export default media => {
 };
 
 export const useAllMedia = () => {
-  if (typeof window === 'undefined') return;
+  if (typeof window === 'undefined') return {};
   const initialState = Object.keys(queries).reduce((acc, curr) => {
     acc[curr] = false;
     return acc;
