@@ -9,6 +9,7 @@ import { Media, Image, Body } from "../components/MediaObject";
 import Divider from "../components/Divider";
 import { blue } from "material-ui-colors";
 import { List, ListItem } from "../components/List";
+import { Row, Col } from "../components/Grid";
 
 function Home({ featuredProject }) {
   return (
@@ -39,22 +40,22 @@ function Home({ featuredProject }) {
       </Text>
       <Divider />
       <Text as="h2">Featured Project</Text>
-      <Media style={{ marginBottom: 24 }}>
-        <Image>
+      <Row style={{ marginBottom: 24 }}>
+        <Col m={4}>
           <img
             src={featuredProject.image_url}
             alt={featuredProject.name}
             style={{ borderRadius: 8, border: `3px solid ${blue[700]}` }}
           />
-        </Image>
-        <Body>
+        </Col>
+        <Col m={8}>
           <Text as="h3">{featuredProject.name}</Text>
           <Text>{featuredProject.description}</Text>
           <Link href="/work">
             <a>See more work</a>
           </Link>
-        </Body>
-      </Media>
+        </Col>
+      </Row>
       <Divider />
       <Text as="h2">Blog Posts</Text>
       <List>
