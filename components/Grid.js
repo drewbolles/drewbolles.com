@@ -62,7 +62,9 @@ export function Col({ children, sm = 12, m = 12, l = 12, ...rest }) {
 export function Row({ children, ...rest }) {
   return (
     <>
-      <div className="row">{children}</div>
+      <div className="row" {...rest}>
+        {children}
+      </div>
       <style jsx>{`
         .row {
           display: flex;
