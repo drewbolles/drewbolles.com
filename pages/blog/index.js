@@ -4,7 +4,7 @@ import PostTeaser from "../../components/PostTeaser";
 import Page from "../../components/Page";
 import Text from "../../components/Text";
 
-import { frontMatter as posts } from "./*.md";
+import { frontMatter as posts } from "./*.mdx";
 import Divider from "../../components/Divider";
 
 function Blog() {
