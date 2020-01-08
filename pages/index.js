@@ -1,88 +1,82 @@
-import React from 'react'
-import Head from 'next/head'
-import Nav from '../components/nav'
+import React from "react";
+import Head from "next/head";
+import Text from "../components/Text";
+import Page from "../components/Page";
 
-const Home = () => (
-  <div>
-    <Head>
-      <title>Home</title>
-      <link rel="icon" href="/favicon.ico" />
-    </Head>
+import { frontMatter as posts } from "./blog/*.md";
+import Link from "next/link";
+import { Media, Image, Body } from "../components/MediaObject";
+import Divider from "../components/Divider";
+import { blue } from "material-ui-colors";
+import { List, ListItem } from "../components/List";
 
-    <Nav />
+function Home({ featuredProject }) {
+  return (
+    <Page name="home">
+      <Text size="super" weight={500}>
+        <Text as="strong">Greetings!</Text> I'm Drew Bolles and I'm a Senior UI
+        Developer specializing in{" "}
+        <Text as="strong" variant="underlined">
+          responsive web development
+        </Text>
+        , and{" "}
+        <Text as="strong" variant="underlined">
+          JavaScript application development
+        </Text>
+        .
+      </Text>
+      <Text size="super">
+        I have over a decade of professional experience, and have worked with
+        all types of clients, from large Fortune 500 companies to small startups
+        and local businesses. My focus has always been to create{" "}
+        <Text as="strong">fast</Text>, <Text as="strong">resilent</Text>, and{" "}
+        <Text as="strong">accessible</Text> sites and applications of the
+        highest quality.
+      </Text>
+      <Text size="super">
+        If you would like to contact me, please shoot me an email at{" "}
+        <a href="mailto:drewbolles@gmail.com">drewbolles@gmail.com.</a>
+      </Text>
+      <Divider />
+      <Text as="h2">Featured Project</Text>
+      <Media style={{ marginBottom: 24 }}>
+        <Image>
+          <img
+            src={featuredProject.image_url}
+            alt={featuredProject.name}
+            style={{ borderRadius: 8, border: `3px solid ${blue[700]}` }}
+          />
+        </Image>
+        <Body>
+          <Text as="h3">{featuredProject.name}</Text>
+          <Text>{featuredProject.description}</Text>
+          <Link href="/work">
+            <a>See more work</a>
+          </Link>
+        </Body>
+      </Media>
+      <Divider />
+      <Text as="h2">Blog Posts</Text>
+      <List>
+        {posts
+          .sort((a, b) => new Date(b.date) - new Date(a.date))
+          .map(post => (
+            <ListItem key={post.title}>
+              <Text as="h3" spacing={0}>
+                <Link href={post.__resourcePath.replace(".md", "")}>
+                  <a>{post.title}</a>
+                </Link>
+              </Text>
+            </ListItem>
+          ))}
+      </List>
+    </Page>
+  );
+}
 
-    <div className="hero">
-      <h1 className="title">Welcome to Next.js!</h1>
-      <p className="description">
-        To get started, edit <code>pages/index.js</code> and save to reload.
-      </p>
+Home.getInitialProps = async function() {
+  const { default: projects } = await import("../data/projects.json");
+  return { featuredProject: projects.find(project => project.featured) };
+};
 
-      <div className="row">
-        <a href="https://nextjs.org/docs" className="card">
-          <h3>Documentation &rarr;</h3>
-          <p>Learn more about Next.js in the documentation.</p>
-        </a>
-        <a href="https://nextjs.org/learn" className="card">
-          <h3>Next.js Learn &rarr;</h3>
-          <p>Learn about Next.js by following an interactive tutorial!</p>
-        </a>
-        <a
-          href="https://github.com/zeit/next.js/tree/master/examples"
-          className="card"
-        >
-          <h3>Examples &rarr;</h3>
-          <p>Find other example boilerplates on the Next.js GitHub.</p>
-        </a>
-      </div>
-    </div>
-
-    <style jsx>{`
-      .hero {
-        width: 100%;
-        color: #333;
-      }
-      .title {
-        margin: 0;
-        width: 100%;
-        padding-top: 80px;
-        line-height: 1.15;
-        font-size: 48px;
-      }
-      .title,
-      .description {
-        text-align: center;
-      }
-      .row {
-        max-width: 880px;
-        margin: 80px auto 40px;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-around;
-      }
-      .card {
-        padding: 18px 18px 24px;
-        width: 220px;
-        text-align: left;
-        text-decoration: none;
-        color: #434343;
-        border: 1px solid #9b9b9b;
-      }
-      .card:hover {
-        border-color: #067df7;
-      }
-      .card h3 {
-        margin: 0;
-        color: #067df7;
-        font-size: 18px;
-      }
-      .card p {
-        margin: 0;
-        padding: 12px 0 0;
-        font-size: 13px;
-        color: #333;
-      }
-    `}</style>
-  </div>
-)
-
-export default Home
+export default Home;
