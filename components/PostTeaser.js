@@ -6,7 +6,7 @@ import { grey } from "material-ui-colors";
 import { FaChevronRight } from "react-icons/fa";
 
 function PostTeaser({ post }) {
-  const href = post.__resourcePath.replace(".md", "");
+  const href = post.__resourcePath.replace(".mdx", "");
   return (
     <div className="post-teaser">
       <Text as="h2" spacing={0.5}>

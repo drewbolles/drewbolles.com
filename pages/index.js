@@ -64,7 +64,7 @@ function Home({ featuredProject }) {
           .map(post => (
             <ListItem key={post.title}>
               <Text as="h3" spacing={0}>
-                <Link href={post.__resourcePath.replace(".md", "")}>
+                <Link href={post.__resourcePath.replace(".mdx", "")}>
                   <a>{post.title}</a>
                 </Link>
               </Text>
