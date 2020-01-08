@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "postbuild": "node postBuild.js",
-    "start": "next start"
+    "start": "next start -p $PORT"
   },
   "dependencies": {
     "@mapbox/rehype-prism": "^0.4.0",
