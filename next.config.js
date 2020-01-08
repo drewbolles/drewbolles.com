@@ -1,12 +1,13 @@
 const withPlugins = require("next-compose-plugins");
 const withCSS = require("@zeit/next-css");
 const rehypePrism = require("@mapbox/rehype-prism");
+const rehypeReact = require("rehype-react");
 const withMdxEnhanced = require("next-mdx-enhanced")({
   layoutPath: "layouts",
   defaultLayout: true,
-  fileExtensions: ["mdx", "md"],
+  fileExtensions: ["mdx"],
   remarkPlugins: [],
-  rehypePlugins: [rehypePrism],
+  rehypePlugins: [rehypePrism, rehypeReact],
   extendFrontMatter: {
     process: (mdxContent, frontMatter) => {},
     phase: "prebuild|loader|both",
@@ -14,5 +15,5 @@ const withMdxEnhanced = require("next-mdx-enhanced")({
 });
 
 module.exports = withPlugins([withMdxEnhanced, withCSS], {
-  pageExtensions: ["mdx", "md", "jsx", "js"],
+  pageExtensions: ["mdx", "jsx", "js"],
 });
