@@ -10,7 +10,7 @@ function PostLayout({ title, __resourcePath, description }) {
   return ({ children: content }) => {
     return (
       <Page title={title} description={description}>
-        <div class="post">
+        <div className="post">
           <Text as="h1">{title}</Text>
           <ShareLinks slug={__resourcePath.replace(".md", "")} title={title} />
           <div className="post-content">{content}</div>
