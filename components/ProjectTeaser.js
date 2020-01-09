@@ -1,10 +1,13 @@
 import React from "react";
 import Text from "./Text";
 import { blue, grey } from "material-ui-colors";
+
 import { mediaQueries } from "../utils/theme";
+import useMode from "../utils/useMode";
 
 function ProjectTeaser({ project }) {
   const { name, image_url, description, technologies } = project;
+  const { mode } = useMode();
   return (
     <div className="project-teaser">
       <div className="image">
@@ -62,11 +65,12 @@ function ProjectTeaser({ project }) {
           list-style: none;
         }
         .tech-item {
-          background: ${grey[100]};
+          background-color: ${mode === "light" ? grey[100] : grey[600]};
           border-radius: 4px;
           margin-bottom: 4px;
           padding: 4px 8px;
           font-size: 14px;
+          transition: 150ms ease-in-out background-color;
         }
         .tech-item:not(:last-child) {
           margin-right: 4px;
