@@ -3,7 +3,7 @@ import Head from "next/head";
 import Text from "../components/Text";
 import Page from "../components/Page";
 
-import { frontMatter as posts } from "./blog/*.mdx";
+import { frontMatter as posts } from "./blog/**/*.mdx";
 import Link from "next/link";
 import { Media, Image, Body } from "../components/MediaObject";
 import Divider from "../components/Divider";
