@@ -40,7 +40,6 @@ function ModeProvider({ children }) {
       // error...
     }
   });
-  console.log(mode);
   return (
     <ModeContext.Provider value={{ mode, toggleMode }}>
       {children}
