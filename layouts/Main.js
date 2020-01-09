@@ -83,7 +83,12 @@ function Layout({ children }) {
         <footer className="site-footer">
           <ul className="social-media">
             <li className="social-media-item">
-              <a href="https://twitter.com/bollskis" target="_blank">
+              <a
+                href="https://twitter.com/bollskis"
+                target="_blank"
+                rel="noopener"
+                title="Follow me on Twitter"
+              >
                 <FaTwitter />
               </a>
             </li>
@@ -91,17 +96,24 @@ function Layout({ children }) {
               <a
                 href="https://www.linkedin.com/in/drew-bolles/"
                 target="_blank"
+                rel="noopener"
+                title="Check me out on LinkedIn"
               >
                 <FaLinkedin />
               </a>
             </li>
             <li className="social-media-item">
-              <a href="https://github.com/drewbolles" target="_blank">
+              <a
+                href="https://github.com/drewbolles"
+                target="_blank"
+                rel="noopener"
+                title="Check me on on GitHub"
+              >
                 <FaGithub />
               </a>
             </li>
             <li className="social-media-item">
-              <a href="/feed">
+              <a href="/feed" title="Follow my RSS feed">
                 <FaRss />
               </a>
             </li>
