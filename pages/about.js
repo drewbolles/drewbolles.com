@@ -15,11 +15,11 @@ function About({ events, talks }) {
       <Row>
         <Col m={8}>
           <Text size="xlarge">
-            Hi, I'm Drew! I'm a Senior User Interface Developer and User
-            Experience Designer. I began my voyage into web development when I
-            was about 10, building sites with GeoCities before moving into
-            coding layouts in tables. Fast forward a few years, and I'm still
-            plodding about in HTML &amp; CSS, reading{" "}
+            Hi, I'm Drew! I'm a <strong>Senior User Interface Developer</strong>
+            . I began my voyage into web development when I was about 10,
+            building sites with GeoCities before moving into coding layouts in
+            tables. Fast forward a few years, and I'm still plodding about in
+            HTML &amp; CSS, reading{" "}
             <a href="http://alistapart.com">A List Part</a>, and developing fan
             sites for my favorite shows. I pride myself on being a{" "}
             <Text as="strong">responsible web developer</Text>, and striving to
