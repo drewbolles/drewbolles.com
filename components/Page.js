@@ -5,6 +5,7 @@ import Head from "next/head";
 function Page({
   children,
   name,
+  description = "Senior User Interface and JavaScript Application Developer",
   title = "Drew Bolles | Senior UI Developer",
   ...rest
 }) {
@@ -12,6 +13,7 @@ function Page({
     <>
       <Head>
         <title key="title">{title}</title>
+        <meta name="description" value={description} />
       </Head>
       <div
         className={classNames("page", { [`page--${name}`]: name })}
