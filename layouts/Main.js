@@ -1,6 +1,13 @@
 import React, { useState } from "react";
 import { grey, blue } from "material-ui-colors";
-import { FaTwitter, FaLinkedin, FaGithub, FaRss } from "react-icons/fa";
+import {
+  FaTwitter,
+  FaLinkedin,
+  FaGithub,
+  FaRss,
+  FaMoon,
+  FaSun,
+} from "react-icons/fa";
 import classNames from "classnames";
 import Switch from "react-switch";
 
@@ -49,13 +56,27 @@ function Layout({ children }) {
           </nav>
           <label className="mode-toggle">
             <span className="mode-toggle-text">Dark Mode</span>
+            <span
+              className="mode-toggle-icon mode-toggle-icon--light"
+              data-active={mode === "dark"}
+            >
+              <FaSun />
+            </span>
+
             <Switch
               checked={mode === "dark"}
               onChange={toggleMode}
               checkedIcon={false}
               uncheckedIcon={false}
               onColor={blue[700]}
+              className="mode-toggle-switch"
             />
+            <span
+              className="mode-toggle-icon mode-toggle-icon--dark"
+              data-active={mode === "light"}
+            >
+              <FaMoon />
+            </span>
           </label>
         </aside>
         <main className="site-content">{children}</main>
@@ -124,11 +145,13 @@ function Layout({ children }) {
             color: ${blue[300]};
           }
           .site-branding {
+            position: relative;
             display: flex;
             flex-direction: column;
             padding: 24px;
             background-color: ${grey[900]};
             color: rgba(255, 255, 255, 0.8);
+            box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.15);
           }
           .site-title {
             display: flex;
@@ -205,9 +228,23 @@ function Layout({ children }) {
           .mode-toggle {
             display: flex;
             align-items: center;
+            position: absolute;
+            right: 24px;
+            bottom: 24px;
+            height: 41px;
           }
           .mode-toggle-text {
+            display: none;
             margin-right: 16px;
+          }
+          :global(.mode-toggle-switch) {
+            display: none !important;
+          }
+          .mode-toggle-icon {
+            display: none;
+          }
+          .mode-toggle-icon[data-active="true"] {
+            display: flex;
           }
           @media (min-width: ${mediaQueries.m}px) {
             .site {
@@ -239,7 +276,7 @@ function Layout({ children }) {
               margin-right: 0;
             }
             .site-nav__link.active {
-              background-color: #fff;
+              background-color: ${mode === "light" ? "#fff" : grey[500]};
               color: rgba(0, 0, 0, 0.87);
               border-radius: 4px 0 0 4px;
             }
@@ -254,7 +291,17 @@ function Layout({ children }) {
               border-top: 1px solid #333;
             }
             .mode-toggle {
+              position: static;
               margin-top: auto;
+            }
+            .mode-toggle-text {
+              display: block;
+            }
+            .mode-toggle-icon.mode-toggle-icon {
+              display: none;
+            }
+            :global(.mode-toggle-switch) {
+              display: inline-block !important;
             }
           }
         `}</style>
