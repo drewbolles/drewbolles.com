@@ -37,7 +37,7 @@
   },
   {
     "name": "BIDS",
-    "description": "Berkeley Institute of Data Science",
+    "description": "I lead the development for the new website for the Berkeley Institute for Data Science",
     "technologies": ["Drupal 7", "Custom Theming", "Sass", "Grunt"],
     "image_url": "/images/screen-bids-small-cropped.png",
     "featured": false,
@@ -46,7 +46,7 @@
   },
   {
     "name": "Pantheon",
-    "description": "Pantheon",
+    "description": "I assisted in the development of Pantheon's website",
     "technologies": ["Drupal 7", "Custom Theming", "Sass", "Gulp"],
     "image_url": "/images/screen-pantheon-small-cropped.png",
     "featured": false,
