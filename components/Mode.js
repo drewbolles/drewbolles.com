@@ -1,4 +1,4 @@
-import React, { useState, useLayoutEffect } from "react";
+import React, { useState, useEffect } from "react";
 
 export const ModeContext = React.createContext();
 
@@ -32,7 +32,7 @@ function ModeProvider({ children }) {
       return nextMode;
     });
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     try {
       const localMode = getLocalMode();
       if (localMode && mode !== localMode) setMode(localMode);
