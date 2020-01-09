@@ -12,6 +12,11 @@ function Work({ projects }) {
       {projects.map(project => (
         <ProjectTeaser project={project} key={project.name} />
       ))}
+      <Divider />
+      <Text>
+        Interested in working with me?{" "}
+        <a href="mailto:drewbolles@gmail.com">Send me an email!</a>
+      </Text>
     </Page>
   );
 }
