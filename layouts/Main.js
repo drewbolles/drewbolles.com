@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Meta from "../components/Meta";
 import { mediaQueries } from "../utils/theme";
 import { grey } from "material-ui-colors";
@@ -10,15 +10,20 @@ const SIDEBAR_WIDTH = 300;
 const FOOTER_HEIGHT = 80;
 
 function Layout({ children }) {
+  const [hover, setHover] = useState(false);
   return (
     <>
       <Meta />
       <div className="site">
         <aside className="site-branding">
           <Link href="/">
-            <a className="site-title">
+            <a
+              className="site-title"
+              onMouseEnter={() => setHover(true)}
+              onMouseLeave={() => setHover(false)}
+            >
               <span className="site-title-img">
-                <Logo width={28} />
+                <Logo width={28} hover={hover} />
               </span>
               <span className="site-title-content">Drew Bolles</span>
             </a>
