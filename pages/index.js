@@ -10,6 +10,7 @@ import Divider from "../components/Divider";
 import { blue } from "material-ui-colors";
 import { List, ListItem } from "../components/List";
 import { Row, Col } from "../components/Grid";
+import Button from "../components/Button";
 
 function Home({ featuredProject }) {
   return (
@@ -38,7 +39,7 @@ function Home({ featuredProject }) {
         If you would like to contact me, please shoot me an email at{" "}
         <a href="mailto:drewbolles@gmail.com">drewbolles@gmail.com.</a>
       </Text>
-      <Divider />
+      <Divider spacing={2} />
       <Text as="h2">Featured Project</Text>
       <Row style={{ marginBottom: 24 }}>
         <Col m={4}>
@@ -51,13 +52,13 @@ function Home({ featuredProject }) {
         <Col m={8}>
           <Text as="h3">{featuredProject.name}</Text>
           <Text>{featuredProject.description}</Text>
-          <Link href="/work">
-            <a>See more work</a>
-          </Link>
+          <Button href="/work">See more work</Button>
         </Col>
       </Row>
-      <Divider />
-      <Text as="h2">Blog Posts</Text>
+      <Divider spacing={2} />
+      <Text as="h2" spacing={0.5}>
+        Blog Posts
+      </Text>
       <List>
         {posts
           .sort((a, b) => new Date(b.date) - new Date(a.date))
