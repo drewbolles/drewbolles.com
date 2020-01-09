@@ -51,6 +51,7 @@ export function Col({ children, sm = 12, m = 12, l = 12, ...rest }) {
         .col {
           width: 100%;
           flex: 0 0 auto;
+          margin-bottom: 24px;
           padding: 0 12px;
         }
       `}</style>
