@@ -14,7 +14,7 @@ function ProjectTeaser({ project }) {
         <Text as="h2" spacing={0.5}>
           {name}
         </Text>
-        <Text>{description}</Text>
+        <Text dangerouslySetInnerHTML={{ __html: description }} />
         <Text as="strong" size="small">
           My Role:
         </Text>
