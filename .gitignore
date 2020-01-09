@@ -21,6 +21,7 @@
 .mdx-data
 .cache
 sitemap.xml
+service-worker.js
 
 # debug
 npm-debug.log*
