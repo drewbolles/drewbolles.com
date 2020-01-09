@@ -20,6 +20,7 @@
     "material-ui-colors": "^1.0.0",
     "next": "9.1.6",
     "next-compose-plugins": "^2.2.0",
+    "next-ga": "^2.3.4",
     "next-mdx-enhanced": "^2.3.0",
     "next-offline": "^4.0.6",
     "normalize.css": "^8.0.1",

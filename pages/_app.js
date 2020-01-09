@@ -1,5 +1,7 @@
 import React from "react";
 import { IconContext } from "react-icons/lib";
+import withGA from "next-ga";
+import { Router } from "next/router";
 
 import Layout from "../layouts/Main";
 import ModeProvider from "../components/Mode";
@@ -18,4 +20,4 @@ function MyApp({ Component, pageProps }) {
   );
 }
 
-export default MyApp;
+export default withGA("UA-36427500-1", Router)(MyApp);
