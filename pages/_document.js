@@ -9,7 +9,7 @@ class MyDocument extends Document {
 
   render() {
     return (
-      <Html>
+      <Html lang="en">
         <Head>
           <link
             rel="apple-touch-icon"
@@ -31,6 +31,10 @@ class MyDocument extends Document {
           <link rel="manifest" href="/site.webmanifest" />
           <meta name="msapplication-TileColor" content="#2b5797" />
           <meta name="theme-color" content="#ffffff"></meta>
+          <meta name="dns-prefetch" value="https://www.google-analytics.com" />
+          <meta name="dns-prefetch" value="https://storage.googleapis.com" />
+          <meta name="preconnect" value="https://www.google-analytics.com" />
+          <meta name="preconnect" value="https://storage.googleapis.com" />
         </Head>
         <body>
           <Main />
