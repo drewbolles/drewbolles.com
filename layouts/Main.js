@@ -1,20 +1,25 @@
 import React, { useState } from "react";
+import { grey, blue } from "material-ui-colors";
+import { FaTwitter, FaLinkedin, FaGithub, FaRss } from "react-icons/fa";
+import classNames from "classnames";
+import Switch from "react-switch";
+
 import Meta from "../components/Meta";
 import { mediaQueries } from "../utils/theme";
-import { grey } from "material-ui-colors";
 import Logo from "../components/Logo";
 import Link from "../components/Link";
-import { FaTwitter, FaLinkedin, FaGithub, FaRss } from "react-icons/fa";
+import useMode from "../utils/useMode";
 
 const SIDEBAR_WIDTH = 300;
 const FOOTER_HEIGHT = 80;
 
 function Layout({ children }) {
   const [hover, setHover] = useState(false);
+  const { mode, toggleMode } = useMode();
   return (
     <>
       <Meta />
-      <div className="site">
+      <div className={classNames("site", { [`site--${mode}`]: mode })}>
         <aside className="site-branding">
           <Link href="/">
             <a
@@ -42,6 +47,16 @@ function Layout({ children }) {
               <a className="site-nav__link">About</a>
             </Link>
           </nav>
+          <label className="mode-toggle">
+            <span className="mode-toggle-text">Dark Mode</span>
+            <Switch
+              checked={mode === "dark"}
+              onChange={toggleMode}
+              checkedIcon={false}
+              uncheckedIcon={false}
+              onColor={blue[700]}
+            />
+          </label>
         </aside>
         <main className="site-content">{children}</main>
         <footer className="site-footer">
@@ -86,12 +101,33 @@ function Layout({ children }) {
             display: flex;
             flex-direction: column;
             min-height: 100vh;
+            background-color: #fff;
+            color: rgba(0, 0, 0, 0.87);
+            transition: 150ms ease-in-out background-color, color;
+          }
+          .site--dark {
+            background-color: ${grey[900]};
+            color: rgba(255, 255, 255, 0.87);
+          }
+
+          @media (prefers-color-scheme: dark) {
+            .site {
+              background-color: ${grey[800]};
+              color: rgba(255, 255, 255, 0.95);
+            }
+            .site .site-content: :global(a) {
+              color: ${blue[300]};
+            }
+          }
+
+          .site--dark .site-content :global(a) {
+            color: ${blue[300]};
           }
           .site-branding {
             display: flex;
             flex-direction: column;
             padding: 24px;
-            background-color: #111;
+            background-color: ${grey[900]};
             color: rgba(255, 255, 255, 0.8);
           }
           .site-title {
@@ -166,6 +202,13 @@ function Layout({ children }) {
           .social-media-item {
             margin: 0 8px;
           }
+          .mode-toggle {
+            display: flex;
+            align-items: center;
+          }
+          .mode-toggle-text {
+            margin-right: 16px;
+          }
           @media (min-width: ${mediaQueries.m}px) {
             .site {
               padding-left: ${SIDEBAR_WIDTH}px;
@@ -180,7 +223,6 @@ function Layout({ children }) {
               width: ${SIDEBAR_WIDTH}px;
               padding: 24px;
               padding-bottom: ${24 + FOOTER_HEIGHT}px;
-              background-color: #111;
               box-shadow: 5px 0 5px 0 rgba(0, 0, 0, 0.15);
             }
             .site-nav {
@@ -210,6 +252,9 @@ function Layout({ children }) {
               color: rgba(255, 255, 255, 0.75);
               background-color: transparent;
               border-top: 1px solid #333;
+            }
+            .mode-toggle {
+              margin-top: auto;
             }
           }
         `}</style>

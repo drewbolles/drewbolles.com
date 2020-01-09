@@ -1,7 +1,9 @@
 import React from "react";
 import classNames from "classnames";
+import useMode from "../utils/useMode";
 
 function Logo({ hover, width = 97, ...rest }) {
+  const { mode } = useMode();
   const batmanHeight = (111 / 97) * width;
   const drewHeight = (100 / 105) * width;
   return (
@@ -116,7 +118,10 @@ function Logo({ hover, width = 97, ...rest }) {
           justify-content: center;
         }
         .logo-batman {
-          display: none;
+          display: ${mode === "light" ? "none" : "block"};
+        }
+        .logo-drew {
+          display: ${mode === "light" ? "block" : "none"};
         }
         .logo--hover .logo-batman {
           display: block;

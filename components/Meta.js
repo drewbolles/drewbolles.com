@@ -27,7 +27,6 @@ function Meta() {
           font-size: 1rem;
           font-weight: 400;
           line-height: 1.5;
-          color: rgba(0, 0, 0, 0.87);
         }
         h1,
         h2,

@@ -1,7 +1,9 @@
 import React from "react";
 import { grey } from "material-ui-colors";
+import useMode from "../utils/useMode";
 
 export function List({ children, ...rest }) {
+  const { mode } = useMode();
   return (
     <ul className="list" {...rest}>
       {children}
@@ -9,7 +11,6 @@ export function List({ children, ...rest }) {
         .list {
           list-style: none;
           padding: 0;
-          background-color: #fff;
           border-radius: 4px;
           overflow: hidden;
         }
@@ -19,6 +20,7 @@ export function List({ children, ...rest }) {
 }
 
 export function ListItem({ children, ...rest }) {
+  const { mode } = useMode();
   return (
     <li className="list-item" {...rest}>
       {children}
@@ -27,7 +29,7 @@ export function ListItem({ children, ...rest }) {
           padding: 16px 0;
         }
         .list-item:not(:last-child) {
-          border-bottom: 1px solid ${grey[100]};
+          border-bottom: 1px solid ${mode === "light" ? grey[100] : grey[500]};
         }
       `}</style>
     </li>

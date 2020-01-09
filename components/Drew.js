@@ -1,6 +1,8 @@
 import React from "react";
+import useMode from "../utils/useMode";
 
 function Drew(props) {
+  const { mode } = useMode();
   return (
     <div className="drew">
       <svg
@@ -247,9 +249,10 @@ function Drew(props) {
           position: relative;
         }
         .mask {
+          display: ${mode === "light" ? "block" : "none"};
         }
         .true-identity {
-          display: none;
+          display: ${mode === "light" ? "none" : "block"};
           transform: translateX(8px);
         }
         .drew:hover .mask {
