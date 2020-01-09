@@ -35,12 +35,12 @@ function ModeProvider({ children }) {
   useLayoutEffect(() => {
     try {
       const localMode = getLocalMode();
-      if (mode !== localMode) setMode(localMode);
+      if (localMode && mode !== localMode) setMode(localMode);
     } catch (e) {
       // error...
     }
   });
-
+  console.log(mode);
   return (
     <ModeContext.Provider value={{ mode, toggleMode }}>
       {children}
