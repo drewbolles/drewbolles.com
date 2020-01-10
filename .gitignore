@@ -22,6 +22,7 @@
 .cache
 sitemap.xml
 service-worker.js
+manifest.json
 
 # debug
 npm-debug.log*

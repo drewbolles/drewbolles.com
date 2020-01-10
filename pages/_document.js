@@ -28,7 +28,7 @@ class MyDocument extends Document {
             sizes="16x16"
             href="/favicon-16x16.png"
           />
-          <link rel="manifest" href="/site.webmanifest" />
+          <link rel="manifest" href="/manifest.json" />
           <meta name="msapplication-TileColor" content="#2b5797" />
           <meta name="theme-color" content="#ffffff"></meta>
           <meta name="dns-prefetch" href="https://www.google-analytics.com" />
