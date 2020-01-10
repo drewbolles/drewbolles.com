@@ -1,26 +1,27 @@
 const fs = require("fs");
 const path = require("path");
 const fm = require("front-matter");
+const getBlogPosts = require("../../../utils/getBlogPosts");
 
-function getBlogPosts() {
+function buildPostsJson() {
   const output = [];
   const hostname = "https://www.drewbolles.com";
   const basePath = path.resolve("pages/blog");
-  const posts = fs
-    .readdirSync(basePath)
-    .filter(page => page.indexOf(".md") !== -1);
+  const posts = getBlogPosts(basePath);
 
-  posts.forEach(post => {
-    let data = fs.readFileSync(`${basePath}/${post}`, "utf8");
+  function buildOutput(file) {
+    let data = fs.readFileSync(file, "utf8");
     let { attributes, body: text } = fm(data);
     let postData = {
       title: attributes.title,
-      href: `${hostname}/blog/${post.replace(".md", "")}`,
+      href: `${hostname}/blog/${file.replace(".mdx", "")}`,
       createdAt: attributes.date,
       text,
     };
     output.push(postData);
-  });
+  }
+
+  posts.forEach(post => buildOutput(post));
 
   // let's sort right away
   output.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
@@ -29,6 +30,6 @@ function getBlogPosts() {
 }
 
 export default (req, res) => {
-  const posts = getBlogPosts();
-  res.status(200).json(posts);
+  const postsJson = buildPostsJson();
+  res.status(200).json(postsJson);
 };
