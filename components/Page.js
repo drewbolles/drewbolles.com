@@ -13,7 +13,7 @@ function Page({
     <>
       <Head>
         <title key="title">{title}</title>
-        <meta name="description" value={description} />
+        <meta name="description" key="description" content={description} />
       </Head>
       <div
         className={classNames("page", { [`page--${name}`]: name })}
