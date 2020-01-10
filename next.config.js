@@ -1,4 +1,3 @@
-const withPlugins = require("next-compose-plugins");
 const withCSS = require("@zeit/next-css");
 const withOffline = require("next-offline");
 const withManifest = require("next-manifest");
@@ -16,54 +15,40 @@ const withMdxEnhanced = require("next-mdx-enhanced")({
   },
 });
 
-module.exports = withPlugins(
-  [
-    withMdxEnhanced,
-    withCSS,
-    [
-      withOffline,
+const config = {
+  manifest: {
+    output: "./public",
+    name: "Drew Bolles",
+    short_name: "Drew Bolles",
+    icons: [
       {
-        workboxOpts: {
-          swDest: "../public/service-worker.js",
-          runtimeCaching: [
-            {
-              urlPattern: /^https?.*/,
-              handler: "NetworkFirst",
-              options: {
-                cacheName: "offlineCache",
-                expiration: {
-                  maxEntries: 200,
-                },
-              },
-            },
-          ],
-        },
+        src: "/android-chrome-192x192.png",
+        sizes: "192x192",
+        type: "image/png",
+      },
+      {
+        src: "/android-chrome-256x256.png",
+        sizes: "256x256",
+        type: "image/png",
       },
     ],
-    [
-      withManifest,
-      {
-        manifest: {
-          output: "./public",
-          name: "Drew Bolles",
-          short_name: "Drew Bolles",
-          icons: [
-            {
-              src: "/android-chrome-192x192.png",
-              sizes: "192x192",
-              type: "image/png",
-            },
-            {
-              src: "/android-chrome-256x256.png",
-              sizes: "256x256",
-              type: "image/png",
-            },
-          ],
-        },
-      },
-    ],
-  ],
-  {
-    pageExtensions: ["mdx", "jsx", "js"],
   },
-);
+  workboxOpts: {
+    swDest: "../public/service-worker.js",
+
+    runtimeCaching: [
+      {
+        urlPattern: /^https?.*/,
+        handler: "NetworkFirst",
+        options: {
+          cacheName: "offlineCache",
+          expiration: {
+            maxEntries: 200,
+          },
+        },
+      },
+    ],
+  },
+};
+
+module.exports = withCSS(withMdxEnhanced(withManifest(withOffline(config))));
