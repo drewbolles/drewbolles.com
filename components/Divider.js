@@ -1,10 +1,10 @@
 import React, { useContext } from "react";
 import { grey } from "material-ui-colors";
 import classNames from "classnames";
-import { ModeContext } from "./Mode";
+import useMode from "../utils/useMode";
 
 function Divider({ spacing = 1, ...rest }) {
-  const { mode } = useContext(ModeContext);
+  const { mode } = useMode();
   return (
     <>
       <div
