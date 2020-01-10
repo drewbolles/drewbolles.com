@@ -28,13 +28,13 @@ class MyDocument extends Document {
             sizes="16x16"
             href="/favicon-16x16.png"
           />
-          <link rel="manifest" href="/manifest.json" />
           <meta name="msapplication-TileColor" content="#2b5797" />
           <meta name="theme-color" content="#ffffff"></meta>
-          <meta name="dns-prefetch" href="https://www.google-analytics.com" />
-          <meta name="dns-prefetch" href="https://storage.googleapis.com" />
-          <meta name="preconnect" href="https://www.google-analytics.com" />
-          <meta name="preconnect" href="https://storage.googleapis.com" />
+          <link rel="manifest" href="/manifest.json" />
+          <link rel="dns-prefetch" href="https://www.google-analytics.com" />
+          <link rel="dns-prefetch" href="https://storage.googleapis.com" />
+          <link rel="preconnect" href="https://www.google-analytics.com" />
+          <link rel="preconnect" href="https://storage.googleapis.com" />
         </Head>
         <body>
           <Main />
