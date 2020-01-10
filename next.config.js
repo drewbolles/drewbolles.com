@@ -16,7 +16,21 @@ const withMdxEnhanced = require("next-mdx-enhanced")({
   },
 });
 
-const config = { pageExtensions: ["js", "mdx"], exportTrailingSlash: true };
+const config = {
+  pageExtensions: ["js", "mdx"],
+  exportTrailingSlash: true,
+  experimental: {
+    async rewrites() {
+      return [
+        {
+          source: "/service-worker.js",
+          destination: "/_next/static/service-worker.js",
+        },
+      ];
+    },
+  },
+};
+
 const manifest = {
   output: "./public",
   name: "Drew Bolles",
@@ -44,14 +58,7 @@ module.exports = withPlugins(
       withOffline,
       {
         workboxOpts: {
-          swDest: "../public/service-worker.js",
-          modifyURLPrefix: {
-            "static/": "_next/static/",
-            "public/": "/",
-          },
-          globDirectory: ".",
-          globPatterns: ["public/**/*"],
-          globIgnores: ["**/node_modules/**/*"],
+          swDest: "static/service-worker.js",
           runtimeCaching: [
             {
               urlPattern: /^https?.*/,
