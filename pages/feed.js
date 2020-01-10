@@ -44,8 +44,9 @@ function Feed() {
   return null;
 }
 
-Feed.getInitialProps = async function({ res }) {
-  const response = await fetch("http://localhost:3000/api/getBlogPosts");
+Feed.getInitialProps = async function({ req, res }) {
+  const port = req.socket.address().port || 3000;
+  const response = await fetch(`http://localhost:${port}/api/getBlogPosts`);
   const blogPosts = await response.json();
   res.setHeader("Content-Type", "text/xml");
   res.write(getRssXml(blogPosts));
