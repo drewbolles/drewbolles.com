@@ -6,12 +6,11 @@ import ShareLinks from "../components/ShareLinks";
 import Page from "../components/Page";
 
 import "../prism-theme.css";
-import { useRouter } from "next/router";
 
 function PostLayout({ title, __resourcePath, description }) {
-  const slug = __resourcePath.replace(".md", "");
+  const slug = __resourcePath.replace(".mdx", "");
   const disqusConfig = {
-    url: "https://www.drewbolles.com",
+    url: `https://www.drewbolles.com/${slug}`,
     identifier: slug,
     title: title,
   };
