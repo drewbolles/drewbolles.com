@@ -15,6 +15,7 @@
     "@zeit/next-css": "^1.0.1",
     "babel-plugin-import-glob-array": "^0.2.0",
     "classnames": "^2.2.6",
+    "disqus-react": "^1.0.7",
     "front-matter": "^3.1.0",
     "isomorphic-unfetch": "^3.0.0",
     "material-ui-colors": "^1.0.0",
