@@ -11,7 +11,7 @@ import { useRouter } from "next/router";
 function PostLayout({ title, __resourcePath, description }) {
   const slug = __resourcePath.replace(".md", "");
   const disqusConfig = {
-    url: `https://www.drewbolles.com/${slug}`,
+    url: "https://www.drewbolles.com",
     identifier: slug,
     title: title,
   };
