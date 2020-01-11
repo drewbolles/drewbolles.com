@@ -19,6 +19,7 @@ const withMdxEnhanced = require("next-mdx-enhanced")({
 const config = {
   pageExtensions: ["js", "mdx"],
   exportTrailingSlash: true,
+  transformManifest: manifest => ["/"].concat(manifest),
   experimental: {
     async rewrites() {
       return [
@@ -59,6 +60,10 @@ module.exports = withPlugins(
       {
         workboxOpts: {
           swDest: "static/service-worker.js",
+          modifyURLPrefix: {
+            "static/": "_next/static/",
+            "public/": "/",
+          },
           runtimeCaching: [
             {
               urlPattern: /^https?.*/,
