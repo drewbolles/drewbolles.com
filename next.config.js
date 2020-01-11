@@ -27,8 +27,6 @@ const postRedirects = blogPosts.map(post => ({
 
 const config = {
   pageExtensions: ["js", "mdx"],
-  exportTrailingSlash: true,
-  transformManifest: manifest => ["/"].concat(manifest),
   experimental: {
     async redirects() {
       return postRedirects;
