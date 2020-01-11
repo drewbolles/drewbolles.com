@@ -8,7 +8,10 @@ import useMode from "../utils/useMode";
 
 function PostTeaser({ post }) {
   const { mode } = useMode();
-  const href = post.__resourcePath.replace(".mdx", "");
+  let href = post.__resourcePath.replace(".mdx", "");
+  if (!href.startsWith("/")) {
+    href = `/${href}`;
+  }
   return (
     <div className="post-teaser">
       <Text as="h2" spacing={0.5}>
