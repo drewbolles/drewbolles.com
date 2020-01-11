@@ -9,9 +9,10 @@ import "../prism-theme.css";
 import { useRouter } from "next/router";
 
 function PostLayout({ title, __resourcePath, description }) {
+  const slug = __resourcePath.replace(".md", "");
   const disqusConfig = {
-    url: "https://www.drewbolles.com",
-    identifier: __resourcePath.replace(".md", ""),
+    url: `https://www.drewbolles.com/${slug}`,
+    identifier: slug,
     title: title,
   };
   return ({ children: content }) => {
@@ -19,7 +20,7 @@ function PostLayout({ title, __resourcePath, description }) {
       <Page title={title} description={description}>
         <div className="post">
           <Text as="h1">{title}</Text>
-          <ShareLinks slug={__resourcePath.replace(".md", "")} title={title} />
+          <ShareLinks slug={slug} title={title} />
           <div className="post-content">{content}</div>
           <DiscussionEmbed shortname="drewbolles" config={disqusConfig} />
           <style jsx>{`
