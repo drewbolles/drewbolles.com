@@ -12,7 +12,7 @@ function Error({ statusCode }) {
  * I've used the expiremental redirects to fix this issue in next.config
  */
 Error.getInitialProps = ({ req, res, err }) => {
-  // const statusCode = res ? res.statusCode : err ? err.statusCode : 404;
+  const statusCode = res ? res.statusCode : err ? err.statusCode : 404;
   // // trailing slashes are throwing a 404, this is a quick fix
   // if (statusCode === 404 && req.url.endsWith("/")) {
   //   res.writeHead(301, { Location: req.url.substring(0, req.url.length - 1) });
