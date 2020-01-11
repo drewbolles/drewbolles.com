@@ -15,12 +15,24 @@ const withMdxEnhanced = require("next-mdx-enhanced")({
     phase: "prebuild|loader|both",
   },
 });
+const getBlogPosts = require("./utils/getBlogPosts");
+
+const blogPosts = getBlogPosts("pages/blog");
+const cleanPostURL = post => post.replace("pages", "").replace(".mdx", "");
+const postRedirects = blogPosts.map(post => ({
+  source: `${cleanPostURL(post)}/`,
+  destination: cleanPostURL(post),
+  statusCode: 301,
+}));
 
 const config = {
   pageExtensions: ["js", "mdx"],
   exportTrailingSlash: true,
   transformManifest: manifest => ["/"].concat(manifest),
   experimental: {
+    async redirects() {
+      return postRedirects;
+    },
     async rewrites() {
       return [
         {
