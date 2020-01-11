@@ -70,8 +70,12 @@ module.exports = withPlugins(
               handler: "NetworkFirst",
               options: {
                 cacheName: "offlineCache",
+                networkTimeoutSeconds: 10,
                 expiration: {
                   maxEntries: 200,
+                },
+                cacheableResponse: {
+                  statuses: [0, 200],
                 },
               },
             },
