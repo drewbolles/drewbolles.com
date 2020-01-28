@@ -8,7 +8,7 @@ import useMode from "../utils/useMode";
 
 function PostTeaser({ post }) {
   const { mode } = useMode();
-  let href = post.__resourcePath.replace(".mdx", "");
+  let href = post.__resourcePath.replace(".mdx", "").split("pages/")[1];
   if (!href.startsWith("/")) {
     href = `/${href}`;
   }
