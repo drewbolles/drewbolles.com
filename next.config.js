@@ -1,4 +1,4 @@
-require("dotenv").config();
+require("dotenv").config({ silent: process.env.NODE_ENV === "production" });
 const path = require("path");
 const withPlugins = require("next-compose-plugins");
 const withOffline = require("next-offline");
