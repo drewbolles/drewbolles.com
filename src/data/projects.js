@@ -24,7 +24,7 @@ module.exports = [
       l: require("images/screenshots/ymcasf.jpg?size=1366"),
     },
     url: "http://ymcasf.org",
-    featured: true,
+    featured: false,
     role: "Lead Engineer",
   },
   {
