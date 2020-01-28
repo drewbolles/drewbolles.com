@@ -5,13 +5,13 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "postbuild": "node postBuild.js",
+    "postbuild": "node scripts/postBuild.js",
     "start": "next start -p $PORT"
   },
   "dependencies": {
     "@mapbox/rehype-prism": "^0.4.0",
-    "@mdx-js/loader": "^1.5.3",
-    "@mdx-js/react": "^1.5.3",
+    "@mdx-js/loader": "^1.5.5",
+    "@mdx-js/react": "^1.5.5",
     "@zeit/next-css": "^1.0.1",
     "babel-plugin-import-glob-array": "^0.2.0",
     "classnames": "^2.2.6",
@@ -19,11 +19,10 @@
     "front-matter": "^3.1.0",
     "isomorphic-unfetch": "^3.0.0",
     "material-ui-colors": "^1.0.0",
-    "next": "9.1.6",
+    "next": "^9.2.1",
     "next-compose-plugins": "^2.2.0",
-    "next-ga": "^2.3.4",
     "next-manifest": "^3.0.1",
-    "next-mdx-enhanced": "^2.3.0",
+    "next-mdx-enhanced": "^2.4.0",
     "next-offline": "^5.0.0-beta.11",
     "normalize.css": "^8.0.1",
     "react": "16.12.0",
@@ -33,6 +32,12 @@
     "rehype-react": "^4.0.1"
   },
   "devDependencies": {
-    "prettier": "^1.19.1"
+    "dotenv": "^8.2.0",
+    "imagemin-mozjpeg": "^8.0.0",
+    "imagemin-optipng": "^7.1.0",
+    "next-optimized-images": "^2.5.4",
+    "prettier": "^1.19.1",
+    "responsive-loader": "^1.2.0",
+    "sharp": "^0.24.0"
   }
 }

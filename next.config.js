@@ -1,11 +1,13 @@
-const withCSS = require("@zeit/next-css");
+require("dotenv").config();
+const path = require("path");
 const withPlugins = require("next-compose-plugins");
 const withOffline = require("next-offline");
 const withManifest = require("next-manifest");
+const optimizedImages = require("next-optimized-images");
 const rehypePrism = require("@mapbox/rehype-prism");
 const rehypeReact = require("rehype-react");
 const withMdxEnhanced = require("next-mdx-enhanced")({
-  layoutPath: "layouts",
+  layoutPath: "src/layouts",
   defaultLayout: true,
   fileExtensions: ["mdx"],
   remarkPlugins: [],
@@ -15,10 +17,10 @@ const withMdxEnhanced = require("next-mdx-enhanced")({
     phase: "prebuild|loader|both",
   },
 });
-const getBlogPosts = require("./utils/getBlogPosts");
+const getBlogPosts = require("./scripts/getBlogPosts");
 
-const blogPosts = getBlogPosts("pages/blog");
-const cleanPostURL = post => post.replace("pages", "").replace(".mdx", "");
+const blogPosts = getBlogPosts("src/pages/blog");
+const cleanPostURL = post => post.replace("src/pages", "").replace(".mdx", "");
 const postRedirects = blogPosts.map(post => ({
   source: `${cleanPostURL(post)}/`,
   destination: cleanPostURL(post),
@@ -39,6 +41,25 @@ const config = {
         },
       ];
     },
+  },
+  env: {
+    GA_TRACKING_ID: process.env.GA_TRACKING_ID,
+  },
+  webpack: config => {
+    config.resolve.alias["components"] = path.resolve(
+      __dirname,
+      "src",
+      "components",
+    );
+    config.resolve.alias["utils"] = path.resolve(__dirname, "src", "utils");
+    config.resolve.alias["scripts"] = path.resolve(__dirname, "scripts");
+    config.resolve.alias["images"] = path.resolve(
+      __dirname,
+      "public",
+      "images",
+    );
+
+    return config;
   },
 };
 
@@ -62,7 +83,6 @@ const manifest = {
 
 module.exports = withPlugins(
   [
-    [withCSS],
     [withMdxEnhanced],
     [withManifest, { manifest }],
     [
@@ -93,6 +113,7 @@ module.exports = withPlugins(
         },
       },
     ],
+    [optimizedImages, {}],
   ],
   config,
 );
