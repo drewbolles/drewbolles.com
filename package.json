@@ -16,6 +16,7 @@
     "babel-plugin-import-glob-array": "^0.2.0",
     "classnames": "^2.2.6",
     "disqus-react": "^1.0.7",
+    "dotenv": "^8.2.0",
     "front-matter": "^3.1.0",
     "isomorphic-unfetch": "^3.0.0",
     "material-ui-colors": "^1.0.0",
@@ -33,7 +34,6 @@
     "rehype-react": "^4.0.1"
   },
   "devDependencies": {
-    "dotenv": "^8.2.0",
     "imagemin-mozjpeg": "^8.0.0",
     "imagemin-optipng": "^7.1.0",
     "prettier": "^1.19.1",
