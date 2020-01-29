@@ -124,8 +124,19 @@ function Layout({ children }) {
         </footer>
         <style jsx global>{`
           blockquote {
-            border-left: 3px solid ${grey[500]};
+            display: block;
+            border-width: 2px 0;
+            border-style: solid;
+            border-color: ${mode === "light" ? grey[400] : grey[700]};
+            margin: 2.5rem 0;
+            margin-left: 0;
+            padding: 1.5em;
+            position: relative;
             font-style: italic;
+            color: ${mode === "light" ? grey[800] : grey[200]};
+          }
+          blockquote p {
+            margin: 0;
           }
         `}</style>
         <style jsx>{`
