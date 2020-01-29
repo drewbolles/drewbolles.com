@@ -31,7 +31,7 @@ function Home({ featuredProject }) {
         I have over a decade of professional experience, and have worked with
         all types of clients, from large Fortune 500 companies to small startups
         and local businesses. My focus has always been to create{" "}
-        <Text as="strong">fast</Text>, <Text as="strong">resilent</Text>, and{" "}
+        <Text as="strong">fast</Text>, <Text as="strong">resilient</Text>, and{" "}
         <Text as="strong">accessible</Text> sites and applications of the
         highest quality.
       </Text>
