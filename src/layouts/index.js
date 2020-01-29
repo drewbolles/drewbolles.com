@@ -21,6 +21,10 @@ function PostLayout({ title, __resourcePath, description }) {
           <div className="post-content">{content}</div>
           <DiscussionEmbed shortname="drewbolles" config={disqusConfig} />
           <style jsx>{`
+            .post {
+              max-width: 50em;
+              margin: 0 auto;
+            }
             .post-content {
               font-size: 18px;
               line-height: 1.66;
