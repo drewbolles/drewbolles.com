@@ -90,10 +90,6 @@ module.exports = withPlugins(
       {
         workboxOpts: {
           swDest: "static/service-worker.js",
-          modifyURLPrefix: {
-            "static/": "_next/static/",
-            "public/": "/",
-          },
           runtimeCaching: [
             {
               urlPattern: /^https?.*/,
