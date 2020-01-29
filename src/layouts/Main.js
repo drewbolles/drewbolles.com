@@ -122,6 +122,12 @@ function Layout({ children }) {
             &copy; Copyright {new Date().getFullYear()}. All Rights Reserved
           </p>
         </footer>
+        <style jsx global>{`
+          blockquote {
+            border-left: 3px solid ${grey[500]};
+            font-style: italic;
+          }
+        `}</style>
         <style jsx>{`
           a {
             color: inherit;
