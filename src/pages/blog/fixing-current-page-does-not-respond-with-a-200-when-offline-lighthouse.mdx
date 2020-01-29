@@ -4,9 +4,9 @@ description: "I recently ran into an issue where I had a valid Service Worker in
 date: "2020-01-29T09:23:42-0500"
 ---
 
-While working on Final Round, I was running lighthouse audit's and was increasingly frustrated by the audit telling me "Current page does not respond with a 200 when offline". This was despite the fact that I had a running Service Worker and a valid Web Manifest file. No matter how I tweaked the setting, I was unable to fix this error. The other frustrating part was I _swore_ this was working not too long ago.
+While working on Final Round, I was running lighthouse audits and was increasingly frustrated by the audit telling me "Current page does not respond with a 200 when offline". This was despite the fact that I had a running Service Worker and a valid Web Manifest file. No matter how I tweaked the settings, I was unable to fix this error. The other frustrating part was I _swore_ this was working not too long ago.
 
-> **Note** I'm using the [Next Offline](https://github.com/hanford/next-offline) package. This post is addressed the issue of having a Service Worker and Manifest file set up, yet still receiving this error. If you're not sure if you have the required files set up already, read [this article](https://codelabs.developers.google.com/codelabs/your-first-pwapp).
+> **Note:** I'm using the [Next Offline](https://github.com/hanford/next-offline) package. This post is addressed the issue of having a Service Worker and Manifest file set up, yet still receiving this error. If you're not sure if you have the required files set up already, read [this article](https://codelabs.developers.google.com/codelabs/your-first-pwapp).
 
 So, after downgrading Next, downgrading Next Offline, using canaries to no avail, I finally found the issue. And wouldn't you know it, it was a stupid little checkbox.
 
