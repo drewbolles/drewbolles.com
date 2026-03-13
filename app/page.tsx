@@ -290,24 +290,28 @@ export default function Home() {
             </a>
           )}
 
-          {/* Post grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-            {otherPosts.map((post) => (
+          {/* Post list */}
+          <div className="flex flex-col gap-4 border-t border-border pt-8">
+            {otherPosts.map((post, index) => (
               <a
                 key={post.title}
                 href="#"
-                className="group flex flex-col gap-3 p-6 bg-surface border border-border hover:border-accent-primary/40 rounded-lg hover:bg-surface-hover transition-all"
+                className="group flex items-center justify-between gap-4 py-4 px-4 -mx-4 hover:bg-surface transition-colors rounded"
               >
-                <h4 className="text-base font-semibold text-foreground leading-snug group-hover:text-accent-primary transition-colors">
-                  {post.title}
-                </h4>
-                <p className="text-sm text-foreground-muted leading-relaxed">
-                  {post.description}
-                </p>
-                <span className="flex items-center gap-1.5 text-xs font-medium text-accent-primary group-hover:gap-2 transition-all w-fit">
-                  Read
-                  <ArrowUpRight />
-                </span>
+                <div className="flex-1 min-w-0">
+                  <h4 className="text-base font-semibold text-foreground group-hover:text-accent-primary transition-colors leading-snug">
+                    {post.title}
+                  </h4>
+                  <p className="text-sm text-foreground-muted leading-relaxed mt-1">
+                    {post.description}
+                  </p>
+                </div>
+                <div className="flex-shrink-0 flex items-center gap-2">
+                  <span className="font-mono text-xs text-muted opacity-0 group-hover:opacity-100 transition-opacity">
+                    {index + 1 < 10 ? `0${index + 1}` : index + 1}
+                  </span>
+                  <ArrowUpRight className="text-accent-primary opacity-0 group-hover:opacity-100 transition-opacity" />
+                </div>
               </a>
             ))}
           </div>
