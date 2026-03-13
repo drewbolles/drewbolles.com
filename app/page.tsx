@@ -291,27 +291,20 @@ export default function Home() {
           )}
 
           {/* Post list */}
-          <div className="flex flex-col gap-4 border-t border-border pt-8">
+          <div className="flex flex-col border-t border-border">
             {otherPosts.map((post, index) => (
               <a
                 key={post.title}
                 href="#"
-                className="group flex items-center justify-between gap-4 py-4 px-4 -mx-4 hover:bg-surface transition-colors rounded"
+                className="group flex items-center justify-between gap-6 py-5 px-4 -mx-4 border-b border-border hover:bg-surface transition-colors rounded"
               >
-                <div className="flex-1 min-w-0">
-                  <h4 className="text-base font-semibold text-foreground group-hover:text-accent-primary transition-colors leading-snug">
-                    {post.title}
-                  </h4>
-                  <p className="text-sm text-foreground-muted leading-relaxed mt-1">
-                    {post.description}
-                  </p>
-                </div>
-                <div className="flex-shrink-0 flex items-center gap-2">
-                  <span className="font-mono text-xs text-muted opacity-0 group-hover:opacity-100 transition-opacity">
-                    {index + 1 < 10 ? `0${index + 1}` : index + 1}
-                  </span>
-                  <ArrowUpRight className="text-accent-primary opacity-0 group-hover:opacity-100 transition-opacity" />
-                </div>
+                <span className="font-mono text-xs text-muted-light w-6 flex-shrink-0">
+                  {index + 1 < 10 ? `0${index + 1}` : index + 1}
+                </span>
+                <h4 className="flex-1 text-base font-semibold text-foreground-muted group-hover:text-foreground transition-colors leading-snug">
+                  {post.title}
+                </h4>
+                <ArrowUpRight className="text-muted group-hover:text-accent-primary transition-colors flex-shrink-0" />
               </a>
             ))}
           </div>
