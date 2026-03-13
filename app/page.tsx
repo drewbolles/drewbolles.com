@@ -174,14 +174,14 @@ export default function Home() {
       <section id="about" className="w-full px-6 md:px-12 py-28">
         <div className="flex flex-col gap-16">
           <SectionHeading number="01" label="Focus" />
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             {/* Featured card - left side */}
             {focusAreas
               .filter((area) => area.featured)
               .map((area) => (
                 <div
                   key={area.title}
-                  className="md:col-span-2 flex flex-col gap-5 p-8 border border-border hover:border-accent-primary/40 rounded-lg bg-surface hover:bg-surface-hover transition-all group"
+                  className="flex flex-col gap-5 p-8 border border-border hover:border-accent-primary/40 rounded-lg bg-surface hover:bg-surface-hover transition-all group"
                 >
                   <div className="flex items-start gap-3">
                     <div className="text-accent-primary group-hover:text-accent-secondary transition-colors mt-0.5">
