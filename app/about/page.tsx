@@ -6,14 +6,14 @@ import { Footer } from "../components/Footer";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Staff Software Engineer with over a decade of experience specializing in React, TypeScript, and frontend architecture.",
+    "Software Engineer with over a decade of experience specializing in React, TypeScript, and frontend architecture.",
   alternates: {
     canonical: "/about",
   },
   openGraph: {
     title: "About — Drew Bolles",
     description:
-      "Staff Software Engineer with over a decade of experience specializing in React, TypeScript, and frontend architecture.",
+      "Software Engineer with over a decade of experience specializing in React, TypeScript, and frontend architecture.",
     url: "/about",
   },
 };
@@ -50,7 +50,7 @@ const personJsonLd = {
   "@type": "Person",
   name: "Drew Bolles",
   url: "https://www.drewbolles.com",
-  jobTitle: "Staff Software Engineer",
+  jobTitle: "Software Engineer",
   worksFor: {
     "@type": "Organization",
     name: "Trellis Technologies",

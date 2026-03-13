@@ -16,11 +16,11 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.drewbolles.com"),
   title: {
-    default: "Drew Bolles — Staff Software Engineer",
+    default: "Drew Bolles — Software Engineer",
     template: "%s — Drew Bolles",
   },
   description:
-    "Staff Software Engineer building frontend systems, product interfaces, and AI-powered experiences. Writing about React, TypeScript, and the modern web.",
+    "Software Engineer building frontend systems, product interfaces, and AI-powered experiences. Writing about React, TypeScript, and the modern web.",
   authors: [{ name: "Drew Bolles", url: "https://www.drewbolles.com" }],
   creator: "Drew Bolles",
   openGraph: {
@@ -28,22 +28,13 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://www.drewbolles.com",
     siteName: "Drew Bolles",
-    title: "Drew Bolles — Staff Software Engineer",
+    title: "Drew Bolles — Software Engineer",
     description:
-      "Staff Software Engineer building frontend systems, product interfaces, and AI-powered experiences.",
-    images: [
-      {
-        url: "/og-image.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Drew Bolles - Software Engineer",
-      },
-    ],
+      "Software Engineer building frontend systems, product interfaces, and AI-powered experiences.",
   },
   twitter: {
     card: "summary_large_image",
     creator: "@bollskis",
-    images: ["/og-image.jpg"],
   },
   alternates: {
     canonical: "https://www.drewbolles.com",
