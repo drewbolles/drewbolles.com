@@ -1,6 +1,8 @@
+import Link from "next/link";
 import { Header } from "./components/Header";
 import { Footer } from "./components/Footer";
 import { SectionHeading } from "./components/SectionHeading";
+import { getAllPosts } from "@/lib/posts";
 
 const focusAreas = [
   {
@@ -76,39 +78,10 @@ const focusAreas = [
   },
 ];
 
-const posts = [
-  {
-    date: "2024.11",
-    title: "Privacy-focused analytics alternatives to Google Analytics",
-    description:
-      "A deep dive into Plausible, Fathom, and Umami — privacy-respecting analytics tools that give you the insights you need without trading your visitors' data. Includes setup guides, pricing comparisons, and migration tips.",
-    featured: true,
-  },
-  {
-    date: "2024.08",
-    title: "Vercel vs Netlify: choosing a hosting platform in 2024",
-    description:
-      "A practical comparison of pricing, DX, and performance for modern web apps.",
-  },
-  {
-    date: "2024.05",
-    title: "Adding syntax highlighting and RSS to a Next.js blog",
-    description:
-      "Integrating rehype-pretty-code and generating RSS feeds for a modern blog.",
-  },
-  {
-    date: "2024.02",
-    title: "Why I pay for software instead of trading my data",
-    description:
-      "An argument for choosing paid tools that respect your privacy over free alternatives.",
-  },
-  {
-    date: "2023.11",
-    title: "Building a modern personal site with Next.js and MDX",
-    description:
-      "How I rebuilt this site using the App Router, Tailwind, and content collections.",
-  },
-];
+function formatDate(dateStr: string) {
+  const d = new Date(dateStr);
+  return `${d.getFullYear()}.${String(d.getMonth() + 1).padStart(2, "0")}`;
+}
 
 function ArrowUpRight({ className }: { className?: string }) {
   return (
@@ -130,8 +103,9 @@ function ArrowUpRight({ className }: { className?: string }) {
 }
 
 export default function Home() {
-  const featuredPost = posts.find((p) => p.featured);
-  const otherPosts = posts.filter((p) => !p.featured);
+  const allPosts = getAllPosts();
+  const featuredPost = allPosts[0];
+  const otherPosts = allPosts.slice(1, 5);
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -204,8 +178,8 @@ export default function Home() {
 
           {/* Featured post */}
           {featuredPost && (
-            <a
-              href="#"
+            <Link
+              href={`/blog/${featuredPost.slug}`}
               className="group flex flex-col gap-6 p-8 md:p-10 bg-surface border border-border rounded-2xl hover:border-accent/30 transition-colors"
             >
               <div className="flex items-center gap-3">
@@ -213,7 +187,7 @@ export default function Home() {
                   Latest
                 </span>
                 <span className="font-mono text-[13px] text-muted-light">
-                  {featuredPost.date}
+                  {formatDate(featuredPost.date)}
                 </span>
               </div>
               <h3 className="text-2xl md:text-[28px] font-bold text-foreground tracking-tight leading-tight max-w-[720px]">
@@ -238,19 +212,19 @@ export default function Home() {
                   <polyline points="12 5 19 12 12 19" />
                 </svg>
               </span>
-            </a>
+            </Link>
           )}
 
           {/* Post grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             {otherPosts.map((post) => (
-              <a
-                key={post.title}
-                href="#"
+              <Link
+                key={post.slug}
+                href={`/blog/${post.slug}`}
                 className="group flex flex-col gap-4 p-7 bg-surface border border-border rounded-xl hover:border-accent/30 transition-colors"
               >
                 <span className="font-mono text-xs text-muted-light">
-                  {post.date}
+                  {formatDate(post.date)}
                 </span>
                 <h4 className="text-[17px] font-semibold text-foreground leading-snug">
                   {post.title}
@@ -262,7 +236,7 @@ export default function Home() {
                   Read
                   <ArrowUpRight />
                 </span>
-              </a>
+              </Link>
             ))}
           </div>
         </div>

@@ -12,7 +12,7 @@ export function Header() {
           about
         </a>
         <a
-          href="#writing"
+          href="/blog"
           className="font-mono text-[13px] text-white/50 hover:text-white/80 transition-colors"
         >
           blog
