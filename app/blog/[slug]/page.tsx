@@ -22,13 +22,30 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params;
   const post = getPostBySlug(slug);
+  const url = `/blog/${slug}`;
+
   return {
-    title: `${post.title} — Drew Bolles`,
+    title: post.title,
     description: post.description,
+    alternates: {
+      canonical: url,
+    },
     openGraph: {
+      type: "article",
       title: post.title,
       description: post.description,
-      images: post.image ? [{ url: post.image }] : [],
+      url,
+      publishedTime: new Date(post.date).toISOString(),
+      authors: ["Drew Bolles"],
+      images: post.image
+        ? [{ url: post.image, width: 1200, height: 630, alt: post.title }]
+        : [],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.title,
+      description: post.description,
+      images: post.image ? [post.image] : [],
     },
   };
 }
@@ -59,8 +76,35 @@ export default async function BlogPostPage({
   const post = getPostBySlug(slug);
   const MDXContent = await compileMDX(post.content);
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: post.title,
+    description: post.description,
+    datePublished: new Date(post.date).toISOString(),
+    dateModified: new Date(post.date).toISOString(),
+    author: {
+      "@type": "Person",
+      name: "Drew Bolles",
+      url: "https://www.drewbolles.com",
+    },
+    publisher: {
+      "@type": "Person",
+      name: "Drew Bolles",
+      url: "https://www.drewbolles.com",
+    },
+    url: `https://www.drewbolles.com/blog/${slug}`,
+    ...(post.image && {
+      image: `https://www.drewbolles.com${post.image}`,
+    }),
+  };
+
   return (
     <div className="flex flex-col min-h-screen">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       {/* Hero */}
       <section className="relative w-full bg-background overflow-hidden">
         <div

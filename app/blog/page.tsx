@@ -5,8 +5,18 @@ import { Footer } from "../components/Footer";
 import { getAllPosts } from "@/lib/posts";
 
 export const metadata: Metadata = {
-  title: "Writing — Drew Bolles",
-  description: "Articles on frontend engineering, product, and AI.",
+  title: "Writing",
+  description:
+    "Articles on frontend engineering, web performance, React, TypeScript, and building for the modern web.",
+  alternates: {
+    canonical: "/blog",
+  },
+  openGraph: {
+    title: "Writing — Drew Bolles",
+    description:
+      "Articles on frontend engineering, web performance, React, TypeScript, and building for the modern web.",
+    url: "/blog",
+  },
 };
 
 export default function BlogPage() {

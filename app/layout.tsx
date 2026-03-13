@@ -13,9 +13,42 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Drew Bolles — Staff Software Engineer",
+  metadataBase: new URL("https://www.drewbolles.com"),
+  title: {
+    default: "Drew Bolles — Staff Software Engineer",
+    template: "%s — Drew Bolles",
+  },
   description:
-    "Building frontend systems, product interfaces, and AI-powered experiences at Trellis Technologies.",
+    "Staff Software Engineer building frontend systems, product interfaces, and AI-powered experiences. Writing about React, TypeScript, and the modern web.",
+  authors: [{ name: "Drew Bolles", url: "https://www.drewbolles.com" }],
+  creator: "Drew Bolles",
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://www.drewbolles.com",
+    siteName: "Drew Bolles",
+    title: "Drew Bolles — Staff Software Engineer",
+    description:
+      "Staff Software Engineer building frontend systems, product interfaces, and AI-powered experiences.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    creator: "@drewbolles",
+  },
+  alternates: {
+    canonical: "https://www.drewbolles.com",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
 };
 
 export default function RootLayout({

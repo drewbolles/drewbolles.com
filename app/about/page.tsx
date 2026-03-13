@@ -4,8 +4,18 @@ import { Header } from "../components/Header";
 import { Footer } from "../components/Footer";
 
 export const metadata: Metadata = {
-  title: "About — Drew Bolles",
-  description: "Software Engineer focused on frontend development, performance, and JavaScript applications.",
+  title: "About",
+  description:
+    "Staff Software Engineer with over a decade of experience specializing in React, TypeScript, and frontend architecture.",
+  alternates: {
+    canonical: "/about",
+  },
+  openGraph: {
+    title: "About — Drew Bolles",
+    description:
+      "Staff Software Engineer with over a decade of experience specializing in React, TypeScript, and frontend architecture.",
+    url: "/about",
+  },
 };
 
 const experience = [
