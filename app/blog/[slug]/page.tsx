@@ -7,6 +7,7 @@ import remarkGfm from "remark-gfm";
 import rehypePrettyCode from "rehype-pretty-code";
 import { Header } from "../../components/Header";
 import { Footer } from "../../components/Footer";
+import { HeroBackground } from "../../components/HeroBackground";
 import { getAllPosts, getPostBySlug } from "@/lib/posts";
 import { components } from "./mdx-components";
 
@@ -135,22 +136,7 @@ export default async function BlogPostPage({
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
       {/* Hero */}
-      <section className="relative w-full bg-background overflow-hidden">
-        <div
-          className="absolute inset-0"
-          style={{
-            backgroundImage: `radial-gradient(circle, rgba(95, 163, 255, 0.06) 1px, transparent 1px)`,
-            backgroundSize: "40px 40px",
-            backgroundPosition: "0 0",
-          }}
-        />
-        <div
-          className="absolute inset-0"
-          style={{
-            background:
-              "radial-gradient(circle at 70% 30%, rgba(74, 158, 255, 0.05) 0%, transparent 60%), radial-gradient(circle at 20% 80%, rgba(0, 212, 170, 0.03) 0%, transparent 50%)",
-          }}
-        />
+      <HeroBackground>
         <Header />
         <div className="relative px-6 md:px-12 pt-28 pb-16 flex flex-col gap-6 max-w-5xl mx-auto">
           <Link
@@ -179,7 +165,7 @@ export default async function BlogPostPage({
             {post.readingTime}
           </span>
         </div>
-      </section>
+      </HeroBackground>
 
       {post.image && (
         <div className="w-full">

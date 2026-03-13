@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Header } from "../components/Header";
 import { Footer } from "../components/Footer";
+import { HeroBackground } from "../components/HeroBackground";
 import { getAllPosts } from "@/lib/posts";
 
 export const metadata: Metadata = {
@@ -25,22 +26,7 @@ export default function BlogPage() {
   return (
     <div className="flex flex-col min-h-screen">
       {/* Hero */}
-      <section className="relative w-full bg-background overflow-hidden">
-        <div
-          className="absolute inset-0"
-          style={{
-            backgroundImage: `radial-gradient(circle, rgba(95, 163, 255, 0.06) 1px, transparent 1px)`,
-            backgroundSize: "40px 40px",
-            backgroundPosition: "0 0",
-          }}
-        />
-        <div
-          className="absolute inset-0"
-          style={{
-            background:
-              "radial-gradient(circle at 70% 30%, rgba(74, 158, 255, 0.05) 0%, transparent 60%), radial-gradient(circle at 20% 80%, rgba(0, 212, 170, 0.03) 0%, transparent 50%)",
-          }}
-        />
+      <HeroBackground>
         <Header />
         <div className="relative px-6 md:px-12 pt-28 pb-20 flex flex-col gap-4 max-w-5xl mx-auto">
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-foreground tracking-[-0.02em] leading-[1.1]">
@@ -50,7 +36,7 @@ export default function BlogPage() {
             Thoughts on frontend, product, and AI
           </p>
         </div>
-      </section>
+      </HeroBackground>
 
       {/* Blog posts list */}
       <section className="w-full py-20">

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Header } from "./components/Header";
 import { Footer } from "./components/Footer";
+import { HeroBackground } from "./components/HeroBackground";
 
 export const metadata: Metadata = {
   title: "Page Not Found",
@@ -11,15 +12,7 @@ export const metadata: Metadata = {
 export default function NotFound() {
   return (
     <div className="flex flex-col min-h-screen">
-      <section className="relative w-full bg-background overflow-hidden">
-        <div
-          className="absolute inset-0"
-          style={{
-            backgroundImage: `radial-gradient(circle, rgba(95, 163, 255, 0.06) 1px, transparent 1px)`,
-            backgroundSize: "40px 40px",
-            backgroundPosition: "0 0",
-          }}
-        />
+      <HeroBackground>
         <Header />
         <div className="relative px-6 md:px-12 pt-28 pb-20 flex flex-col gap-6 max-w-5xl mx-auto">
           <span className="font-mono text-xs text-accent-primary">
@@ -29,7 +22,7 @@ export default function NotFound() {
             Page not found
           </h1>
           <p className="text-base text-muted leading-relaxed max-w-lg">
-            The page you're looking for doesn't exist or has been moved.
+            The page you&#39;re looking for doesn&#39;t exist or has been moved.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mt-4">
             <Link
@@ -50,7 +43,7 @@ export default function NotFound() {
             </Link>
           </div>
         </div>
-      </section>
+      </HeroBackground>
 
       <Footer />
     </div>
