@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import { Inter, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 
@@ -65,6 +66,7 @@ export default function RootLayout({
         className={`${inter.variable} ${jetbrainsMono.variable} antialiased font-sans`}
       >
         {children}
+        <GoogleAnalytics gaId="G-D2ZXBJHGZD" />
       </body>
     </html>
   );
