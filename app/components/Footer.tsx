@@ -1,7 +1,7 @@
 export function Footer() {
   return (
     <footer className="w-full bg-surface-alt px-6 md:px-12 pt-20 pb-12">
-      <div className="flex flex-col gap-12">
+      <div className="flex flex-col gap-12 max-w-4xl mx-auto">
         {/* Main footer content */}
         <div className="flex flex-col md:flex-row justify-between items-start gap-12">
           <div className="flex flex-col gap-4 flex-1">
