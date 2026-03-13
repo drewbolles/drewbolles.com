@@ -182,8 +182,8 @@ export default async function BlogPostPage({
       </section>
 
       {post.image && (
-        <div className="w-full px-6 md:px-12">
-          <div className="max-w-3xl mx-auto -mt-4">
+        <div className="w-full">
+          <div className="max-w-3xl mx-auto px-6 md:px-12 -mt-4">
             <Image
               src={post.image}
               alt={post.title}
@@ -196,8 +196,8 @@ export default async function BlogPostPage({
         </div>
       )}
 
-      <article className="w-full px-6 md:px-12 py-16">
-        <div className="max-w-3xl mx-auto">
+      <article className="w-full py-16">
+        <div className="max-w-3xl mx-auto px-6 md:px-12">
           <MDXContent components={components} />
           
           {/* Share section */}

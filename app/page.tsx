@@ -171,8 +171,8 @@ export default function Home() {
       </section>
 
       {/* Focus */}
-      <section id="about" className="w-full px-6 md:px-12 py-28">
-        <div className="flex flex-col gap-16 max-w-5xl mx-auto">
+      <section id="about" className="w-full py-28">
+        <div className="flex flex-col gap-16 max-w-5xl mx-auto px-6 md:px-12">
           <SectionHeading number="01" label="Focus" />
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             {/* Featured card - left side */}
@@ -247,9 +247,9 @@ export default function Home() {
       {/* Writing */}
       <section
         id="writing"
-        className="w-full px-6 md:px-12 py-28 bg-surface-alt"
+        className="w-full py-28 bg-surface-alt"
       >
-        <div className="flex flex-col gap-16 max-w-5xl mx-auto">
+        <div className="flex flex-col gap-16 max-w-5xl mx-auto px-6 md:px-12">
           <SectionHeading
             number="02"
             label="Writing"

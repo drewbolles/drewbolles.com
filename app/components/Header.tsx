@@ -13,7 +13,7 @@ export function Header() {
 
   return (
     <header className="w-full bg-background/50 backdrop-blur-sm border-b border-border/30 sticky top-0 z-50">
-      <div className="flex items-center justify-between px-6 md:px-12 py-8 w-full">
+      <div className="flex items-center justify-between px-6 md:px-12 py-8 w-full max-w-5xl mx-auto">
         <Link
           href="/"
           className="font-mono text-base font-semibold text-foreground tracking-tight hover:text-accent-primary transition-colors"

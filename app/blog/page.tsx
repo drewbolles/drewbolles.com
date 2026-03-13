@@ -53,8 +53,8 @@ export default function BlogPage() {
       </section>
 
       {/* Blog posts list */}
-      <section className="w-full px-6 md:px-12 py-20">
-        <div className="flex flex-col max-w-5xl mx-auto border-t border-border">
+      <section className="w-full py-20">
+        <div className="flex flex-col max-w-5xl mx-auto px-6 md:px-12 border-t border-border">
           {posts.map((post) => (
             <Link
               key={post.slug}

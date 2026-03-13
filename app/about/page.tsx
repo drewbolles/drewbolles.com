@@ -105,8 +105,8 @@ export default function AboutPage() {
       </section>
 
       {/* Content */}
-      <section className="w-full px-6 md:px-12 py-20">
-        <div className="flex flex-col gap-20 max-w-5xl mx-auto">
+      <section className="w-full py-20">
+        <div className="flex flex-col gap-20 max-w-5xl mx-auto px-6 md:px-12">
           {/* Bio */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
             <div className="flex flex-col gap-6">
