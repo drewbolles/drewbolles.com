@@ -292,19 +292,24 @@ export default function Home() {
 
           {/* Post list */}
           <div className="flex flex-col border-t border-border">
-            {otherPosts.map((post, index) => (
+            {otherPosts.map((post) => (
               <a
                 key={post.title}
                 href="#"
-                className="group flex items-center justify-between gap-6 py-5 px-4 -mx-4 border-b border-border hover:bg-surface transition-colors rounded"
+                className="group flex items-start gap-4 py-6 border-b border-border hover:bg-surface transition-colors px-4 -mx-4 rounded"
               >
-                <span className="font-mono text-xs text-muted-light w-6 flex-shrink-0">
-                  {index + 1 < 10 ? `0${index + 1}` : index + 1}
+                <span className="font-mono text-accent-primary text-sm mt-0.5 flex-shrink-0">
+                  &gt;
                 </span>
-                <h4 className="flex-1 text-base font-semibold text-foreground-muted group-hover:text-foreground transition-colors leading-snug">
-                  {post.title}
-                </h4>
-                <ArrowUpRight className="text-muted group-hover:text-accent-primary transition-colors flex-shrink-0" />
+                <div className="flex-1 min-w-0">
+                  <h4 className="text-base font-semibold text-foreground group-hover:text-accent-primary transition-colors leading-snug">
+                    {post.title}
+                  </h4>
+                  <p className="text-sm text-muted leading-relaxed mt-1.5">
+                    {post.description}
+                  </p>
+                </div>
+                <ArrowUpRight className="text-muted group-hover:text-accent-primary transition-colors flex-shrink-0 mt-1" />
               </a>
             ))}
           </div>
