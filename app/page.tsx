@@ -7,6 +7,7 @@ const focusAreas = [
     title: "Frontend",
     description:
       "Architecting scalable component systems, design systems, and performance-critical interfaces with React and TypeScript.",
+    tags: ["React", "TypeScript", "Design Systems", "Performance"],
     icon: (
       <svg
         width="20"
@@ -22,11 +23,13 @@ const focusAreas = [
         <polyline points="8 6 2 12 8 18" />
       </svg>
     ),
+    featured: true,
   },
   {
     title: "Product",
     description:
       "Bridging engineering and product strategy to ship features that solve real user problems with pragmatic delivery.",
+    tags: ["Strategy", "Iteration", "UX"],
     icon: (
       <svg
         width="20"
@@ -48,6 +51,7 @@ const focusAreas = [
     title: "AI",
     description:
       "Building AI-powered interfaces and integrating large language models into product experiences that feel natural and useful.",
+    tags: ["LLMs", "RAG", "Prompt Engineering"],
     icon: (
       <svg
         width="20"
@@ -171,24 +175,71 @@ export default function Home() {
         <div className="flex flex-col gap-16">
           <SectionHeading number="01" label="Focus" />
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-            {focusAreas.map((area) => (
-              <div
-                key={area.title}
-                className="flex flex-col gap-4 p-6 border border-border hover:border-accent-primary/40 rounded-lg bg-surface hover:bg-surface-hover transition-all group"
-              >
-                <div className="flex items-center gap-3">
-                  <div className="text-accent-primary group-hover:text-accent-secondary transition-colors">
-                    {area.icon}
+            {/* Featured card - left side */}
+            {focusAreas
+              .filter((area) => area.featured)
+              .map((area) => (
+                <div
+                  key={area.title}
+                  className="md:col-span-2 flex flex-col gap-5 p-8 border border-border hover:border-accent-primary/40 rounded-lg bg-surface hover:bg-surface-hover transition-all group"
+                >
+                  <div className="flex items-start gap-3">
+                    <div className="text-accent-primary group-hover:text-accent-secondary transition-colors mt-0.5">
+                      {area.icon}
+                    </div>
+                    <h3 className="text-2xl font-semibold text-foreground tracking-tight">
+                      {area.title}
+                    </h3>
                   </div>
-                  <h3 className="text-base font-semibold text-foreground tracking-tight">
-                    {area.title}
-                  </h3>
+                  <p className="text-base text-foreground-muted leading-relaxed">
+                    {area.description}
+                  </p>
+                  <div className="flex flex-wrap gap-2 pt-2">
+                    {area.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="font-mono text-xs px-2.5 py-1.5 bg-surface-alt border border-border rounded text-muted-light"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
                 </div>
-                <p className="text-sm text-foreground-muted leading-relaxed">
-                  {area.description}
-                </p>
-              </div>
-            ))}
+              ))}
+
+            {/* Smaller cards - right side */}
+            <div className="flex flex-col gap-5">
+              {focusAreas
+                .filter((area) => !area.featured)
+                .map((area) => (
+                  <div
+                    key={area.title}
+                    className="flex flex-col gap-4 p-6 border border-border hover:border-accent-primary/40 rounded-lg bg-surface hover:bg-surface-hover transition-all group"
+                  >
+                    <div className="flex items-start gap-3">
+                      <div className="text-accent-primary group-hover:text-accent-secondary transition-colors mt-0.5">
+                        {area.icon}
+                      </div>
+                      <h4 className="text-lg font-semibold text-foreground tracking-tight">
+                        {area.title}
+                      </h4>
+                    </div>
+                    <p className="text-sm text-foreground-muted leading-relaxed">
+                      {area.description}
+                    </p>
+                    <div className="flex flex-wrap gap-1.5 pt-1">
+                      {area.tags.map((tag) => (
+                        <span
+                          key={tag}
+                          className="font-mono text-[11px] px-2 py-1 bg-surface-alt border border-border rounded text-muted-light"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+            </div>
           </div>
         </div>
       </section>
