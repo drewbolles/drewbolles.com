@@ -2,135 +2,120 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Header } from "../components/Header";
 import { Footer } from "../components/Footer";
-import { SectionHeading } from "../components/SectionHeading";
 import { getAllPosts } from "@/lib/posts";
 
 export const metadata: Metadata = {
-  title: "Blog — Drew Bolles",
-  description:
-    "Writing about frontend engineering, web performance, and building for the modern web.",
+  title: "Writing — Drew Bolles",
+  description: "Articles on frontend engineering, product, and AI.",
 };
 
-function formatDate(dateStr: string) {
-  const d = new Date(dateStr);
-  return d.toLocaleDateString("en-US", {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  });
+interface PostsByYear {
+  [key: number]: typeof posts;
 }
 
 export default function BlogPage() {
   const posts = getAllPosts();
-  const [featured, ...rest] = posts;
+
+  // Group posts by year
+  const postsByYear: PostsByYear = posts.reduce(
+    (acc, post) => {
+      const year = new Date(post.date).getFullYear();
+      if (!acc[year]) {
+        acc[year] = [];
+      }
+      acc[year].push(post);
+      return acc;
+    },
+    {} as PostsByYear
+  );
+
+  const years = Object.keys(postsByYear)
+    .map(Number)
+    .sort((a, b) => b - a);
 
   return (
     <div className="flex flex-col min-h-screen">
-      <section className="relative w-full bg-hero-bg overflow-hidden">
+      {/* Hero */}
+      <section className="relative w-full bg-background overflow-hidden">
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage: `radial-gradient(circle, rgba(95, 163, 255, 0.06) 1px, transparent 1px)`,
+            backgroundSize: "40px 40px",
+            backgroundPosition: "0 0",
+          }}
+        />
         <div
           className="absolute inset-0"
           style={{
             background:
-              "radial-gradient(circle at 70% 30%, rgba(37, 99, 235, 0.12) 0%, transparent 60%), radial-gradient(circle at 20% 80%, rgba(37, 99, 235, 0.06) 0%, transparent 50%)",
+              "radial-gradient(circle at 70% 30%, rgba(74, 158, 255, 0.05) 0%, transparent 60%), radial-gradient(circle at 20% 80%, rgba(0, 212, 170, 0.03) 0%, transparent 50%)",
           }}
         />
         <Header />
-        <div className="relative px-6 md:px-[180px] pt-16 pb-20">
-          <h1 className="text-4xl md:text-[56px] font-bold text-white tracking-[-0.04em] leading-[1.1]">
-            Blog
+        <div className="relative px-6 md:px-12 pt-28 pb-20 flex flex-col gap-4 max-w-5xl mx-auto">
+          <h1 className="text-5xl md:text-6xl font-bold text-foreground tracking-[-0.02em] leading-[1.1]">
+            Writing
           </h1>
-          <p className="mt-4 text-lg text-white/50 max-w-[480px]">
-            Writing about frontend engineering, web performance, and the modern
-            web.
+          <p className="text-base text-muted leading-relaxed">
+            Thoughts on frontend, product, and AI
           </p>
         </div>
       </section>
 
-      <section className="w-full px-6 md:px-[180px] py-24">
-        <div className="flex flex-col gap-14">
-          <SectionHeading number="01" label="All Posts" />
-
-          {featured && (
-            <Link
-              href={`/blog/${featured.slug}`}
-              className="group flex flex-col gap-6 p-8 md:p-10 bg-surface border border-border rounded-2xl hover:border-accent/30 transition-colors"
-            >
-              <div className="flex items-center gap-3">
-                <span className="font-mono text-[11px] font-medium text-accent bg-accent-light px-2.5 py-1 rounded-md">
-                  Latest
+      {/* Blog posts list */}
+      <section className="w-full px-6 md:px-12 py-20">
+        <div className="flex flex-col gap-20 max-w-5xl mx-auto">
+          {years.map((year) => (
+            <div key={year} className="flex flex-col gap-8">
+              {/* Year header */}
+              <div className="flex items-baseline gap-4 pb-4 border-b border-border">
+                <span className="font-mono text-base font-bold text-accent-primary">
+                  {year}
                 </span>
-                <span className="font-mono text-[13px] text-muted-light">
-                  {formatDate(featured.date)}
-                </span>
-                <span className="font-mono text-[13px] text-muted-light">
-                  {featured.readingTime}
+                <span className="font-mono text-xs text-muted">
+                  {postsByYear[year].length} article{postsByYear[year].length !== 1 ? "s" : ""}
                 </span>
               </div>
-              <h3 className="text-2xl md:text-[28px] font-bold text-foreground tracking-tight leading-tight max-w-[720px]">
-                {featured.title}
-              </h3>
-              <p className="text-base text-muted leading-relaxed max-w-[720px]">
-                {featured.description}
-              </p>
-              <span className="flex items-center gap-2 text-sm font-medium text-accent group-hover:gap-3 transition-all">
-                Read article
-                <svg
-                  width="14"
-                  height="14"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <line x1="5" y1="12" x2="19" y2="12" />
-                  <polyline points="12 5 19 12 12 19" />
-                </svg>
-              </span>
-            </Link>
-          )}
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-            {rest.map((post) => (
-              <Link
-                key={post.slug}
-                href={`/blog/${post.slug}`}
-                className="group flex flex-col gap-4 p-7 bg-surface border border-border rounded-xl hover:border-accent/30 transition-colors"
-              >
-                <div className="flex items-center gap-3">
-                  <span className="font-mono text-xs text-muted-light">
-                    {formatDate(post.date)}
-                  </span>
-                  <span className="font-mono text-xs text-muted-light">
-                    {post.readingTime}
-                  </span>
-                </div>
-                <h4 className="text-[17px] font-semibold text-foreground leading-snug">
-                  {post.title}
-                </h4>
-                <p className="text-sm text-muted leading-relaxed">
-                  {post.description}
-                </p>
-                <span className="flex items-center gap-1.5 text-[13px] font-medium text-accent">
-                  Read
-                  <svg
-                    width="12"
-                    height="12"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2.5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
+              {/* Posts for this year */}
+              <div className="flex flex-col border-t border-border">
+                {postsByYear[year].map((post) => (
+                  <Link
+                    key={post.slug}
+                    href={`/blog/${post.slug}`}
+                    className="group flex items-start gap-4 py-6 px-4 -mx-4 border-b border-border hover:bg-surface transition-colors rounded"
                   >
-                    <line x1="7" y1="17" x2="17" y2="7" />
-                    <polyline points="7 7 17 7 17 17" />
-                  </svg>
-                </span>
-              </Link>
-            ))}
-          </div>
+                    <span className="font-mono text-accent-primary text-sm mt-0.5 flex-shrink-0">
+                      &gt;
+                    </span>
+                    <div className="flex-1 min-w-0">
+                      <h3 className="text-lg font-semibold text-foreground group-hover:text-accent-primary transition-colors leading-snug">
+                        {post.title}
+                      </h3>
+                      <p className="text-sm text-muted leading-relaxed mt-1.5">
+                        {post.description}
+                      </p>
+                    </div>
+                    <svg
+                      width="16"
+                      height="16"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className="text-muted group-hover:text-accent-primary transition-colors flex-shrink-0 mt-1"
+                    >
+                      <line x1="7" y1="17" x2="17" y2="7" />
+                      <polyline points="7 7 17 7 17 17" />
+                    </svg>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          ))}
         </div>
       </section>
 
