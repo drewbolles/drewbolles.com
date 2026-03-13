@@ -1,6 +1,6 @@
 export function HeroBackground({ children }: { children: React.ReactNode }) {
   return (
-    <section className="relative w-full bg-background overflow-hidden">
+    <div className="relative w-full bg-background overflow-hidden">
       <div
         className="absolute inset-0"
         style={{
@@ -17,6 +17,6 @@ export function HeroBackground({ children }: { children: React.ReactNode }) {
         }}
       />
       {children}
-    </section>
+    </div>
   );
 }

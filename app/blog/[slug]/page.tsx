@@ -168,17 +168,15 @@ export default async function BlogPostPage({
       </HeroBackground>
 
       {post.image && (
-        <div className="w-full">
-          <div className="max-w-3xl mx-auto px-6 md:px-12 -mt-4">
-            <Image
-              src={post.image}
-              alt={post.title}
-              width={1200}
-              height={630}
-              className="rounded-lg w-full object-cover"
-              priority
-            />
-          </div>
+        <div className="max-w-3xl mx-auto px-6 md:px-12 -mt-4">
+          <Image
+            src={post.image}
+            alt={post.title}
+            width={1200}
+            height={630}
+            className="rounded-lg w-full object-cover"
+            priority
+          />
         </div>
       )}
 

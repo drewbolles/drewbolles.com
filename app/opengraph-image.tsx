@@ -9,22 +9,22 @@ export const size = {
 };
 export const contentType = "image/png";
 
+const interData = fetch(
+  new URL(
+    "https://fonts.gstatic.com/s/inter/v18/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuLyfAZ9hjQ.woff2"
+  )
+).then((res) => res.arrayBuffer());
+
+const jetbrainsData = fetch(
+  new URL(
+    "https://fonts.gstatic.com/s/jetbrainsmono/v21/tDbY2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8yKxjPVmUsaaDhw.woff2"
+  )
+).then((res) => res.arrayBuffer());
+
 export default async function Image() {
-  const inter = fetch(
-    new URL(
-      "https://fonts.gstatic.com/s/inter/v18/UcCO3FwrK3iLTeHuS_nVMrMxCp50SjIw2boKoduKmMEVuLyfAZ9hjQ.woff2"
-    )
-  ).then((res) => res.arrayBuffer());
-
-  const jetbrainsMono = fetch(
-    new URL(
-      "https://fonts.gstatic.com/s/jetbrainsmono/v21/tDbY2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8yKxjPVmUsaaDhw.woff2"
-    )
-  ).then((res) => res.arrayBuffer());
-
-  const [interData, jetbrainsData] = await Promise.all([
-    inter,
-    jetbrainsMono,
+  const [interFont, jetbrainsFont] = await Promise.all([
+    interData,
+    jetbrainsData,
   ]);
 
   return new ImageResponse(
@@ -37,7 +37,7 @@ export default async function Image() {
           flexDirection: "column",
           justifyContent: "center",
           padding: "80px",
-          backgroundColor: "#0f172a",
+          backgroundColor: "#0a0e1a",
           position: "relative",
         }}
       >
@@ -114,7 +114,7 @@ export default async function Image() {
               marginTop: "8px",
             }}
           >
-            <span style={{ color: "#00d4aa" }}>&gt;</span>
+            <span style={{ color: "#1adbab" }}>&gt;</span>
             <span style={{ color: "rgba(255,255,255,0.3)", marginLeft: "10px" }}>
               frontend · product · ai
             </span>
@@ -134,7 +134,7 @@ export default async function Image() {
           }}
         >
           <span style={{ color: "#5fa3ff" }}>d</span>
-          <span style={{ color: "#00d4aa" }}>b</span>
+          <span style={{ color: "#1adbab" }}>b</span>
         </div>
       </div>
     ),
@@ -143,13 +143,13 @@ export default async function Image() {
       fonts: [
         {
           name: "Inter",
-          data: interData,
+          data: interFont,
           style: "normal",
           weight: 700,
         },
         {
           name: "JetBrains Mono",
-          data: jetbrainsData,
+          data: jetbrainsFont,
           style: "normal",
           weight: 700,
         },

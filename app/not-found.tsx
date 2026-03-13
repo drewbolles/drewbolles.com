@@ -22,7 +22,7 @@ export default function NotFound() {
             Page not found
           </h1>
           <p className="text-base text-muted leading-relaxed max-w-lg">
-            The page you&#39;re looking for doesn&#39;t exist or has been moved.
+            The page you&apos;re looking for doesn&apos;t exist or has been moved.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mt-4">
             <Link
