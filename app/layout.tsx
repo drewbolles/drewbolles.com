@@ -31,10 +31,19 @@ export const metadata: Metadata = {
     title: "Drew Bolles — Staff Software Engineer",
     description:
       "Staff Software Engineer building frontend systems, product interfaces, and AI-powered experiences.",
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Drew Bolles - Software Engineer",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     creator: "@drewbolles",
+    images: ["/og-image.jpg"],
   },
   alternates: {
     canonical: "https://www.drewbolles.com",
@@ -52,6 +61,11 @@ export const metadata: Metadata = {
       "max-image-preview": "large",
       "max-snippet": -1,
     },
+  },
+  icons: {
+    icon: "/favicon.jpg",
+    shortcut: "/favicon.jpg",
+    apple: "/favicon.jpg",
   },
 };
 
