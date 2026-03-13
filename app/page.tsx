@@ -236,14 +236,9 @@ export default function Home() {
               href={`/blog/${featuredPost.slug}`}
               className="group flex flex-col gap-6 p-8 bg-surface border border-border hover:border-accent-primary/40 rounded-lg hover:bg-surface-hover transition-all"
             >
-              <div className="flex items-center gap-3">
-                <span className="font-mono text-[10px] font-bold text-accent-primary bg-accent-primary/10 px-2.5 py-1 rounded w-fit">
-                  LATEST
-                </span>
-                <span className="font-mono text-[13px] text-muted-light">
-                  {formatDate(featuredPost.date)}
-                </span>
-              </div>
+              <span className="font-mono text-[10px] font-bold text-accent-primary bg-accent-primary/10 px-2.5 py-1 rounded w-fit">
+                LATEST
+              </span>
               <h3 className="text-2xl md:text-3xl font-bold text-foreground tracking-tight leading-tight max-w-2xl">
                 {featuredPost.title}
               </h3>
