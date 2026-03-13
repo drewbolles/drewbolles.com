@@ -8,12 +8,31 @@ export const metadata: Metadata = {
   description: "Software Engineer focused on frontend development, performance, and JavaScript applications.",
 };
 
-const timeline = [
-  { year: "Now", label: "Staff Software Engineer at Trellis Technologies" },
-  { year: "2020", label: "Joined Chapter Three" },
-  { year: "2010s", label: "Front-end development, Drupal, performance obsession" },
-  { year: "2000s", label: "GeoCities, table layouts, A List Apart" },
-  { year: "~10", label: "First lines of HTML" },
+const experience = [
+  {
+    company: "Trellis Technologies",
+    title: "Staff Software Engineer",
+    period: "2020 — Present",
+    description: "Building frontend systems and AI-powered product experiences.",
+  },
+  {
+    company: "NCR Corporation",
+    title: "Senior UI Engineer",
+    period: "2017 — 2020",
+    description: "Led teams building internal software tools for NCR development teams using React and modern technologies.",
+  },
+  {
+    company: "Chapter Three",
+    title: "Front-end Drupal Developer",
+    period: "2014 — 2017",
+    description: "Built high-end Drupal sites and applications, focusing on frontend architecture and JavaScript.",
+  },
+  {
+    company: "Designzillas, LLC",
+    title: "Senior Drupal Developer & Front-end Architect",
+    period: "2012 — 2014",
+    description: "Developed Drupal and PHP-based applications, established technical direction, and mentored teams on best practices.",
+  },
 ];
 
 export default function AboutPage() {
@@ -96,18 +115,28 @@ export default function AboutPage() {
               </span>
             </div>
             <div className="flex flex-col border-l border-border ml-2">
-              {timeline.map((item, index) => (
+              {experience.map((job, index) => (
                 <div
                   key={index}
-                  className="flex items-start gap-6 pl-6 py-4 relative"
+                  className="flex flex-col gap-3 pl-6 py-6 relative border-b border-border last:border-b-0"
                 >
-                  <div className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2 w-2 h-2 rounded-full bg-accent-primary" />
-                  <span className="font-mono text-sm text-accent-primary w-16 flex-shrink-0">
-                    {item.year}
-                  </span>
-                  <span className="text-base text-foreground-muted">
-                    {item.label}
-                  </span>
+                  <div className="absolute left-0 top-8 -translate-x-1/2 w-2.5 h-2.5 rounded-full bg-accent-primary" />
+                  <div className="flex flex-col gap-1">
+                    <h3 className="text-base font-semibold text-foreground">
+                      {job.title}
+                    </h3>
+                    <div className="flex items-center gap-2">
+                      <span className="text-sm text-accent-primary">
+                        {job.company}
+                      </span>
+                      <span className="font-mono text-xs text-muted">
+                        {job.period}
+                      </span>
+                    </div>
+                  </div>
+                  <p className="text-sm text-foreground-muted leading-relaxed">
+                    {job.description}
+                  </p>
                 </div>
               ))}
             </div>
