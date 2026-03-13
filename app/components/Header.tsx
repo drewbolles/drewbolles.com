@@ -7,7 +7,7 @@ export function Header() {
         </span>
         <nav className="flex gap-8 items-center">
           <a
-            href="#about"
+            href="/about"
             className="font-mono text-xs text-muted hover:text-accent-primary transition-colors"
           >
             about
@@ -16,7 +16,7 @@ export function Header() {
             href="/blog"
             className="font-mono text-xs text-muted hover:text-accent-primary transition-colors"
           >
-            blog
+            writing
           </a>
         </nav>
       </div>
