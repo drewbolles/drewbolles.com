@@ -33,15 +33,6 @@ export async function generateMetadata({
   };
 }
 
-function formatDate(dateStr: string) {
-  const d = new Date(dateStr);
-  return d.toLocaleDateString("en-US", {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  });
-}
-
 async function compileMDX(source: string) {
   const { default: MDXContent } = await evaluate(source, {
     ...runtime,
@@ -70,19 +61,28 @@ export default async function BlogPostPage({
 
   return (
     <div className="flex flex-col min-h-screen">
-      <section className="relative w-full bg-hero-bg overflow-hidden">
+      {/* Hero */}
+      <section className="relative w-full bg-background overflow-hidden">
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage: `radial-gradient(circle, rgba(95, 163, 255, 0.06) 1px, transparent 1px)`,
+            backgroundSize: "40px 40px",
+            backgroundPosition: "0 0",
+          }}
+        />
         <div
           className="absolute inset-0"
           style={{
             background:
-              "radial-gradient(circle at 70% 30%, rgba(37, 99, 235, 0.12) 0%, transparent 60%), radial-gradient(circle at 20% 80%, rgba(37, 99, 235, 0.06) 0%, transparent 50%)",
+              "radial-gradient(circle at 70% 30%, rgba(74, 158, 255, 0.05) 0%, transparent 60%), radial-gradient(circle at 20% 80%, rgba(0, 212, 170, 0.03) 0%, transparent 50%)",
           }}
         />
         <Header />
-        <div className="relative px-6 md:px-[180px] pt-16 pb-20 flex flex-col gap-5">
+        <div className="relative px-6 md:px-12 pt-28 pb-16 flex flex-col gap-6 max-w-5xl mx-auto">
           <Link
             href="/blog"
-            className="flex items-center gap-2 font-mono text-[13px] text-white/40 hover:text-white/70 transition-colors w-fit"
+            className="flex items-center gap-2 font-mono text-xs text-muted hover:text-accent-primary transition-colors w-fit"
           >
             <svg
               width="14"
@@ -97,37 +97,36 @@ export default async function BlogPostPage({
               <line x1="19" y1="12" x2="5" y2="12" />
               <polyline points="12 19 5 12 12 5" />
             </svg>
-            Back to blog
+            Back to writing
           </Link>
-          <div className="flex items-center gap-3">
-            <span className="font-mono text-[13px] text-white/40">
-              {formatDate(post.date)}
-            </span>
-            <span className="font-mono text-[13px] text-white/40">
-              {post.readingTime}
-            </span>
-          </div>
-          <h1 className="text-3xl md:text-[48px] font-bold text-white tracking-[-0.04em] leading-[1.1] max-w-[800px]">
+          <h1 className="text-3xl md:text-5xl font-bold text-foreground tracking-[-0.02em] leading-[1.15] max-w-3xl">
             {post.title}
           </h1>
+          <span className="font-mono text-xs text-muted-light">
+            {post.readingTime}
+          </span>
         </div>
       </section>
 
       {post.image && (
-        <div className="w-full px-6 md:px-[180px] -mt-4">
-          <Image
-            src={post.image}
-            alt={post.title}
-            width={1200}
-            height={630}
-            className="rounded-2xl w-full max-w-[720px] object-cover"
-            priority
-          />
+        <div className="w-full px-6 md:px-12">
+          <div className="max-w-3xl mx-auto -mt-4">
+            <Image
+              src={post.image}
+              alt={post.title}
+              width={1200}
+              height={630}
+              className="rounded-lg w-full object-cover"
+              priority
+            />
+          </div>
         </div>
       )}
 
-      <article className="w-full px-6 md:px-[180px] py-16 max-w-[720px]">
-        <MDXContent components={components} />
+      <article className="w-full px-6 md:px-12 py-16">
+        <div className="max-w-3xl mx-auto">
+          <MDXContent components={components} />
+        </div>
       </article>
 
       <Footer />
