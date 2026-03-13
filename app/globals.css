@@ -1,29 +1,52 @@
 @import "tailwindcss";
 
 :root {
-  --background: #fafaf8;
-  --foreground: #0f172a;
-  --muted: #64748b;
-  --muted-light: #94a3b8;
-  --accent: #2563eb;
-  --accent-light: #eff6ff;
-  --border: #e2e8f0;
-  --surface: #ffffff;
-  --surface-alt: #f1f5f9;
-  --hero-bg: #0f172a;
+  /* Deep terminal-inspired dark palette */
+  --background: #0a0e1a;
+  --foreground: #e8edf5;
+  --foreground-muted: #b8c5e0;
+  --muted: #8a96b0;
+  --muted-light: #7a8599;
+  
+  /* Refined blue/cyan accents - code syntax inspired */
+  --accent-primary: #5fa3ff;
+  --accent-primary-dark: #3d8fe6;
+  --accent-secondary: #1adbab;
+  --accent-tertiary: #ff7878;
+  
+  /* Surface layers */
+  --surface: #0f1420;
+  --surface-hover: #141b2e;
+  --surface-alt: #0d111e;
+  
+  /* Borders and dividers */
+  --border: #1a2133;
+  --border-subtle: #131821;
+  
+  /* Code syntax colors */
+  --syntax-string: #52dd99;
+  --syntax-number: #ddb86d;
+  --syntax-keyword: #5fa3ff;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-foreground-muted: var(--foreground-muted);
   --color-muted: var(--muted);
   --color-muted-light: var(--muted-light);
-  --color-accent: var(--accent);
-  --color-accent-light: var(--accent-light);
-  --color-border: var(--border);
+  --color-accent-primary: var(--accent-primary);
+  --color-accent-primary-dark: var(--accent-primary-dark);
+  --color-accent-secondary: var(--accent-secondary);
+  --color-accent-tertiary: var(--accent-tertiary);
   --color-surface: var(--surface);
+  --color-surface-hover: var(--surface-hover);
   --color-surface-alt: var(--surface-alt);
-  --color-hero-bg: var(--hero-bg);
+  --color-border: var(--border);
+  --color-border-subtle: var(--border-subtle);
+  --color-syntax-string: var(--syntax-string);
+  --color-syntax-number: var(--syntax-number);
+  --color-syntax-keyword: var(--syntax-keyword);
   --font-sans: var(--font-inter);
   --font-mono: var(--font-jetbrains-mono);
 }
@@ -31,4 +54,9 @@
 body {
   background: var(--background);
   color: var(--foreground);
+}
+
+/* Smooth transitions */
+* {
+  @apply transition-colors duration-200;
 }
