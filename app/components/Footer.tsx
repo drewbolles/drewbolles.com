@@ -3,7 +3,7 @@ export function Footer() {
     <footer className="w-full bg-surface-alt px-6 md:px-12 pt-20 pb-12">
       <div className="flex flex-col gap-12">
         {/* Main footer content */}
-        <div className="flex flex-col md:flex-row justify-between items-start gap-12">
+        <div className="flex flex-col md:flex-row justify-between items-start gap-12 max-w-5xl mx-auto w-full">
           <div className="flex flex-col gap-4 flex-1">
             <span className="font-mono text-sm font-semibold text-foreground">
               <span className="text-accent-primary">$</span> drew
