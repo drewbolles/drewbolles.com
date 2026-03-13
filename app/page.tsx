@@ -154,7 +154,7 @@ export default function Home() {
           }}
         />
         <Header />
-        <div className="relative px-6 md:px-12 pt-32 pb-32 flex flex-col gap-8 max-w-4xl">
+        <div className="relative px-6 md:px-12 pt-32 pb-32 flex flex-col gap-8 max-w-3xl mx-auto">
           <div className="flex flex-col gap-2">
             <h1 className="text-5xl md:text-7xl font-bold text-foreground tracking-[-0.02em] leading-[1.1]">
               Drew Bolles
@@ -172,7 +172,7 @@ export default function Home() {
 
       {/* Focus */}
       <section id="about" className="w-full px-6 md:px-12 py-28">
-        <div className="flex flex-col gap-16">
+        <div className="flex flex-col gap-16 max-w-3xl mx-auto">
           <SectionHeading number="01" label="Focus" />
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             {/* Featured card - left side */}
@@ -249,7 +249,7 @@ export default function Home() {
         id="writing"
         className="w-full px-6 md:px-12 py-28 bg-surface-alt"
       >
-        <div className="flex flex-col gap-16">
+        <div className="flex flex-col gap-16 max-w-3xl mx-auto">
           <SectionHeading
             number="02"
             label="Writing"
