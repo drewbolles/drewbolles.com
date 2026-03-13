@@ -37,6 +37,9 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: "https://www.drewbolles.com",
+    types: {
+      "application/rss+xml": "/feed.xml",
+    },
   },
   robots: {
     index: true,

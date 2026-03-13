@@ -45,9 +45,37 @@ const experience = [
   },
 ];
 
+const personJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Drew Bolles",
+  url: "https://www.drewbolles.com",
+  jobTitle: "Staff Software Engineer",
+  worksFor: {
+    "@type": "Organization",
+    name: "Trellis Technologies",
+  },
+  sameAs: [
+    "https://x.com/drewbolles",
+    "https://linkedin.com/in/drewbolles",
+    "https://github.com/drewbolles",
+  ],
+  knowsAbout: [
+    "React",
+    "TypeScript",
+    "Frontend Engineering",
+    "Web Performance",
+    "AI Applications",
+  ],
+};
+
 export default function AboutPage() {
   return (
     <div className="flex flex-col min-h-screen">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+      />
       {/* Hero */}
       <section className="relative w-full bg-background overflow-hidden">
         <div

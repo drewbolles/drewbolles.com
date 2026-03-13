@@ -1,8 +1,30 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { Header } from "./components/Header";
 import { Footer } from "./components/Footer";
 import { SectionHeading } from "./components/SectionHeading";
 import { getAllPosts } from "@/lib/posts";
+
+export const metadata: Metadata = {
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    url: "/",
+  },
+};
+
+const websiteJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "Drew Bolles",
+  url: "https://www.drewbolles.com",
+  author: {
+    "@type": "Person",
+    name: "Drew Bolles",
+    url: "https://www.drewbolles.com",
+  },
+};
 
 const focusAreas = [
   {
@@ -110,6 +132,10 @@ export default function Home() {
 
   return (
     <div className="flex flex-col min-h-screen">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
+      />
       {/* Hero */}
       <section className="relative w-full bg-background overflow-hidden">
         <div
