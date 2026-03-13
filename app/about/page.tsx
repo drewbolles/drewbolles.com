@@ -95,7 +95,7 @@ export default function AboutPage() {
         />
         <Header />
         <div className="relative px-6 md:px-12 pt-28 pb-20 flex flex-col gap-4 max-w-5xl mx-auto">
-          <h1 className="text-5xl md:text-6xl font-bold text-foreground tracking-[-0.02em] leading-[1.1]">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-foreground tracking-[-0.02em] leading-[1.1]">
             About
           </h1>
           <p className="text-base text-muted leading-relaxed">
@@ -108,7 +108,7 @@ export default function AboutPage() {
       <section className="w-full py-20">
         <div className="flex flex-col gap-20 max-w-5xl mx-auto px-6 md:px-12">
           {/* Bio */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
             <div className="flex flex-col gap-6">
               <div className="flex items-center gap-3">
                 <span className="font-mono text-accent-primary text-sm">&gt;</span>
@@ -181,7 +181,7 @@ export default function AboutPage() {
           </div>
 
           {/* Contact CTA */}
-          <div className="flex flex-col gap-6 p-8 border border-border rounded-lg bg-surface">
+          <div className="flex flex-col gap-6 p-5 md:p-8 border border-border rounded-lg bg-surface">
             <div className="flex items-center gap-3">
               <span className="font-mono text-accent-primary text-sm">&gt;</span>
               <span className="font-mono text-xs text-muted-light uppercase tracking-wide">
@@ -191,7 +191,7 @@ export default function AboutPage() {
             <p className="text-base text-foreground-muted leading-relaxed">
               Want to get in touch? I'm always open to discussing new projects, creative ideas, or opportunities.
             </p>
-            <div className="flex gap-4">
+            <div className="flex flex-wrap gap-3 md:gap-4">
               <a
                 href="mailto:drew@drewbolles.com"
                 className="flex items-center gap-2 px-4 py-2 border border-border rounded hover:border-accent-primary hover:bg-accent-primary/5 transition-all group"

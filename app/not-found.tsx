@@ -25,13 +25,13 @@ export default function NotFound() {
           <span className="font-mono text-xs text-accent-primary">
             404
           </span>
-          <h1 className="text-5xl md:text-6xl font-bold text-foreground tracking-[-0.02em] leading-[1.1]">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-foreground tracking-[-0.02em] leading-[1.1]">
             Page not found
           </h1>
           <p className="text-base text-muted leading-relaxed max-w-lg">
             The page you're looking for doesn't exist or has been moved.
           </p>
-          <div className="flex gap-4 mt-4">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mt-4">
             <Link
               href="/"
               className="flex items-center gap-2 px-4 py-2 border border-border rounded hover:border-accent-primary hover:bg-accent-primary/5 transition-all group"

@@ -20,7 +20,7 @@ export function Header() {
         >
           <span className="text-accent-primary">$</span> drew
         </Link>
-        <nav className="flex gap-8 items-center">
+        <nav className="flex gap-4 md:gap-8 items-center">
           {navLinks.map(({ href, label }) => {
             const isActive = pathname === href || pathname.startsWith(href + "/");
             return (

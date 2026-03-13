@@ -4,19 +4,19 @@ import Image from "next/image";
 export const components: MDXComponents = {
   h2: (props) => (
     <h2
-      className="text-2xl font-bold text-foreground tracking-tight mt-14 mb-5"
+      className="text-2xl font-bold text-foreground tracking-tight mt-10 md:mt-14 mb-4 md:mb-5"
       {...props}
     />
   ),
   h3: (props) => (
     <h3
-      className="text-xl font-semibold text-foreground tracking-tight mt-10 mb-4"
+      className="text-xl font-semibold text-foreground tracking-tight mt-8 md:mt-10 mb-3 md:mb-4"
       {...props}
     />
   ),
   h4: (props) => (
     <h4
-      className="text-lg font-semibold text-foreground tracking-tight mt-8 mb-3"
+      className="text-lg font-semibold text-foreground tracking-tight mt-6 md:mt-8 mb-2 md:mb-3"
       {...props}
     />
   ),
@@ -46,7 +46,7 @@ export const components: MDXComponents = {
   ),
   pre: (props) => (
     <pre
-      className="rounded-lg overflow-x-auto p-5 my-6 text-sm leading-relaxed bg-surface border border-border"
+      className="rounded-lg overflow-x-auto p-4 md:p-5 my-6 text-sm leading-relaxed bg-surface border border-border"
       {...props}
     />
   ),

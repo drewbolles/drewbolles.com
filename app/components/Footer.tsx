@@ -1,7 +1,7 @@
 export function Footer() {
   return (
     <footer className="w-full bg-surface-alt border-t border-border">
-      <div className="flex items-center justify-between px-6 md:px-12 py-6 font-mono text-sm text-muted-light max-w-5xl mx-auto">
+      <div className="flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4 px-6 md:px-12 py-6 font-mono text-sm text-muted-light max-w-5xl mx-auto">
         <div className="flex items-center gap-4">
           <span className="text-foreground">
             <span className="text-accent-primary">$</span> drew

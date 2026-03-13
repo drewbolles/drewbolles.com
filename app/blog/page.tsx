@@ -43,7 +43,7 @@ export default function BlogPage() {
         />
         <Header />
         <div className="relative px-6 md:px-12 pt-28 pb-20 flex flex-col gap-4 max-w-5xl mx-auto">
-          <h1 className="text-5xl md:text-6xl font-bold text-foreground tracking-[-0.02em] leading-[1.1]">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-foreground tracking-[-0.02em] leading-[1.1]">
             Writing
           </h1>
           <p className="text-base text-muted leading-relaxed">

@@ -172,7 +172,7 @@ export default async function BlogPostPage({
             </svg>
             Back to writing
           </Link>
-          <h1 className="text-3xl md:text-5xl font-bold text-foreground tracking-[-0.02em] leading-[1.15] max-w-3xl">
+          <h1 className="text-2xl sm:text-3xl md:text-5xl font-bold text-foreground tracking-[-0.02em] leading-[1.15] max-w-3xl">
             {post.title}
           </h1>
           <span className="font-mono text-xs text-muted-light">

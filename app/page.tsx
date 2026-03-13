@@ -156,10 +156,10 @@ export default function Home() {
         <Header />
         <div className="relative px-6 md:px-12 pt-32 pb-32 flex flex-col gap-8 max-w-5xl mx-auto">
           <div className="flex flex-col gap-2">
-            <h1 className="text-5xl md:text-7xl font-bold text-foreground tracking-[-0.02em] leading-[1.1]">
+            <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold text-foreground tracking-[-0.02em] leading-[1.1]">
               Drew Bolles
             </h1>
-            <p className="text-2xl md:text-4xl text-accent-primary font-semibold tracking-wide">
+            <p className="text-xl sm:text-2xl md:text-4xl text-accent-primary font-semibold tracking-wide">
               Software Engineer
             </p>
           </div>
@@ -181,7 +181,7 @@ export default function Home() {
               .map((area) => (
                 <div
                   key={area.title}
-                  className="flex flex-col gap-5 p-8 border border-border hover:border-accent-primary/40 rounded-lg bg-surface hover:bg-surface-hover transition-all group"
+                  className="flex flex-col gap-5 p-5 md:p-8 border border-border hover:border-accent-primary/40 rounded-lg bg-surface hover:bg-surface-hover transition-all group"
                 >
                   <div className="flex items-start gap-3">
                     <div className="text-accent-primary group-hover:text-accent-secondary transition-colors mt-0.5">
@@ -214,7 +214,7 @@ export default function Home() {
                 .map((area) => (
                   <div
                     key={area.title}
-                    className="flex flex-col gap-4 p-6 border border-border hover:border-accent-primary/40 rounded-lg bg-surface hover:bg-surface-hover transition-all group"
+                    className="flex flex-col gap-4 p-4 md:p-6 border border-border hover:border-accent-primary/40 rounded-lg bg-surface hover:bg-surface-hover transition-all group"
                   >
                     <div className="flex items-start gap-3">
                       <div className="text-accent-primary group-hover:text-accent-secondary transition-colors mt-0.5">
@@ -260,7 +260,7 @@ export default function Home() {
           {featuredPost && (
             <Link
               href={`/blog/${featuredPost.slug}`}
-              className="group flex flex-col gap-6 p-8 bg-surface border border-border hover:border-accent-primary/40 rounded-lg hover:bg-surface-hover transition-all"
+              className="group flex flex-col gap-6 p-5 md:p-8 bg-surface border border-border hover:border-accent-primary/40 rounded-lg hover:bg-surface-hover transition-all"
             >
               <span className="font-mono text-[10px] font-bold text-accent-primary bg-accent-primary/10 px-2.5 py-1 rounded w-fit">
                 LATEST
