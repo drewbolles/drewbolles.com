@@ -150,19 +150,19 @@ export default function Home() {
           }}
         />
         <Header />
-        <div className="relative px-6 md:px-12 pt-28 pb-32 flex flex-col gap-6 max-w-4xl">
+        <div className="relative px-6 md:px-12 pt-32 pb-32 flex flex-col gap-8 max-w-4xl">
           <h1 className="text-5xl md:text-7xl font-bold text-foreground tracking-[-0.02em] leading-[1.1]">
             Drew Bolles
           </h1>
-          <div className="flex flex-col gap-4">
-            <p className="text-lg text-accent-primary font-semibold tracking-wide">
+          <div className="flex flex-col gap-5">
+            <p className="text-xl md:text-2xl text-accent-primary font-semibold tracking-wide">
               Software Engineer
             </p>
             <p className="font-mono text-sm text-muted leading-relaxed max-w-xl">
               <span className="text-accent-secondary">&gt;</span> Building frontend systems, product interfaces, and AI-powered experiences at Trellis Technologies
             </p>
           </div>
-          <div className="w-12 h-px bg-gradient-to-r from-accent-primary to-transparent mt-2" />
+          <div className="w-12 h-px bg-gradient-to-r from-accent-primary to-transparent mt-4" />
         </div>
       </section>
 
