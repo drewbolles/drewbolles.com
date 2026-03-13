@@ -7,14 +7,13 @@ const focusAreas = [
     title: "Frontend",
     description:
       "Architecting scalable component systems, design systems, and performance-critical interfaces with React and TypeScript.",
-    iconBg: "bg-accent-light",
     icon: (
       <svg
-        width="24"
-        height="24"
+        width="20"
+        height="20"
         viewBox="0 0 24 24"
         fill="none"
-        stroke="#2563EB"
+        stroke="currentColor"
         strokeWidth="1.5"
         strokeLinecap="round"
         strokeLinejoin="round"
@@ -28,14 +27,13 @@ const focusAreas = [
     title: "Product",
     description:
       "Bridging engineering and product strategy to ship features that solve real user problems with pragmatic delivery.",
-    iconBg: "bg-[#FFF7ED]",
     icon: (
       <svg
-        width="24"
-        height="24"
+        width="20"
+        height="20"
         viewBox="0 0 24 24"
         fill="none"
-        stroke="#EA580C"
+        stroke="currentColor"
         strokeWidth="1.5"
         strokeLinecap="round"
         strokeLinejoin="round"
@@ -50,14 +48,13 @@ const focusAreas = [
     title: "AI",
     description:
       "Building AI-powered interfaces and integrating large language models into product experiences that feel natural and useful.",
-    iconBg: "bg-[#F0FDF4]",
     icon: (
       <svg
-        width="24"
-        height="24"
+        width="20"
+        height="20"
         viewBox="0 0 24 24"
         fill="none"
-        stroke="#16A34A"
+        stroke="currentColor"
         strokeWidth="1.5"
         strokeLinecap="round"
         strokeLinejoin="round"
@@ -136,52 +133,56 @@ export default function Home() {
   return (
     <div className="flex flex-col min-h-screen">
       {/* Hero */}
-      <section className="relative w-full bg-hero-bg overflow-hidden">
+      <section className="relative w-full bg-background overflow-hidden">
         <div
           className="absolute inset-0"
           style={{
             background:
-              "radial-gradient(circle at 70% 30%, rgba(37, 99, 235, 0.12) 0%, transparent 60%), radial-gradient(circle at 20% 80%, rgba(37, 99, 235, 0.06) 0%, transparent 50%)",
+              "radial-gradient(circle at 70% 30%, rgba(74, 158, 255, 0.05) 0%, transparent 60%), radial-gradient(circle at 20% 80%, rgba(0, 212, 170, 0.03) 0%, transparent 50%)",
           }}
         />
         <Header />
-        <div className="relative px-6 md:px-[180px] pt-24 pb-28 flex flex-col gap-8">
+        <div className="relative px-6 md:px-12 pt-24 pb-32 flex flex-col gap-8 max-w-4xl">
           <div className="flex items-center gap-2.5">
-            <div className="w-2 h-2 rounded-full bg-emerald-400" />
-            <span className="font-mono text-[13px] text-white/45 tracking-wide">
+            <div className="w-1.5 h-1.5 rounded-full bg-accent-secondary" />
+            <span className="font-mono text-xs text-muted tracking-wide">
               Available for select projects
             </span>
           </div>
-          <h1 className="text-5xl md:text-[80px] font-bold text-white tracking-[-0.04em] leading-[1.05] max-w-[900px]">
-            Staff Software Engineer
-          </h1>
-          <p className="text-xl text-white/55 leading-8 max-w-[560px]">
-            Building frontend systems, product interfaces, and AI-powered
-            experiences at Trellis Technologies.
+          <div className="flex flex-col gap-3">
+            <h1 className="text-5xl md:text-7xl font-bold text-foreground tracking-[-0.02em] leading-[1.1] max-w-4xl">
+              Staff Software <span className="text-accent-primary">Engineer</span>
+            </h1>
+            <p className="font-mono text-sm text-muted-light tracking-wide">
+              <span className="text-accent-secondary">&gt;</span> Building frontend systems, product interfaces, and AI-powered experiences
+            </p>
+          </div>
+          <p className="text-base text-foreground-muted leading-7 max-w-2xl font-light">
+            at Trellis Technologies
           </p>
-          <div className="w-16 h-[3px] bg-accent rounded-sm" />
+          <div className="w-12 h-px bg-gradient-to-r from-accent-primary to-transparent mt-4" />
         </div>
       </section>
 
       {/* Focus */}
-      <section id="about" className="w-full px-6 md:px-[180px] py-24">
-        <div className="flex flex-col gap-14">
+      <section id="about" className="w-full px-6 md:px-12 py-28">
+        <div className="flex flex-col gap-16">
           <SectionHeading number="01" label="Focus" />
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
             {focusAreas.map((area) => (
               <div
                 key={area.title}
-                className="flex flex-col gap-5 p-8 border border-border rounded-xl bg-surface"
+                className="flex flex-col gap-4 p-6 border border-border hover:border-accent-primary/40 rounded-lg bg-surface hover:bg-surface-hover transition-all group"
               >
-                <div
-                  className={`flex items-center justify-center w-12 h-12 rounded-[10px] ${area.iconBg}`}
-                >
-                  {area.icon}
+                <div className="flex items-center gap-3">
+                  <div className="text-accent-primary group-hover:text-accent-secondary transition-colors">
+                    {area.icon}
+                  </div>
+                  <h3 className="text-base font-semibold text-foreground tracking-tight">
+                    {area.title}
+                  </h3>
                 </div>
-                <h3 className="text-lg font-semibold text-foreground tracking-tight">
-                  {area.title}
-                </h3>
-                <p className="text-[15px] text-muted leading-relaxed">
+                <p className="text-sm text-foreground-muted leading-relaxed">
                   {area.description}
                 </p>
               </div>
@@ -193,9 +194,9 @@ export default function Home() {
       {/* Writing */}
       <section
         id="writing"
-        className="w-full px-6 md:px-[180px] py-24 bg-surface-alt"
+        className="w-full px-6 md:px-12 py-28 bg-surface-alt"
       >
-        <div className="flex flex-col gap-14">
+        <div className="flex flex-col gap-16">
           <SectionHeading
             number="02"
             label="Writing"
@@ -206,23 +207,23 @@ export default function Home() {
           {featuredPost && (
             <a
               href="#"
-              className="group flex flex-col gap-6 p-8 md:p-10 bg-surface border border-border rounded-2xl hover:border-accent/30 transition-colors"
+              className="group flex flex-col gap-6 p-8 bg-surface border border-border hover:border-accent-primary/40 rounded-lg hover:bg-surface-hover transition-all"
             >
               <div className="flex items-center gap-3">
-                <span className="font-mono text-[11px] font-medium text-accent bg-accent-light px-2.5 py-1 rounded-md">
-                  Latest
+                <span className="font-mono text-[10px] font-bold text-accent-primary bg-accent-primary/10 px-2.5 py-1 rounded">
+                  LATEST
                 </span>
-                <span className="font-mono text-[13px] text-muted-light">
+                <span className="font-mono text-xs text-muted">
                   {featuredPost.date}
                 </span>
               </div>
-              <h3 className="text-2xl md:text-[28px] font-bold text-foreground tracking-tight leading-tight max-w-[720px]">
+              <h3 className="text-2xl md:text-3xl font-bold text-foreground tracking-tight leading-tight max-w-2xl">
                 {featuredPost.title}
               </h3>
-              <p className="text-base text-muted leading-relaxed max-w-[720px]">
+              <p className="text-base text-foreground-muted leading-relaxed max-w-2xl">
                 {featuredPost.description}
               </p>
-              <span className="flex items-center gap-2 text-sm font-medium text-accent group-hover:gap-3 transition-all">
+              <span className="flex items-center gap-2 text-sm font-medium text-accent-primary group-hover:gap-3 transition-all w-fit">
                 Read article
                 <svg
                   width="14"
@@ -247,18 +248,18 @@ export default function Home() {
               <a
                 key={post.title}
                 href="#"
-                className="group flex flex-col gap-4 p-7 bg-surface border border-border rounded-xl hover:border-accent/30 transition-colors"
+                className="group flex flex-col gap-3 p-6 bg-surface border border-border hover:border-accent-primary/40 rounded-lg hover:bg-surface-hover transition-all"
               >
-                <span className="font-mono text-xs text-muted-light">
+                <span className="font-mono text-xs text-muted">
                   {post.date}
                 </span>
-                <h4 className="text-[17px] font-semibold text-foreground leading-snug">
+                <h4 className="text-base font-semibold text-foreground leading-snug group-hover:text-accent-primary transition-colors">
                   {post.title}
                 </h4>
-                <p className="text-sm text-muted leading-relaxed">
+                <p className="text-sm text-foreground-muted leading-relaxed">
                   {post.description}
                 </p>
-                <span className="flex items-center gap-1.5 text-[13px] font-medium text-accent">
+                <span className="flex items-center gap-1.5 text-xs font-medium text-accent-primary group-hover:gap-2 transition-all w-fit">
                   Read
                   <ArrowUpRight />
                 </span>
