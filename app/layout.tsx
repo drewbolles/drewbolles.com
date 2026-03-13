@@ -42,7 +42,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    creator: "@drewbolles",
+    creator: "@bollskis",
     images: ["/og-image.jpg"],
   },
   alternates: {

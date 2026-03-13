@@ -19,7 +19,7 @@ export function Footer() {
             </a>
             <span className="text-border">•</span>
             <a
-              href="https://linkedin.com/in/drewbolles"
+              href="https://www.linkedin.com/in/drew-bolles/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-muted hover:text-accent-primary transition-colors"
@@ -29,7 +29,7 @@ export function Footer() {
             </a>
             <span className="text-border">•</span>
             <a
-              href="https://x.com/drewbolles"
+              href="https://x.com/bollskis"
               target="_blank"
               rel="noopener noreferrer"
               className="text-muted hover:text-accent-primary transition-colors"

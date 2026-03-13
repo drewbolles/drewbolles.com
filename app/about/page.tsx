@@ -56,8 +56,8 @@ const personJsonLd = {
     name: "Trellis Technologies",
   },
   sameAs: [
-    "https://x.com/drewbolles",
-    "https://linkedin.com/in/drewbolles",
+    "https://x.com/bollskis",
+    "https://www.linkedin.com/in/drew-bolles/",
     "https://github.com/drewbolles",
   ],
   knowsAbout: [
@@ -215,7 +215,7 @@ export default function AboutPage() {
                 </span>
               </a>
               <a
-                href="https://x.com/drewbolles"
+                href="https://x.com/bollskis"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 px-4 py-2 border border-border rounded hover:border-accent-primary hover:bg-accent-primary/5 transition-all group"
@@ -234,7 +234,7 @@ export default function AboutPage() {
                 </span>
               </a>
               <a
-                href="https://linkedin.com/in/drewbolles"
+                href="https://www.linkedin.com/in/drew-bolles/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 px-4 py-2 border border-border rounded hover:border-accent-primary hover:bg-accent-primary/5 transition-all group"

@@ -213,7 +213,7 @@ export default async function BlogPostPage({
               </div>
               <div className="flex gap-3">
                 <a
-                  href={`https://x.com/intent/tweet?text=${encodeURIComponent(post.title)}&url=${encodeURIComponent(`https://drewbolles.com/blog/${slug}`)}`}
+                  href={`https://x.com/intent/tweet?text=${encodeURIComponent(post.title)}&url=${encodeURIComponent(`https://www.drewbolles.com/blog/${slug}`)}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center justify-center w-9 h-9 border border-border rounded hover:border-accent-primary hover:bg-accent-primary/5 transition-all group"
@@ -230,7 +230,7 @@ export default async function BlogPostPage({
                   </svg>
                 </a>
                 <a
-                  href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(`https://drewbolles.com/blog/${slug}`)}`}
+                  href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(`https://www.drewbolles.com/blog/${slug}`)}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center justify-center w-9 h-9 border border-border rounded hover:border-accent-primary hover:bg-accent-primary/5 transition-all group"
