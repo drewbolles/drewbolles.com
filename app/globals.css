@@ -4,15 +4,15 @@
   /* Deep terminal-inspired dark palette */
   --background: #0a0e1a;
   --foreground: #e8edf5;
-  --foreground-muted: #a8b2c8;
-  --muted: #6b7386;
-  --muted-light: #5a626f;
+  --foreground-muted: #b8c5e0;
+  --muted: #8a96b0;
+  --muted-light: #7a8599;
   
   /* Refined blue/cyan accents - code syntax inspired */
-  --accent-primary: #4a9eff;
-  --accent-primary-dark: #2d7dd9;
-  --accent-secondary: #00d4aa;
-  --accent-tertiary: #ff6b6b;
+  --accent-primary: #5fa3ff;
+  --accent-primary-dark: #3d8fe6;
+  --accent-secondary: #1adbab;
+  --accent-tertiary: #ff7878;
   
   /* Surface layers */
   --surface: #0f1420;
@@ -24,9 +24,9 @@
   --border-subtle: #131821;
   
   /* Code syntax colors */
-  --syntax-string: #48d597;
-  --syntax-number: #d4a574;
-  --syntax-keyword: #4a9eff;
+  --syntax-string: #52dd99;
+  --syntax-number: #ddb86d;
+  --syntax-keyword: #5fa3ff;
 }
 
 @theme inline {
