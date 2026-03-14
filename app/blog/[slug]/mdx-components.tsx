@@ -83,7 +83,9 @@ export const components: MDXComponents = {
         src={src}
         alt={alt || ""}
         title={title}
-        className="rounded-lg w-full my-8"
+        width={720}
+        height={400}
+        className="rounded-lg w-full h-auto my-8"
       />
     );
   },

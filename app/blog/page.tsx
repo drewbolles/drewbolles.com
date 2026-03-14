@@ -26,6 +26,7 @@ export default function BlogPage() {
   return (
     <div className="flex flex-col min-h-screen">
       {/* Hero */}
+      <main>
       <HeroBackground>
         <Header />
         <div className="relative px-6 md:px-12 pt-28 pb-20 flex flex-col gap-4 max-w-5xl mx-auto">
@@ -51,9 +52,9 @@ export default function BlogPage() {
                 &gt;
               </span>
               <div className="flex-1 min-w-0">
-                <h3 className="text-lg font-semibold text-foreground group-hover:text-accent-primary transition-colors leading-snug">
+                <h2 className="text-lg font-semibold text-foreground group-hover:text-accent-primary transition-colors leading-snug">
                   {post.title}
-                </h3>
+                </h2>
                 <p className="text-sm text-muted leading-relaxed mt-1.5">
                   {post.description}
                 </p>
@@ -82,6 +83,7 @@ export default function BlogPage() {
         </div>
       </section>
 
+      </main>
       <Footer />
     </div>
   );

@@ -133,6 +133,7 @@ export default function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
       />
       {/* Hero */}
+      <main>
       <HeroBackground>
         <Header />
         <div className="relative px-6 md:px-12 pt-32 pb-32 flex flex-col gap-8 max-w-5xl mx-auto">
@@ -168,9 +169,9 @@ export default function Home() {
                     <div className="text-accent-primary group-hover:text-accent-secondary transition-colors mt-0.5">
                       {area.icon}
                     </div>
-                    <h3 className="text-2xl font-semibold text-foreground tracking-tight">
+                    <h2 className="text-2xl font-semibold text-foreground tracking-tight">
                       {area.title}
-                    </h3>
+                    </h2>
                   </div>
                   <p className="text-base text-foreground-muted leading-relaxed">
                     {area.description}
@@ -201,9 +202,9 @@ export default function Home() {
                       <div className="text-accent-primary group-hover:text-accent-secondary transition-colors mt-0.5">
                         {area.icon}
                       </div>
-                      <h4 className="text-lg font-semibold text-foreground tracking-tight">
+                      <h3 className="text-lg font-semibold text-foreground tracking-tight">
                         {area.title}
-                      </h4>
+                      </h3>
                     </div>
                     <p className="text-sm text-foreground-muted leading-relaxed">
                       {area.description}
@@ -246,9 +247,9 @@ export default function Home() {
               <span className="font-mono text-[10px] font-bold text-accent-primary bg-accent-primary/10 px-2.5 py-1 rounded w-fit">
                 LATEST
               </span>
-              <h3 className="text-2xl md:text-3xl font-bold text-foreground tracking-tight leading-tight max-w-2xl">
+              <h2 className="text-2xl md:text-3xl font-bold text-foreground tracking-tight leading-tight max-w-2xl">
                 {featuredPost.title}
-              </h3>
+              </h2>
               <p className="text-base text-foreground-muted leading-relaxed max-w-2xl">
                 {featuredPost.description}
               </p>
@@ -283,9 +284,9 @@ export default function Home() {
                   &gt;
                 </span>
                 <div className="flex-1 min-w-0">
-                  <h4 className="text-base font-semibold text-foreground group-hover:text-accent-primary transition-colors leading-snug">
+                  <h3 className="text-base font-semibold text-foreground group-hover:text-accent-primary transition-colors leading-snug">
                     {post.title}
-                  </h4>
+                  </h3>
                   <p className="text-sm text-muted leading-relaxed mt-1.5">
                     {post.description}
                   </p>
@@ -297,6 +298,7 @@ export default function Home() {
         </div>
       </section>
 
+      </main>
       {/* Footer */}
       <Footer />
     </div>

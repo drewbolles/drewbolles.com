@@ -78,6 +78,7 @@ export default function AboutPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
       />
       {/* Hero */}
+      <main>
       <HeroBackground>
         <Header />
         <div className="relative px-6 md:px-12 pt-28 pb-20 flex flex-col gap-4 max-w-5xl mx-auto">
@@ -146,9 +147,9 @@ export default function AboutPage() {
                 >
                   <div className="absolute left-0 top-8 -translate-x-1/2 w-2.5 h-2.5 rounded-full bg-accent-primary" />
                   <div className="flex flex-col gap-1">
-                    <h3 className="text-base font-semibold text-foreground">
+                    <h2 className="text-base font-semibold text-foreground">
                       {job.title}
-                    </h3>
+                    </h2>
                     <div className="flex items-center gap-2">
                       <span className="text-sm text-accent-primary">
                         {job.company}
@@ -243,6 +244,7 @@ export default function AboutPage() {
         </div>
       </section>
 
+      </main>
       <Footer />
     </div>
   );

@@ -6,7 +6,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "lighthouse": "node scripts/lighthouse-audit.mjs",
+    "lighthouse:mobile": "node scripts/lighthouse-audit.mjs --mobile",
+    "optimize-images": "node scripts/optimize-images.mjs"
   },
   "dependencies": {
     "@mdx-js/mdx": "^3.1.1",
@@ -28,8 +31,11 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "chrome-launcher": "^1.2.1",
     "eslint": "^9",
     "eslint-config-next": "16.1.6",
+    "lighthouse": "^13.0.3",
+    "sharp": "^0.34.5",
     "tailwindcss": "^4",
     "typescript": "^5"
   }

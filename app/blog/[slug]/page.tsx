@@ -136,6 +136,7 @@ export default async function BlogPostPage({
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
       {/* Hero */}
+      <main>
       <HeroBackground>
         <Header />
         <div className="relative px-6 md:px-12 pt-28 pb-16 flex flex-col gap-6 max-w-5xl mx-auto">
@@ -169,14 +170,16 @@ export default async function BlogPostPage({
 
       {post.image && (
         <div className="max-w-3xl mx-auto px-6 md:px-12 -mt-4">
-          <Image
-            src={post.image}
-            alt={post.title}
-            width={1200}
-            height={630}
-            className="rounded-lg w-full object-cover"
-            priority
-          />
+          <div className="relative aspect-[1200/630] w-full">
+            <Image
+              src={post.image}
+              alt={post.title}
+              fill
+              sizes="(max-width: 768px) 100vw, 768px"
+              className="rounded-lg object-cover"
+              priority
+            />
+          </div>
         </div>
       )}
 
@@ -236,6 +239,7 @@ export default async function BlogPostPage({
         </div>
       </article>
 
+      </main>
       <Footer />
     </div>
   );
