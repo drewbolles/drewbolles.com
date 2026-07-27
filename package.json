@@ -7,6 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
+    "test": "vitest run",
     "lighthouse": "node scripts/lighthouse-audit.mjs",
     "lighthouse:mobile": "node scripts/lighthouse-audit.mjs --mobile",
     "optimize-images": "node scripts/optimize-images.mjs"
@@ -37,6 +38,7 @@
     "lighthouse": "^13.0.3",
     "sharp": "^0.34.5",
     "tailwindcss": "^4",
-    "typescript": "^5"
+    "typescript": "^5",
+    "vitest": "^4.1.10"
   }
 }
