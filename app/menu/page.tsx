@@ -5,7 +5,13 @@ import { Header } from "../components/Header";
 import { HeroBackground } from "../components/HeroBackground";
 import { MealDetails } from "./components/MealDetails";
 import { pools } from "./data/pools";
-import { addDays, getWeekStart, TIMEZONE, todayInTimeZone } from "./lib/dates";
+import {
+  addDays,
+  formatDayLabel,
+  getWeekStart,
+  TIMEZONE,
+  todayInTimeZone,
+} from "./lib/dates";
 import { getDayTotals, getWeekMenu } from "./lib/rotation";
 
 export const metadata: Metadata = {
@@ -13,17 +19,6 @@ export const metadata: Metadata = {
   description: "This week's menu — breakfast, lunch, and dinner.",
   alternates: { canonical: "/menu" },
 };
-
-const dayFormatter = new Intl.DateTimeFormat("en-US", {
-  weekday: "long",
-  month: "short",
-  day: "numeric",
-  timeZone: "UTC",
-});
-
-function formatDay(isoDate: string): string {
-  return dayFormatter.format(new Date(`${isoDate}T00:00:00Z`));
-}
 
 function resolveWeekStart(searchWeek: string | undefined, now: Date): string {
   const today = todayInTimeZone(now, TIMEZONE);
@@ -54,7 +49,7 @@ export default async function MenuPage({
             </h1>
             <p className="text-base text-muted leading-relaxed">
               {isNextWeek ? "Next week" : "This week"}, starting{" "}
-              {formatDay(menu.weekStart)}
+              {formatDayLabel(menu.weekStart)}
             </p>
           </div>
         </HeroBackground>
@@ -84,7 +79,7 @@ export default async function MenuPage({
                   <div key={day.date} className="flex flex-col gap-3">
                     <div className="flex items-baseline justify-between gap-3">
                       <h2 className="text-base font-semibold text-foreground">
-                        {formatDay(day.date)}
+                        {formatDayLabel(day.date)}
                         {isToday && (
                           <span className="ml-2 font-mono text-[10px] text-accent-primary uppercase tracking-wide">
                             today

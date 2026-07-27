@@ -28,6 +28,17 @@ export function addDays(isoDate: string, days: number): string {
     .slice(0, 10);
 }
 
+const dayLabelFormatter = new Intl.DateTimeFormat("en-US", {
+  weekday: "long",
+  month: "short",
+  day: "numeric",
+  timeZone: "UTC",
+});
+
+export function formatDayLabel(isoDate: string): string {
+  return dayLabelFormatter.format(new Date(`${isoDate}T00:00:00Z`));
+}
+
 export function getISOWeek(isoDate: string): { year: number; week: number } {
   const date = toUTCDate(isoDate);
   const dayNum = date.getUTCDay() || 7;

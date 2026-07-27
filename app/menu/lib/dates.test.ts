@@ -1,6 +1,7 @@
 import { describe, expect, it } from "vitest";
 import {
   addDays,
+  formatDayLabel,
   getISOWeek,
   getWeekStart,
   todayInTimeZone,
@@ -39,5 +40,11 @@ describe("getISOWeek", () => {
 
   it("gives consecutive weeks different values", () => {
     expect(getISOWeek("2026-07-27")).not.toEqual(getISOWeek("2026-08-03"));
+  });
+});
+
+describe("formatDayLabel", () => {
+  it("formats an ISO date as a weekday + month + day label", () => {
+    expect(formatDayLabel("2026-07-27")).toBe("Monday, Jul 27");
   });
 });

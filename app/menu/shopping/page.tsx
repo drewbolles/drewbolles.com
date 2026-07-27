@@ -4,7 +4,13 @@ import { Footer } from "../../components/Footer";
 import { Header } from "../../components/Header";
 import { HeroBackground } from "../../components/HeroBackground";
 import { pools } from "../data/pools";
-import { addDays, getWeekStart, TIMEZONE, todayInTimeZone } from "../lib/dates";
+import {
+  addDays,
+  formatDayLabel,
+  getWeekStart,
+  TIMEZONE,
+  todayInTimeZone,
+} from "../lib/dates";
 import { getWeekMenu } from "../lib/rotation";
 import { getShoppingList } from "../lib/shopping";
 
@@ -38,7 +44,8 @@ export default async function ShoppingPage({
                 Shopping List
               </h1>
               <p className="text-base text-muted leading-relaxed">
-                {isNextWeek ? "Next week" : "This week"}, starting {weekStart}
+                {isNextWeek ? "Next week" : "This week"}, starting{" "}
+                {formatDayLabel(weekStart)}
               </p>
             </div>
           </HeroBackground>

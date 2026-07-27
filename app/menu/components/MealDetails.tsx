@@ -14,16 +14,14 @@ type Props = {
 export function MealDetails({ slot, meal }: Props) {
   return (
     <details className="group border border-border rounded bg-surface">
-      <summary className="flex items-baseline justify-between gap-3 px-4 py-3 cursor-pointer list-none [&::-webkit-details-marker]:hidden">
-        <span className="flex flex-col gap-0.5 min-w-0">
-          <span className="font-mono text-[10px] text-muted-light uppercase tracking-wide">
-            {mealLabels[slot]}
-          </span>
-          <span className="text-sm font-medium text-foreground truncate">
-            {meal.name}
-          </span>
+      <summary className="flex flex-col gap-1 px-4 py-3 cursor-pointer list-none [&::-webkit-details-marker]:hidden">
+        <span className="font-mono text-[10px] text-muted-light uppercase tracking-wide">
+          {mealLabels[slot]}
         </span>
-        <span className="font-mono text-xs text-muted whitespace-nowrap">
+        <span className="text-sm font-medium text-foreground">
+          {meal.name}
+        </span>
+        <span className="font-mono text-xs text-muted">
           {meal.macros.kcal} kcal · {meal.macros.protein}g P
         </span>
       </summary>
