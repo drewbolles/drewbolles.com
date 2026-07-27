@@ -35,10 +35,20 @@ interesting, keeps every day inside cut macros, and produces a weekly shopping l
 - **Breakfast** — fully fixed, no rotation: eggs + one smoothie recipe (milk, frozen
   fruit, whey, honey, spinach). The smoothie carries micronutrients for recovery,
   hormone support, and MPS alongside its macros.
-- **Lunch** — salad + meat. ~10 variants rotating protein, greens, dressing, toppings.
+- **Lunch** — salad + meat. 8 variants rotating protein, greens, dressing, toppings.
   Cottage cheese may appear as a side.
-- **Dinner** — meat + starch. ~10 variants rotating protein, starch (potatoes, white
+- **Dinner** — meat + starch. 8 variants rotating protein, starch (potatoes, white
   rice), and a side (vegetable or cottage cheese).
+- Protein roster is exactly eggs, chicken, beef, salmon, and tuna — excluded at the
+  type level (the `Protein` union has no other members). No pork, no shellfish, no
+  turkey, no lamb: lamb isn't stocked, and the user buys chicken and beef in bulk
+  at Costco, so the pools only ever pick from those two land proteins plus the two
+  fish. Since chicken and beef are the only non-fish proteins, non-fish days
+  alternate between them by construction (the rotation forbids repeating the same
+  protein two days running); variety on those days comes from the different
+  variants within chicken and within beef, not from a wider protein list.
+- Friday lunch and dinner are always fish (salmon or tuna); fish appears only on
+  Friday — no other day of the week serves a fish variant.
 
 ### Macro bands (per meal, authored — not computed)
 
@@ -68,7 +78,7 @@ type Ingredient = {
 type MealVariant = {
   id: string;
   name: string;
-  protein: 'chicken' | 'beef' | 'pork' | 'turkey' | 'salmon' | 'shrimp' | ...;
+  protein: 'chicken' | 'beef' | 'salmon' | 'tuna' | 'eggs';
   ingredients: Ingredient[];
   steps: string[];
   macros: { kcal: number; protein: number; carbs: number; fat: number };
@@ -87,7 +97,8 @@ getWeekMenu(weekStart: Date, pools: Pools, overrides?: Overrides): WeekMenu
 
 - Seeded PRNG from ISO year + week number. Same week → same menu, everywhere.
 - Constraints: no protein two days in a row (lunch pool and dinner pool each);
-  lunch protein ≠ dinner protein on the same day.
+  lunch protein ≠ dinner protein on the same day; Friday lunch and dinner are
+  always a fish protein, and fish appears on no other day.
 - `overrides` is a map of day/meal → variant id. Unused in v1; it is the seam for a
   later "swap today's meal" feature.
 - Pure and unit-tested: determinism, constraint satisfaction, band totals.
