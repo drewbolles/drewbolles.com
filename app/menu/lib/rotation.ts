@@ -45,8 +45,11 @@ function pickMeals(
       queue = [...queue, ...seededShuffle(pool, rand)];
       idx = queue.findIndex(isValid);
     }
-    // Pools always contain 4+ distinct proteins, so a valid pick exists
-    // once the queue is replenished with the full pool.
+    if (idx === -1) {
+      throw new Error(
+        "Meal pool needs at least 3 distinct proteins to satisfy rotation constraints",
+      );
+    }
     picks.push(queue[idx]);
     queue.splice(idx, 1);
     if (queue.length === 0) {

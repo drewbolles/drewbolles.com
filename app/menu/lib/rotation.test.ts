@@ -95,6 +95,17 @@ describe("getWeekMenu", () => {
     });
     expect(overridden).toEqual(plain);
   });
+
+  it("throws a descriptive error when a pool lacks protein diversity", () => {
+    const lowDiversity: Pools = {
+      breakfast: pools.breakfast,
+      lunches: [variant("l-a", "beef"), variant("l-b", "beef")],
+      dinners: [variant("d-a", "beef"), variant("d-b", "beef")],
+    };
+    expect(() => getWeekMenu("2026-07-27", lowDiversity)).toThrow(
+      /distinct proteins/,
+    );
+  });
 });
 
 describe("getDayTotals", () => {
