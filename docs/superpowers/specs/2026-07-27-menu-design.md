@@ -29,9 +29,9 @@ interesting, keeps every day inside cut macros, and produces a weekly shopping l
 
 ## Meal structure
 
-- **Breakfast** — fixed: eggs + smoothie. One egg preparation; the smoothie flavor
-  rotates by day of week, deterministically (Greek yogurt or whey as the
-  protein/thickener).
+- **Breakfast** — fully fixed, no rotation: eggs + one smoothie recipe (milk, frozen
+  fruit, whey, honey, spinach). The smoothie carries micronutrients for recovery,
+  hormone support, and MPS alongside its macros.
 - **Lunch** — salad + meat. ~10 variants rotating protein, greens, dressing, toppings.
   Cottage cheese may appear as a side.
 - **Dinner** — meat + starch. ~10 variants rotating protein, starch (potatoes, white
