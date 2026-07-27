@@ -13,7 +13,10 @@ interesting, keeps every day inside cut macros, and produces a weekly shopping l
 ## Goals and targets
 
 - Goal: cut from 220 lb to 195–200 lb (~12–15% BF) at 6'0", lifting 3x/week, ~10k steps/day.
-- Daily target: **2,000–2,300 kcal, 180–200 g protein**. Fixed in data, not configurable.
+- Daily target: **2,000–2,300 kcal, 180–210 g protein**. Fixed in data, not configurable.
+  Verified against Mifflin-St Jeor (~2,900 kcal maintenance), NIH deficit guidance
+  (600–900 kcal/day → ~1.2–1.8 lb/week), and ISSN/Helms protein research (1.8–2.7 g/kg
+  favored while cutting).
 - All recipes and quantities sized for **one serving** (Drew only).
 
 ## Decisions
@@ -41,11 +44,11 @@ interesting, keeps every day inside cut macros, and produces a weekly shopping l
 
 | Meal | kcal | Protein |
 |---|---|---|
-| Breakfast | 550–650 | 55–60 g |
-| Lunch | 600–700 | 60–65 g |
+| Breakfast | 550–650 | 55–65 g |
+| Lunch | 600–700 | 60–70 g |
 | Dinner | 850–950 | 65–75 g |
 
-The bands sum to exactly the daily target (2,000–2,300 kcal, 180–200 g), so any
+The bands sum to exactly the daily target (2,000–2,300 kcal, 180–210 g), so any
 combination of in-band variants lands in range — rotation can never break the
 totals. A unit test asserts every variant sits inside its band; that test is the
 enforced invariant. Author macros against USDA FoodData Central values.
