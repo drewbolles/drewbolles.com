@@ -30,12 +30,12 @@ interesting, keeps every day inside cut macros, and produces a weekly shopping l
 ## Meal structure
 
 - **Breakfast** — fixed: eggs + smoothie. One egg preparation; the smoothie flavor
-  rotates by day of week, deterministically (cottage cheese allowed as
-  thickener/protein).
+  rotates by day of week, deterministically (Greek yogurt or whey as the
+  protein/thickener).
 - **Lunch** — salad + meat. ~10 variants rotating protein, greens, dressing, toppings.
-  Cottage cheese may appear as a protein component (e.g. a bowl variant).
+  Cottage cheese may appear as a side.
 - **Dinner** — meat + starch. ~10 variants rotating protein, starch (potatoes, white
-  rice), and vegetable side.
+  rice), and a side (vegetable or cottage cheese).
 
 ### Macro bands (per meal, authored — not computed)
 
