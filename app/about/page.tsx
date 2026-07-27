@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { Header } from "../components/Header";
 import { Footer } from "../components/Footer";
 import { HeroBackground } from "../components/HeroBackground";
@@ -105,7 +104,7 @@ export default function AboutPage() {
               </div>
               <div className="flex flex-col gap-5">
                 <p className="text-base text-foreground-muted leading-relaxed">
-                  Hi, I'm Drew. I began my voyage into web development when I was about 10, building sites with GeoCities before moving into coding layouts in tables. Fast forward a few years, and I'm still plodding about in HTML & CSS, reading A List Apart, and developing fan sites for my favorite shows.
+                  Hi, I&apos;m Drew. I began my voyage into web development when I was about 10, building sites with GeoCities before moving into coding layouts in tables. Fast forward a few years, and I&apos;m still plodding about in HTML & CSS, reading A List Apart, and developing fan sites for my favorite shows.
                 </p>
                 <p className="text-base text-foreground-muted leading-relaxed">
                   I pride myself on being a responsible web developer, striving to solve problems by putting people first.
@@ -176,7 +175,7 @@ export default function AboutPage() {
               </span>
             </div>
             <p className="text-base text-foreground-muted leading-relaxed">
-              Want to get in touch? I'm always open to discussing new projects, creative ideas, or opportunities.
+              Want to get in touch? I&apos;m always open to discussing new projects, creative ideas, or opportunities.
             </p>
             <div className="flex flex-wrap gap-3 md:gap-4">
               <a
