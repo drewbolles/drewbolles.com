@@ -9,7 +9,7 @@ import type {
   WeekOverrides,
 } from "./types";
 
-const FISH_PROTEINS = ["salmon", "tuna", "shrimp"] as const;
+const FISH_PROTEINS = ["salmon", "tuna"] as const;
 const FISH_DAY_INDEX = 4; // Friday; weeks start Monday
 
 function isFishProtein(protein: Protein): boolean {

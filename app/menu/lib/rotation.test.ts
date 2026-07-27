@@ -17,23 +17,19 @@ const pools: Pools = {
   breakfast: variant("breakfast", "eggs"),
   lunches: [
     variant("l-chicken-1", "chicken"),
-    variant("l-turkey", "turkey"),
-    variant("l-beef", "beef"),
-    variant("l-salmon", "salmon"),
-    variant("l-shrimp", "shrimp"),
-    variant("l-tuna", "tuna"),
     variant("l-chicken-2", "chicken"),
-    variant("l-chicken-3", "chicken"),
+    variant("l-beef-1", "beef"),
+    variant("l-beef-2", "beef"),
+    variant("l-salmon", "salmon"),
+    variant("l-tuna", "tuna"),
   ],
   dinners: [
     variant("d-beef-1", "beef"),
-    variant("d-chicken", "chicken"),
-    variant("d-lamb", "lamb"),
-    variant("d-salmon", "salmon"),
-    variant("d-turkey", "turkey"),
     variant("d-beef-2", "beef"),
-    variant("d-shrimp", "shrimp"),
-    variant("d-beef-3", "beef"),
+    variant("d-chicken-1", "chicken"),
+    variant("d-chicken-2", "chicken"),
+    variant("d-salmon", "salmon"),
+    variant("d-tuna", "tuna"),
   ],
 };
 
@@ -81,11 +77,11 @@ describe("getWeekMenu", () => {
 
   it("applies overrides by date", () => {
     const week = getWeekMenu("2026-07-27", pools, {
-      "2026-07-29": { lunch: "l-tuna", dinner: "d-lamb" },
+      "2026-07-29": { lunch: "l-beef-2", dinner: "d-chicken-2" },
     });
     const wednesday = week.days[2];
-    expect(wednesday.lunch.id).toBe("l-tuna");
-    expect(wednesday.dinner.id).toBe("d-lamb");
+    expect(wednesday.lunch.id).toBe("l-beef-2");
+    expect(wednesday.dinner.id).toBe("d-chicken-2");
   });
 
   it("ignores overrides with unknown ids", () => {
@@ -108,7 +104,7 @@ describe("getWeekMenu", () => {
   });
 
   it("fish appears on Friday and only on Friday", () => {
-    const fishProteins = ["salmon", "tuna", "shrimp"];
+    const fishProteins = ["salmon", "tuna"];
     let weekStart = "2026-01-05";
     for (let i = 0; i < 100; i++) {
       const week = getWeekMenu(weekStart, pools);

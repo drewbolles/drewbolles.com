@@ -1,14 +1,6 @@
 export type Aisle = "produce" | "meat" | "dairy" | "pantry" | "frozen";
 
-export type Protein =
-  | "chicken"
-  | "turkey"
-  | "beef"
-  | "lamb"
-  | "salmon"
-  | "tuna"
-  | "shrimp"
-  | "eggs";
+export type Protein = "chicken" | "beef" | "salmon" | "tuna" | "eggs";
 
 export type Ingredient = {
   name: string;
