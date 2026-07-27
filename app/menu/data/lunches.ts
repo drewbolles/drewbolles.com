@@ -162,4 +162,23 @@ export const lunches = [
     ],
     macros: { kcal: 604, protein: 64, carbs: 22, fat: 24 },
   },
+  {
+    id: "l-beef-roast",
+    name: "Roast beef + provolone salad",
+    protein: "beef",
+    ingredients: [
+      { name: "top round roast beef", quantity: 200, unit: "g cooked", aisle: "meat" },
+      { name: "mixed greens", quantity: 2, unit: "cup", aisle: "produce" },
+      { name: "cherry tomatoes", quantity: 0.5, unit: "cup", aisle: "produce" },
+      { name: "provolone", quantity: 1, unit: "oz", aisle: "dairy" },
+      { name: "olive oil", quantity: 1.5, unit: "tbsp", aisle: "pantry" },
+      { name: "red wine vinegar", quantity: 1, unit: "tbsp", aisle: "pantry" },
+    ],
+    steps: [
+      "Sear or roast the beef to medium-rare and slice thin (or use good deli roast beef).",
+      "Toss greens and tomatoes with the oil and vinegar.",
+      "Top with beef and provolone.",
+    ],
+    macros: { kcal: 634, protein: 69, carbs: 6, fat: 37 },
+  },
 ] satisfies MealVariant[];

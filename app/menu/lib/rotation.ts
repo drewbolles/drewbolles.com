@@ -9,6 +9,13 @@ import type {
   WeekOverrides,
 } from "./types";
 
+const FISH_PROTEINS = ["salmon", "tuna", "shrimp"] as const;
+const FISH_DAY_INDEX = 4; // Friday; weeks start Monday
+
+function isFishProtein(protein: Protein): boolean {
+  return (FISH_PROTEINS as readonly string[]).includes(protein);
+}
+
 function mulberry32(seed: number): () => number {
   let state = seed;
   return function () {
@@ -39,7 +46,9 @@ function pickMeals(
   for (let day = 0; day < 7; day++) {
     const prevProtein = picks[day - 1]?.protein ?? null;
     const isValid = (v: MealVariant) =>
-      v.protein !== prevProtein && v.protein !== blockedByDay[day];
+      v.protein !== prevProtein &&
+      v.protein !== blockedByDay[day] &&
+      (day === FISH_DAY_INDEX) === isFishProtein(v.protein);
     let idx = queue.findIndex(isValid);
     if (idx === -1) {
       queue = [...queue, ...seededShuffle(pool, rand)];
@@ -47,7 +56,7 @@ function pickMeals(
     }
     if (idx === -1) {
       throw new Error(
-        "Meal pool needs at least 3 distinct proteins to satisfy rotation constraints",
+        `Meal pool cannot satisfy rotation constraints for day ${day}`,
       );
     }
     picks.push(queue[idx]);

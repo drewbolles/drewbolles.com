@@ -4,7 +4,7 @@ export type Protein =
   | "chicken"
   | "turkey"
   | "beef"
-  | "pork"
+  | "lamb"
   | "salmon"
   | "tuna"
   | "shrimp"

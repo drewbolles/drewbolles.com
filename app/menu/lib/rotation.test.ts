@@ -28,7 +28,7 @@ const pools: Pools = {
   dinners: [
     variant("d-beef-1", "beef"),
     variant("d-chicken", "chicken"),
-    variant("d-pork", "pork"),
+    variant("d-lamb", "lamb"),
     variant("d-salmon", "salmon"),
     variant("d-turkey", "turkey"),
     variant("d-beef-2", "beef"),
@@ -81,11 +81,11 @@ describe("getWeekMenu", () => {
 
   it("applies overrides by date", () => {
     const week = getWeekMenu("2026-07-27", pools, {
-      "2026-07-29": { lunch: "l-tuna", dinner: "d-pork" },
+      "2026-07-29": { lunch: "l-tuna", dinner: "d-lamb" },
     });
     const wednesday = week.days[2];
     expect(wednesday.lunch.id).toBe("l-tuna");
-    expect(wednesday.dinner.id).toBe("d-pork");
+    expect(wednesday.dinner.id).toBe("d-lamb");
   });
 
   it("ignores overrides with unknown ids", () => {
@@ -103,8 +103,27 @@ describe("getWeekMenu", () => {
       dinners: [variant("d-a", "beef"), variant("d-b", "beef")],
     };
     expect(() => getWeekMenu("2026-07-27", lowDiversity)).toThrow(
-      /distinct proteins/,
+      /cannot satisfy rotation constraints/,
     );
+  });
+
+  it("fish appears on Friday and only on Friday", () => {
+    const fishProteins = ["salmon", "tuna", "shrimp"];
+    let weekStart = "2026-01-05";
+    for (let i = 0; i < 100; i++) {
+      const week = getWeekMenu(weekStart, pools);
+      for (let d = 0; d < 7; d++) {
+        const day = week.days[d];
+        if (d === 4) {
+          expect(fishProteins).toContain(day.lunch.protein);
+          expect(fishProteins).toContain(day.dinner.protein);
+        } else {
+          expect(fishProteins).not.toContain(day.lunch.protein);
+          expect(fishProteins).not.toContain(day.dinner.protein);
+        }
+      }
+      weekStart = addDaysForTest(weekStart, 7);
+    }
   });
 });
 
