@@ -5,10 +5,10 @@ export const breakfast = {
   name: "Eggs + power smoothie",
   protein: "eggs",
   ingredients: [
-    { name: "large eggs", quantity: 3, unit: "eggs", aisle: "dairy" },
-    { name: "whey protein", quantity: 1.5, unit: "scoops", aisle: "pantry" },
+    { name: "large eggs", quantity: 3, unit: "", aisle: "dairy" },
+    { name: "whey protein", quantity: 1.5, unit: "scoop", aisle: "pantry" },
     { name: "skim milk", quantity: 1, unit: "cup", aisle: "dairy" },
-    { name: "banana", quantity: 0.5, unit: "banana", aisle: "produce" },
+    { name: "banana", quantity: 0.5, unit: "", aisle: "produce" },
     { name: "frozen mixed berries", quantity: 0.5, unit: "cup", aisle: "frozen" },
     { name: "honey", quantity: 1, unit: "tbsp", aisle: "pantry" },
     { name: "baby spinach", quantity: 1, unit: "cup", aisle: "produce" },
