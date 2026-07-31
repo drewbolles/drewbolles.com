@@ -42,6 +42,17 @@ describe("macro bands", () => {
     expect(dinnerProteins.size).toBeGreaterThanOrEqual(4);
   });
 
+  it("no meal exceeds 1 cup of cooked white rice", () => {
+    const variants = [pools.breakfast, ...pools.lunches, ...pools.dinners];
+    for (const variant of variants) {
+      for (const ingredient of variant.ingredients) {
+        if (ingredient.name === "cooked white rice") {
+          expect(ingredient.quantity, `${variant.id} rice`).toBeLessThanOrEqual(1);
+        }
+      }
+    }
+  });
+
   it("variant ids are unique", () => {
     const ids = [
       pools.breakfast.id,
