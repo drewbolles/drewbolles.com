@@ -89,7 +89,7 @@ export const lunches = [
     ],
     seasonings: ["kosher salt", "black pepper", "dried oregano", "Dijon mustard (1 tsp)"],
     steps: [
-      "Bring a small pot of water to a boil; lower the egg in gently and cook exactly 9 minutes for a jammy, fully-set yolk.",
+      "Bring a small pot of water to a boil; lower the egg in gently and cook exactly 9 minutes for a just-set yolk.",
       "Transfer immediately to an ice bath for at least 5 minutes to stop the cooking, then peel and quarter.",
       "Drain the tuna and season with a pinch of kosher salt and black pepper.",
       "Whisk the red wine vinegar, Dijon, and dried oregano together, then stream in the olive oil until emulsified.",
@@ -137,7 +137,7 @@ export const lunches = [
     steps: [
       "Season the chicken breast generously with kosher salt and black pepper.",
       "Heat a skillet over medium-high until hot; cook the chicken 5–6 minutes per side until it reaches 165°F and golden. Rest 5 minutes, then slice.",
-      "Toss the chickpeas with the smoked paprika and garlic powder.",
+      "Toast the chickpeas in a dry skillet 2–3 minutes over medium heat, stirring occasionally, then toss with the smoked paprika and garlic powder.",
       "Whisk the red wine vinegar, then stream in the olive oil; toss with the mixed greens and cherry tomatoes.",
       "Plate the salad with the chicken, seasoned chickpeas, and cottage cheese finished with a crack of black pepper.",
     ],
@@ -158,7 +158,7 @@ export const lunches = [
     seasonings: ["kosher salt", "black pepper", "prepared horseradish (1 tsp)"],
     steps: [
       "Season the roast beef generously with kosher salt and black pepper (skip this step if using deli roast beef).",
-      "Sear the beef in a hot, dry skillet 3–4 minutes per side until it reaches 130–135°F for medium-rare, then rest 5–10 minutes and slice thin against the grain.",
+      "Sear the beef in a hot, dry skillet 3–4 minutes per side until it reaches 130–135°F for medium-rare, then rest 5–10 minutes and slice thin against the grain. (If using deli roast beef, skip the sear — just pile it on.)",
       "Whisk the red wine vinegar with the horseradish, then stream in the olive oil until the vinaigrette is emulsified.",
       "Toss the mixed greens and cherry tomatoes with the vinaigrette; top with the roast beef and provolone.",
     ],
@@ -188,7 +188,7 @@ export const lunches = [
     ],
     steps: [
       "Mix the ground beef with kosher salt, black pepper, garlic powder, onion powder, and smoked paprika.",
-      "Heat a skillet over medium-high until hot; brown and crumble the beef 6–8 minutes, breaking it into small pieces, until no pink remains and it's deeply browned.",
+      "Heat a skillet over medium-high until hot; brown and crumble the beef 6–8 minutes, breaking it into small pieces, until deeply browned and no pink remains, 160°F on an instant-read thermometer.",
       "Whisk the red wine vinegar with the Dijon and a splash of pickle brine, then stream in the olive oil until emulsified.",
       "Toss the mixed greens, cherry tomatoes, and dill pickles with the dressing.",
       "Top with the beef and cheddar.",

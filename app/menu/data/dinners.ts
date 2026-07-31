@@ -104,7 +104,7 @@ export const dinners = [
     steps: [
       "Preheat the oven to 425°F. Toss the potatoes with the 0.5 tbsp olive oil, kosher salt, and black pepper; roast 25–30 minutes, flipping once, until golden and fork-tender.",
       "While the potatoes roast, season the ground beef with kosher salt, black pepper, smoked paprika, onion powder, and a dash of Worcestershire.",
-      "Heat a skillet over medium-high until hot; brown and crumble the beef 6–8 minutes until no pink remains and it's deeply browned.",
+      "Heat a skillet over medium-high until hot; brown and crumble the beef 6–8 minutes until deeply browned and no pink remains, 160°F on an instant-read thermometer.",
       "Whisk the remaining olive oil with the red wine vinegar; dress the side salad.",
       "Plate the beef and potatoes with the dressed salad and cottage cheese.",
     ],
@@ -151,7 +151,7 @@ export const dinners = [
     steps: [
       "Preheat the oven to 425°F. Toss the potatoes with the olive oil, kosher salt, and black pepper; spread on a sheet pan.",
       "Pat the chicken thighs dry and season generously on both sides with kosher salt, black pepper, smoked paprika, garlic powder, and dried oregano.",
-      "Arrange the thighs skin-side up on the sheet pan with the potatoes; roast 35–40 minutes until the skin is deeply crisp and the thighs reach 175°F internal.",
+      "Arrange the thighs skin-side up on the sheet pan with the potatoes; roast 35–40 minutes until the skin is deeply crisp and the thighs reach 175°F internal. Rest 5 minutes.",
       "Steam the broccoli until bright green and just tender, about 4–5 minutes.",
       "Plate the thighs and potatoes with the broccoli.",
     ],
