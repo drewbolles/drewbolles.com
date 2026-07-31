@@ -40,6 +40,14 @@ export function MealDetails({ slot, meal }: Props) {
             </li>
           ))}
         </ul>
+        {meal.seasonings && meal.seasonings.length > 0 && (
+          <p className="text-xs text-muted leading-relaxed">
+            <span className="font-mono uppercase tracking-wide text-[10px] text-muted-light">
+              Seasonings:{" "}
+            </span>
+            {meal.seasonings.join(", ")}
+          </p>
+        )}
         <ol className="flex flex-col gap-2 list-decimal list-inside">
           {meal.steps.map((step) => (
             <li key={step} className="text-sm text-foreground-muted leading-relaxed">

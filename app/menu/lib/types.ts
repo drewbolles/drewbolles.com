@@ -21,6 +21,7 @@ export type MealVariant = {
   name: string;
   protein: Protein;
   ingredients: Ingredient[];
+  seasonings?: string[];
   steps: string[];
   macros: Macros;
 };
