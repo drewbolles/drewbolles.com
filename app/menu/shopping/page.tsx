@@ -95,6 +95,11 @@ export default async function ShoppingPage({
                 </div>
               ))}
             </div>
+
+            <p className="text-xs text-muted leading-relaxed">
+              Seasonings (dried herbs, spices, Dijon, hot sauce) are pantry
+              staples and aren&apos;t listed — each recipe names what it uses.
+            </p>
           </div>
         </section>
       </main>
