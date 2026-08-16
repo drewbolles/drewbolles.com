@@ -43,3 +43,6 @@ lighthouse-tasks.md
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# agent worktrees
+.worktrees/
