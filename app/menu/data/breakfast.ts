@@ -15,7 +15,7 @@ export const breakfast = {
   ],
   seasonings: ["kosher salt", "black pepper", "hot sauce (optional)"],
   steps: [
-    "Blend the milk, whey protein, banana, berries, spinach, and honey until smooth; pour into a glass and set aside.",
+    "Blend the milk, whey protein, banana, berries, spinach, and honey until smooth and a bit thin — easier to drink in the morning. If it looks thick or spoonable, splash in a little more milk (or cold water) and blend again until it pours easily; pour into a glass and set aside.",
     "Crack the eggs into a bowl, season with kosher salt and black pepper, and whisk until fully combined.",
     "Warm a nonstick pan over low-medium heat with a light coat of cooking spray.",
     "Pour in the eggs and stir gently and continuously with a spatula, scraping the curds as they form.",
