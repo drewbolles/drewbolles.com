@@ -53,6 +53,47 @@ describe("macro bands", () => {
     }
   });
 
+  it("chickpeas stay at garnish portion (≤ ¼ cup)", () => {
+    const variants = [pools.breakfast, ...pools.lunches, ...pools.dinners];
+    for (const variant of variants) {
+      for (const ingredient of variant.ingredients) {
+        if (ingredient.name === "chickpeas") {
+          expect(ingredient.unit, `${variant.id} chickpeas unit`).toBe("cup");
+          expect(
+            ingredient.quantity,
+            `${variant.id} chickpeas`,
+          ).toBeLessThanOrEqual(0.25);
+        }
+      }
+    }
+  });
+
+  it("cooked vegetable sides use the frozen aisle (not produce)", () => {
+    const frozenSides = [
+      "frozen broccoli",
+      "frozen green beans",
+      "frozen asparagus",
+      "frozen stir-fry vegetables",
+    ];
+    for (const dinner of pools.dinners) {
+      for (const ingredient of dinner.ingredients) {
+        if (frozenSides.includes(ingredient.name)) {
+          expect(ingredient.aisle, `${dinner.id} ${ingredient.name}`).toBe(
+            "frozen",
+          );
+        }
+      }
+    }
+  });
+
+  it("dinner vegetable sides never steam or boil as the cook method", () => {
+    for (const dinner of pools.dinners) {
+      for (const step of dinner.steps) {
+        expect(step, `${dinner.id} step`).not.toMatch(/\b(Steam|Boil) the\b/);
+      }
+    }
+  });
+
   it("variant ids are unique", () => {
     const ids = [
       pools.breakfast.id,
