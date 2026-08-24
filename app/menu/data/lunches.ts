@@ -80,6 +80,7 @@ export const lunches = [
       "Pat the salmon dry and season with the salt, pepper, lemon zest, and chili flakes if using.",
       "Heat a nonstick skillet over medium-high until hot; lay the salmon skin-side (or presentation-side) down and press gently for 10 seconds so it lies flat.",
       "Sear 4–5 minutes without moving until deep golden and crisp, then flip and cook 2–3 minutes more until it reaches 125–130°F and flakes easily.",
+      "Thaw the frozen edamame under warm running water 1–2 minutes (or microwave 45–60 seconds); drain well — don't boil.",
       "Toss the mixed greens with the edamame.",
       "Whisk the olive oil with a squeeze of lemon juice, dress the salad, and top with the salmon.",
     ],
