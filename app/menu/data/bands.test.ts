@@ -53,6 +53,21 @@ describe("macro bands", () => {
     }
   });
 
+  it("chickpeas stay at garnish portion (≤ ¼ cup)", () => {
+    const variants = [pools.breakfast, ...pools.lunches, ...pools.dinners];
+    for (const variant of variants) {
+      for (const ingredient of variant.ingredients) {
+        if (ingredient.name === "chickpeas") {
+          expect(ingredient.unit, `${variant.id} chickpeas unit`).toBe("cup");
+          expect(
+            ingredient.quantity,
+            `${variant.id} chickpeas`,
+          ).toBeLessThanOrEqual(0.25);
+        }
+      }
+    }
+  });
+
   it("variant ids are unique", () => {
     const ids = [
       pools.breakfast.id,
