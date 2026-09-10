@@ -87,7 +87,8 @@ export default async function MenuPage({
                         )}
                       </h2>
                       <span className="font-mono text-xs text-muted whitespace-nowrap">
-                        {totals.kcal} kcal · {totals.protein}g protein
+                        {totals.kcal} kcal · {totals.protein}g protein ·{" "}
+                        {totals.carbs}g carbs
                       </span>
                     </div>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
