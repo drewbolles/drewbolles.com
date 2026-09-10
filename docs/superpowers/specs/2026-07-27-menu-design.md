@@ -12,12 +12,17 @@ interesting, keeps every day inside cut macros, and produces a weekly shopping l
 
 ## Goals and targets
 
-- Goal: cut from 220 lb to 195–200 lb (~12–15% BF) at 6'0", lifting 3x/week, ~10k steps/day.
-- Daily target: **2,000–2,300 kcal, 180–210 g protein**. Fixed in data, not configurable.
-  Verified against Mifflin-St Jeor (~2,900 kcal maintenance), NIH deficit guidance
-  (600–900 kcal/day → ~1.2–1.8 lb/week), and ISSN/Helms protein research (1.8–2.7 g/kg
-  favored while cutting).
-- All recipes and quantities sized for **one serving** (Drew only).
+- Goal: cut from 220 lb to 195–200 lb (~12–15% BF) at 6'0", lifting 3x/week, ~10k steps/day,
+  recomposing fat into muscle on a low-carb diet.
+- Daily target: **2,000–2,300 kcal, 180–210 g protein, 70–100 g carbs**. Fixed in data, not
+  configurable. Fat fills the remaining calories. Verified against Mifflin-St Jeor
+  (~2,900 kcal maintenance), NIH deficit guidance (600–900 kcal/day → ~1.2–1.8 lb/week),
+  and ISSN/Helms protein research (1.8–2.7 g/kg favored while cutting).
+- Carb sources are meat, fruit, vegetables, and dairy. No rice, wheat, or starch staples
+  (potatoes, pasta, bread, oats, chickpeas). Spaghetti squash is allowed; zucchini noodles
+  and cauliflower rice are not — those are imitation meals, not the point.
+- All recipes and quantities sized for **one serving** (Drew only). Household of two
+  doubles when cooking; the page stays per-person macros.
 
 ## Decisions
 
@@ -32,13 +37,14 @@ interesting, keeps every day inside cut macros, and produces a weekly shopping l
 
 ## Meal structure
 
-- **Breakfast** — fully fixed, no rotation: eggs + one smoothie recipe (milk, frozen
-  fruit, whey, honey, spinach). The smoothie carries micronutrients for recovery,
-  hormone support, and MPS alongside its macros.
-- **Lunch** — salad + meat. 8 variants rotating protein, greens, dressing, toppings.
-  Cottage cheese may appear as a side.
-- **Dinner** — meat + starch. 8 variants rotating protein, starch (potatoes, white
-  rice), and a side (vegetable or cottage cheese).
+- **Breakfast** — fully fixed, no rotation: butter-scrambled eggs + one smoothie
+  recipe (whole milk, frozen berries, whey, spinach). No banana, no honey. The smoothie
+  carries micronutrients for recovery, hormone support, and MPS alongside its macros.
+- **Lunch** — salad + meat. 8 variants rotating protein, greens, dressing, toppings,
+  and fruit. No croutons, no chickpeas.
+- **Dinner** — meat + vegetables, fruit, and dairy. 8 variants rotating cuisine and
+  technique (bolognese over spaghetti squash, chimichurri, bourguignon, Tuscan cream
+  sauce, Greek roast, tikka, brown-butter salmon, sesame ahi). No rice, no potatoes.
 - Protein roster is exactly eggs, chicken, beef, salmon, and tuna — excluded at the
   type level (the `Protein` union has no other members). No pork, no shellfish, no
   turkey, no lamb: lamb isn't stocked, and the user buys chicken and beef in bulk
@@ -52,16 +58,16 @@ interesting, keeps every day inside cut macros, and produces a weekly shopping l
 
 ### Macro bands (per meal, authored — not computed)
 
-| Meal | kcal | Protein |
-|---|---|---|
-| Breakfast | 550–650 | 55–65 g |
-| Lunch | 600–700 | 60–70 g |
-| Dinner | 850–950 | 65–75 g |
+| Meal | kcal | Protein | Carbs |
+|---|---|---|---|
+| Breakfast | 550–650 | 55–65 g | 22–30 g |
+| Lunch | 600–700 | 60–70 g | 12–20 g |
+| Dinner | 850–950 | 65–75 g | 36–50 g |
 
-The bands sum to exactly the daily target (2,000–2,300 kcal, 180–210 g), so any
-combination of in-band variants lands in range — rotation can never break the
-totals. A unit test asserts every variant sits inside its band; that test is the
-enforced invariant. Author macros against USDA FoodData Central values.
+The bands sum to exactly the daily target (2,000–2,300 kcal, 180–210 g protein,
+70–100 g carbs), so any combination of in-band variants lands in range — rotation
+can never break the totals. A unit test asserts every variant sits inside its band;
+that test is the enforced invariant. Author macros against USDA FoodData Central values.
 
 ## Data model
 
@@ -109,7 +115,7 @@ across the week, grouped by aisle.
 ## Pages
 
 - **`/menu`** — the week at a glance. Seven days, today highlighted, each meal
-  tappable to expand recipe steps + macros. Daily kcal/protein totals per day.
+  tappable to expand recipe steps + macros. Daily kcal/protein/carb totals per day.
   Link to the shopping list.
 - **`/menu/shopping`** — aggregated list for the visible week, grouped by aisle,
   print-friendly. `?week=next` on both pages shows the following week (Sunday

@@ -22,7 +22,7 @@ export function MealDetails({ slot, meal }: Props) {
           {meal.name}
         </span>
         <span className="font-mono text-xs text-muted">
-          {meal.macros.kcal} kcal · {meal.macros.protein}g P
+          {meal.macros.kcal} kcal · {meal.macros.protein}g P · {meal.macros.carbs}g C
         </span>
       </summary>
       <div className="flex flex-col gap-4 px-4 pb-4 pt-1 border-t border-border">

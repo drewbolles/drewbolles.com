@@ -52,10 +52,11 @@ export type WeekOverrides = Record<
 export type MacroBand = {
   kcal: [number, number];
   protein: [number, number];
+  carbs: [number, number];
 };
 
 export const MACRO_BANDS = {
-  breakfast: { kcal: [550, 650], protein: [55, 65] },
-  lunch: { kcal: [600, 700], protein: [60, 70] },
-  dinner: { kcal: [850, 950], protein: [65, 75] },
+  breakfast: { kcal: [550, 650], protein: [55, 65], carbs: [22, 30] },
+  lunch: { kcal: [600, 700], protein: [60, 70], carbs: [12, 20] },
+  dinner: { kcal: [850, 950], protein: [65, 75], carbs: [36, 50] },
 } satisfies Record<string, MacroBand>;
